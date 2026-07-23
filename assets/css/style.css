@@ -218,3 +218,20 @@ footer {
     padding: 0 8%;
 
 }
+
+.section-header {
+
+    max-width: 700px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.section-header p {
+
+    font-size: 1.15rem;
+
+    color: #555;
+
+}
