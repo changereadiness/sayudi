@@ -287,3 +287,56 @@ footer {
     color: #555;
 
 }
+
+.contact-layout {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+}
+
+
+.contact-box {
+
+    background: var(--white);
+
+    padding: 40px;
+
+    border: 1px solid #e8e8e8;
+
+}
+
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+input,
+textarea {
+
+    padding: 15px;
+
+    border: 1px solid #ddd;
+
+    font-family: var(--body-font);
+
+}
+
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+}
