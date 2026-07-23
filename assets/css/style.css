@@ -196,3 +196,11 @@ footer {
     text-align: center;
 
 }
+
+.container {
+
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 8%;
+
+}
