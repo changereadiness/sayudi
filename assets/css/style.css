@@ -20,7 +20,7 @@
 
     /* Layout */
 
-    --container: 1200px;
+    --container: 1280px;
 
 }
 
@@ -226,8 +226,10 @@ footer {
 .container {
 
     max-width: var(--container);
+
     margin: 0 auto;
-    padding: 0 8%;
+
+    padding: 0 40px;
 
 }
 
@@ -338,5 +340,100 @@ button {
     border: none;
 
     cursor: pointer;
+
+}
+/* Mobile Responsive Design */
+
+
+@media (max-width: 768px) {
+
+
+.navbar {
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    align-items: flex-start;
+
+}
+
+
+
+.nav-links {
+
+    flex-direction: column;
+
+    gap: 15px;
+
+}
+
+
+
+.hero {
+
+    padding: 80px 8% 60px;
+
+}
+
+
+
+.hero h1 {
+
+    font-size: 2.8rem;
+
+}
+
+
+
+.cards {
+
+    flex-direction: column;
+
+}
+
+
+
+.card {
+
+    width: 100%;
+
+}
+
+
+
+.founder {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+
+
+.founder-image img {
+
+    width: 220px;
+
+    height: 220px;
+
+}
+
+
+
+.contact-layout {
+
+    grid-template-columns: 1fr;
+
+}
+
+
+
+}
+
+html {
+
+    scroll-behavior: smooth;
 
 }
