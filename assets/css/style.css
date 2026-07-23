@@ -76,14 +76,16 @@ h3 {
 
 }
 
-
 .navbar {
+
+    max-width: var(--container);
+    margin: auto;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 30px 8%;
+    padding: 35px 8%;
 
 }
 
