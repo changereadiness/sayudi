@@ -247,3 +247,30 @@ footer {
     color: #555;
 
 }
+
+.founder {
+
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+}
+
+
+.founder-image img {
+
+    width: 280px;
+    height: 280px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+.founder-content {
+
+    max-width: 600px;
+
+}
