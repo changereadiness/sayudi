@@ -196,12 +196,24 @@ section {
 
 .card {
 
-    background: white;
-    padding: 30px;
+    background: var(--white);
+
+    padding: 40px;
+
     flex: 1;
+
+    border: 1px solid #e8e8e8;
+
+    transition: transform .3s ease;
 
 }
 
+
+.card:hover {
+
+    transform: translateY(-5px);
+
+}
 
 
 footer {
