@@ -274,3 +274,16 @@ footer {
     max-width: 600px;
 
 }
+
+.card h3 {
+
+    margin-bottom: 15px;
+
+}
+
+
+.card p {
+
+    color: #555;
+
+}
