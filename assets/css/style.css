@@ -437,3 +437,54 @@ html {
     scroll-behavior: smooth;
 
 }
+.hero-layout {
+
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+}
+
+
+
+.hero-visual {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+
+.transformation-card {
+
+    background: var(--white);
+
+    padding: 40px;
+
+    border: 1px solid #e8e8e8;
+
+    width: 300px;
+
+}
+
+
+
+.transformation-card div {
+
+    padding: 18px;
+
+    margin-bottom: 12px;
+
+    background: #f2f4f5;
+
+    text-align: center;
+
+    font-weight: 600;
+
+}
