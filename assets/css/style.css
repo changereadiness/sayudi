@@ -1,14 +1,26 @@
 
 /* Sayudi Design System */
 
-
 :root {
+
+    /* Brand Colors */
 
     --navy: #0B1F33;
     --charcoal: #2C2C2C;
     --background: #F8F8F6;
-    --accent: #476B8A;
     --white: #FFFFFF;
+    --accent: #476B8A;
+
+
+    /* Typography */
+
+    --heading-font: "Manrope", sans-serif;
+    --body-font: "Inter", sans-serif;
+
+
+    /* Layout */
+
+    --container: 1200px;
 
 }
 
