@@ -121,8 +121,9 @@ h3 {
 
 .hero {
 
-    padding: 120px 8%;
-    max-width: 900px;
+    max-width: var(--container);
+    margin: auto;
+    padding: 140px 8% 100px;
 
 }
 
