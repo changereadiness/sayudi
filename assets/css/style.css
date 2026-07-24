@@ -842,3 +842,124 @@ footer {
     }
 
 }
+/* Services Overview */
+
+.service-grid {
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    margin-top:40px;
+
+}
+
+
+.service-card {
+
+    background:var(--white);
+
+    padding:35px;
+
+    border:1px solid #e8e8e8;
+
+    min-height:280px;
+
+    transition:transform .25s ease, border-color .25s ease;
+
+}
+
+
+.service-card span {
+
+    display:block;
+
+    font-family:var(--heading-font);
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+    color:rgba(11,31,51,.18);
+
+    margin-bottom:20px;
+
+}
+
+
+.service-card h3 {
+
+    margin-bottom:15px;
+
+}
+
+
+.service-card p {
+
+    color:#555;
+
+}
+
+
+.service-card:hover {
+
+    transform:translateY(-4px);
+
+    border-color:rgba(71,107,138,.35);
+
+}
+
+
+
+/* Approach Model */
+
+.approach-model {
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:40px;
+
+}
+
+
+.approach-step {
+
+    background:var(--white);
+
+    padding:35px;
+
+    border:1px solid #e8e8e8;
+
+    text-align:center;
+
+}
+
+
+.approach-step h3 {
+
+    margin-bottom:15px;
+
+}
+
+
+.approach-step p {
+
+    color:#555;
+
+}
+
+
+
+@media(max-width:768px){
+
+    .service-grid,
+    .approach-model {
+
+        grid-template-columns:1fr;
+
+    }
+
+}
