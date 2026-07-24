@@ -1,5 +1,5 @@
-
 /* Sayudi Design System */
+
 
 :root {
 
@@ -26,11 +26,15 @@
 
 
 
+
 * {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
+
 
 
 
@@ -43,6 +47,16 @@ body {
 
 }
 
+
+
+p {
+
+    max-width: 750px;
+
+}
+
+
+
 h1,
 h2,
 h3 {
@@ -54,12 +68,14 @@ h3 {
 }
 
 
+
 h1 {
 
     font-size: clamp(3rem, 6vw, 5rem);
     line-height: 1.05;
 
 }
+
 
 
 h2 {
@@ -70,11 +86,18 @@ h2 {
 }
 
 
+
 h3 {
 
     font-size: 1.4rem;
 
 }
+
+
+
+
+/* Navigation */
+
 
 .navbar {
 
@@ -93,9 +116,9 @@ h3 {
 
 .logo {
 
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 3px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 4px;
     color: var(--navy);
 
 }
@@ -116,9 +139,22 @@ h3 {
 
     text-decoration: none;
     color: var(--charcoal);
+    transition: color .3s ease;
 
 }
 
+
+
+.nav-links a:hover {
+
+    color: var(--navy);
+
+}
+
+
+
+
+/* Hero */
 
 
 .hero {
@@ -133,7 +169,7 @@ h3 {
 
 .hero h1 {
 
-    font-size: 4rem;
+    font-size: clamp(2.8rem, 5vw, 4rem);
     line-height: 1.1;
     color: var(--navy);
 
@@ -148,6 +184,12 @@ h3 {
 
 }
 
+
+
+
+/* Buttons */
+
+
 .button {
 
     display: inline-block;
@@ -159,13 +201,16 @@ h3 {
 
     font-weight: 600;
 
+    letter-spacing: 0.02em;
+
     text-decoration: none;
 
     border-radius: 2px;
 
-    transition: all 0.3s ease;
+    transition: all .3s ease;
 
 }
+
 
 
 .button:hover {
@@ -176,12 +221,48 @@ h3 {
 
 
 
+
+/* Sections */
+
+
 section {
 
     padding: 100px 0;
 
 }
 
+
+
+.container {
+
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 40px;
+
+}
+
+
+
+.section-header {
+
+    max-width: 700px;
+    margin-bottom: 20px;
+
+}
+
+
+
+.section-header p {
+
+    font-size: 1.15rem;
+    color: #555;
+
+}
+
+
+
+
+/* Cards */
 
 
 .cards {
@@ -204,51 +285,41 @@ section {
 
     border: 1px solid #e8e8e8;
 
-    transition: transform .3s ease;
+    border-radius: 4px;
+
+    transition: all .3s ease;
 
 }
+
 
 
 .card:hover {
 
-    transform: translateY(-5px);
+    transform: translateY(-2px);
 
 }
 
 
-footer {
 
-    padding: 40px 8%;
-    text-align: center;
+.card h3 {
 
-}
-
-.container {
-
-    max-width: var(--container);
-
-    margin: 0 auto;
-
-    padding: 0 40px;
-
-}
-
-.section-header {
-
-    max-width: 700px;
-
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
 }
 
 
-.section-header p {
 
-    font-size: 1.15rem;
+.card p {
 
     color: #555;
 
 }
+
+
+
+
+/* Founder */
+
 
 .founder {
 
@@ -259,20 +330,33 @@ footer {
 }
 
 
+
 .founder-image {
+
     width: 280px;
     height: 360px;
+
     border-radius: 50%;
+
     overflow: hidden;
+
     margin: 0 auto;
+
 }
 
+
+
 .founder-image img {
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     object-position: center top;
+
 }
+
 
 
 .founder-content {
@@ -281,18 +365,11 @@ footer {
 
 }
 
-.card h3 {
-
-    margin-bottom: 15px;
-
-}
 
 
-.card p {
 
-    color: #555;
+/* Contact */
 
-}
 
 .contact-layout {
 
@@ -303,6 +380,7 @@ footer {
     gap: 60px;
 
 }
+
 
 
 .contact-box {
@@ -316,6 +394,7 @@ footer {
 }
 
 
+
 form {
 
     display: flex;
@@ -325,6 +404,7 @@ form {
     gap: 15px;
 
 }
+
 
 
 input,
@@ -339,6 +419,7 @@ textarea {
 }
 
 
+
 button {
 
     border: none;
@@ -346,112 +427,13 @@ button {
     cursor: pointer;
 
 }
-/* Mobile Responsive Design */
-
-
-@media (max-width: 768px) {
-.hero-layout {
-
-    grid-template-columns: 1fr;
-
-}
-
-
-.hero-visual {
-
-    margin-top: 40px;
-
-}
-
-.navbar {
-
-    flex-direction: column;
-
-    gap: 25px;
-
-    align-items: flex-start;
-
-}
 
 
 
-.nav-links {
 
-    flex-direction: column;
-
-    gap: 15px;
-
-}
+/* Hero Visual */
 
 
-
-.hero {
-
-    padding: 80px 8% 60px;
-
-}
-
-
-
-.hero h1 {
-
-    font-size: 2.8rem;
-
-}
-
-
-
-.cards {
-
-    flex-direction: column;
-
-}
-
-
-
-.card {
-
-    width: 100%;
-
-}
-
-
-
-.founder {
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-}
-
-
-
-.founder-image img {
-    width: 60%;
-    height: 60%;
-    object-fit: cover;
-    object-position: center top;
-}
-}
-
-
-
-.contact-layout {
-
-    grid-template-columns: 1fr;
-
-}
-
-
-
-}
-
-html {
-
-    scroll-behavior: smooth;
-
-}
 .hero-layout {
 
     display: grid;
@@ -484,7 +466,21 @@ html {
 
     border: 1px solid #e8e8e8;
 
+    border-radius: 4px;
+
     width: 300px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+
+    transition: all .3s ease;
+
+}
+
+
+
+.transformation-card:hover {
+
+    transform: translateY(-4px);
 
 }
 
@@ -496,31 +492,158 @@ html {
 
     margin-bottom: 12px;
 
-    background: #f2f4f5;
+    background: var(--background);
 
     text-align: center;
 
     font-weight: 600;
 
 }
-.card,
-.transformation-card,
-.button {
 
-    transition: all .3s ease;
 
-}.transformation-card:hover {
 
-    transform: translateY(-8px);
 
-}
+/* Footer */
+
+
 footer {
+
     border-top: 1px solid #e8e8e8;
+
     margin-top: 30px;
-    padding: 40px 0;
+
+    padding: 40px 8%;
+
+    text-align: center;
+
 }
+
+
 
 footer p {
+
     color: #777;
+
     font-size: 0.9rem;
+
+}
+
+
+
+
+/* Mobile Responsive */
+
+
+@media (max-width: 768px) {
+
+
+    .hero-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-visual {
+
+        margin-top: 40px;
+
+    }
+
+
+    .navbar {
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        align-items: flex-start;
+
+    }
+
+
+    .nav-links {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    .hero {
+
+        padding: 80px 8% 60px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 2.8rem;
+
+    }
+
+
+    .cards {
+
+        flex-direction: column;
+
+    }
+
+
+    .card {
+
+        width: 100%;
+
+    }
+
+
+    .founder {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .founder-image {
+
+        width: 240px;
+
+        height: 300px;
+
+    }
+
+
+    .founder-image img {
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        object-position: center top;
+
+    }
+
+
+    .contact-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+}
+
+
+
+
+html {
+
+    scroll-behavior: smooth;
+
 }
