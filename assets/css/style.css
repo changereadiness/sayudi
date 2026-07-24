@@ -259,8 +259,19 @@ footer {
 }
 
 
+.founder-image {
+    width: 280px;
+    height: 360px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
 .founder-image img {
-    object-position: 50% 20%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
 
 
