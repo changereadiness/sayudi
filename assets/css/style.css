@@ -646,4 +646,16 @@ html {
 
     scroll-behavior: smooth;
 
+}/* Final CTA section spacing */
+
+.cta-section {
+    padding: 70px 0 100px;
+}
+
+.cta-section h2 {
+    margin-bottom: 15px;
+}
+
+.cta-section p {
+    margin-bottom: 30px;
 }
