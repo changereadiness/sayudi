@@ -192,25 +192,47 @@ h3 {
 
 .button {
 
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 
-    padding: 16px 32px;
+    padding: 17px 34px;
 
     background: var(--navy);
     color: var(--white);
 
     font-weight: 600;
 
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
 
     text-decoration: none;
 
     border-radius: 2px;
 
-    transition: all .3s ease;
+    transition: transform .25s ease, background .25s ease;
 
 }
 
+
+.button::after {
+    content: "→";
+    transition: transform .25s ease;
+}
+
+
+.button:hover {
+
+    background: var(--accent);
+    transform: translateY(-2px);
+
+}
+
+
+.button:hover::after {
+
+    transform: translateX(4px);
+
+}
 
 
 .button:hover {
