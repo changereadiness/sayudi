@@ -662,3 +662,60 @@ html {
 .section-header + .button {
     margin-top: 10px;
 }
+footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 60px 8% 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.footer-brand {
+    max-width: 350px;
+}
+
+.footer-brand h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links h4 {
+    margin-bottom: 15px;
+    color: var(--accent);
+}
+
+.footer-links a {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    margin-bottom: 10px;
+    opacity: 0.85;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+    .footer-content,
+    .footer-links,
+    .footer-bottom {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
