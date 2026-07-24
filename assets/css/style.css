@@ -986,4 +986,81 @@ footer {
     color:rgba(255,255,255,.55);
     font-size:.85rem;
 
+}.contact-intro {
+
+    max-width:500px;
+
+}
+
+
+.contact-points {
+
+    margin:40px 0;
+
+}
+
+
+.contact-points div {
+
+    padding:20px 0;
+
+    border-bottom:1px solid #e8e8e8;
+
+    font-family:var(--heading-font);
+
+}
+
+
+.contact-points strong {
+
+    color:var(--accent);
+
+    margin-right:15px;
+
+}
+
+
+
+.contact-box {
+
+    background:var(--white);
+
+    padding:45px;
+
+    border:1px solid #e8e8e8;
+
+}
+
+
+
+.contact-box label {
+
+    font-weight:600;
+
+    margin-bottom:5px;
+
+}
+
+
+
+.contact-box input,
+.contact-box textarea,
+.contact-box select {
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid #ddd;
+
+    font-family:var(--body-font);
+
+}
+
+
+
+.contact-box form {
+
+    gap:12px;
+
 }
