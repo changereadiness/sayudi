@@ -963,3 +963,27 @@ footer {
     }
 
 }
+.footer-tagline {
+
+    color:var(--white);
+    font-weight:600;
+    margin-bottom:15px;
+
+}
+
+
+.footer-description {
+
+    color:rgba(255,255,255,.75);
+    font-size:.95rem;
+    margin-bottom:20px;
+
+}
+
+
+.footer-credential {
+
+    color:rgba(255,255,255,.55);
+    font-size:.85rem;
+
+}
