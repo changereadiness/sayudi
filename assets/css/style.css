@@ -1031,3 +1031,53 @@ footer {
     }
 
 }
+/* Services Layout */
+
+.service-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+
+.service-card {
+
+    background: var(--white);
+
+    padding: 40px;
+
+    border: 1px solid #e8e8e8;
+
+    border-radius: 4px;
+
+    transition: transform .3s ease,
+                border-color .3s ease;
+
+}
+
+
+.service-card:hover {
+
+    transform: translateY(-3px);
+
+    border-color: var(--accent);
+
+}
+
+
+.service-card h3 {
+
+    margin-bottom: 15px;
+
+}
+
+
+.service-card p {
+
+    color: #555;
+
+}
