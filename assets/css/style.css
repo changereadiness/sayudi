@@ -968,3 +968,42 @@ footer {
     }
 
 }
+@media (max-width: 900px) {
+
+    .hero-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .cards {
+
+        flex-direction: column;
+
+    }
+
+    .contact-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .founder {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .footer-content,
+    .footer-links,
+    .footer-bottom {
+
+        flex-direction: column;
+
+        gap: 30px;
+
+    }
+
+}
