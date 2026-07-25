@@ -367,9 +367,6 @@ main > section + section {
 
     justify-content: center;
 
-}
-
-
 .transformation-card {
 
     background: var(--white);
@@ -408,8 +405,24 @@ main > section + section {
 
     font-weight: 600;
 
+    color: var(--navy);
+
+    transition: all .3s ease;
+
+    cursor: default;
+
 }
 
+
+.transformation-card div:hover {
+
+    background: var(--accent);
+
+    color: var(--white);
+
+    transform: translateX(6px);
+
+}
 
 
 /* Founder */
