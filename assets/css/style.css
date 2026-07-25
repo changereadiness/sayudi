@@ -104,15 +104,26 @@ h3 {
 
     padding: 35px 8%;
 
-}
-
-
 .logo {
 
     font-size: 1.6rem;
+
     font-weight: 700;
+
     letter-spacing: 4px;
+
     color: var(--navy);
+
+    text-decoration: none;
+
+    transition: color .3s ease;
+
+}
+
+
+.logo:hover {
+
+    color: var(--accent);
 
 }
 
