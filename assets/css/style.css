@@ -105,7 +105,8 @@ h3 {
     padding: 35px 8%;
 
     .navbar .logo,
-.navbar .logo:hover {
+.navbar .logo:hover }
+    {
 
     text-decoration: none;
 
@@ -524,6 +525,7 @@ main > section + section {
     margin-bottom: 15px;
 
 }
+
 
 
 .cta-section p {
