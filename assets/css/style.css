@@ -1073,3 +1073,12 @@ footer {
     color:var(--navy);
 
 }
+.logo,
+.logo:visited,
+.logo:hover,
+.logo:active {
+
+    text-decoration: none;
+    color: var(--navy);
+
+}
