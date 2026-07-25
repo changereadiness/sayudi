@@ -1018,3 +1018,16 @@ footer {
     flex: 1 !important;
     width: auto !important;
 }
+@media (min-width: 901px) {
+
+    .cards {
+
+        display: grid !important;
+
+        grid-template-columns: repeat(3, 1fr) !important;
+
+        gap: 30px !important;
+
+    }
+
+}
