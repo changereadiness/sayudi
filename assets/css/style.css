@@ -1,4 +1,4 @@
-/* Sayudi Design System - Optimized */
+/* Sayudi Design System */
 
 
 /* =========================
@@ -931,19 +931,23 @@ footer {
 
 @media (max-width: 900px) {
 
-
     .hero-layout {
 
         grid-template-columns: 1fr;
 
+    }
 
+    .cards {
+
+        flex-direction: column;
+
+    }
 
     .contact-layout {
 
         grid-template-columns: 1fr;
 
     }
-
 
     .founder {
 
@@ -952,7 +956,6 @@ footer {
         align-items: flex-start;
 
     }
-
 
     .footer-content,
     .footer-links,
@@ -963,61 +966,5 @@ footer {
         gap: 30px;
 
     }
-
-
-}
-
-
-
-@media (max-width: 768px) {
-
-
-    .navbar {
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 25px;
-
-    }
-
-
-    .nav-links {
-
-        flex-direction: column;
-
-        gap: 15px;
-
-    }
-
-
-    .hero {
-
-        padding: 80px 8% 60px;
-
-    }
-
-
-    h1 {
-
-        font-size: 2.8rem;
-
-    }
-
-
-    section {
-
-        padding: 60px 0;
-
-    }
-
-
-    .container {
-
-        padding: 0 25px;
-
-    }
-
 
 }
