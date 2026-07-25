@@ -104,6 +104,12 @@ h3 {
 
     padding: 35px 8%;
 
+    .navbar .logo,
+.navbar .logo:hover {
+
+    text-decoration: none;
+
+}
 .logo {
 
     font-size: 1.6rem;
@@ -120,6 +126,7 @@ h3 {
 
 }
 
+    
 
 .logo:hover {
 
