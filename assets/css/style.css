@@ -936,18 +936,6 @@ footer {
 
         grid-template-columns: 1fr;
 
-    }
-
-
-    .cards,
-    .services-grid,
-    .readiness-grid {
-
-        grid-template-columns: 1fr;
-
-        flex-direction: column;
-
-    }
 
 
     .contact-layout {
