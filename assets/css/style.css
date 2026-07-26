@@ -1096,3 +1096,9 @@ footer {
     }
 
 }
+.section-header.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 750px;
+}
