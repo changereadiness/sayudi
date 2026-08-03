@@ -178,47 +178,45 @@ Tell us about your transformation
 
 
 
-<form>
-
-
+<form action="https://formspree.io/f/meeyyygg" method="POST">
 
 <label>
 Name
 </label>
 
-
-<input type="text" placeholder="Your name">
-
-
+<input 
+type="text" 
+name="name" 
+placeholder="Your name"
+required>
 
 
 <label>
 Email
 </label>
 
-
-<input type="email" placeholder="Your email">
-
-
+<input 
+type="email" 
+name="email" 
+placeholder="Your email"
+required>
 
 
 <label>
 Organization
 </label>
 
-
-<input type="text" placeholder="Organization name">
-
-
-
+<input 
+type="text" 
+name="organization" 
+placeholder="Organization name">
 
 
 <label>
 What are you preparing for?
 </label>
 
-
-<select>
+<select name="initiative">
 
 <option>
 Transformation initiative
@@ -239,31 +237,26 @@ Other
 </select>
 
 
-
-
-
 <label>
 Message
 </label>
 
+<textarea 
+name="message"
+rows="5"
+placeholder="Tell us about your transformation challenge"
+required></textarea>
 
-<textarea rows="5" placeholder="Tell us about your transformation challenge"></textarea>
 
-
-
-
+<input type="hidden" name="_subject" value="New Sayudi Readiness Discussion Request">
 
 
 <button class="button" type="submit">
-
 Request a Readiness Discussion
-
 </button>
 
 
-
 </form>
-
 
 
 </div>
