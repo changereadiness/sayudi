@@ -256,3 +256,506 @@ header {
     color: var(--navy);
 
 }
+/* =====================================================
+   06. Buttons
+===================================================== */
+
+
+.button {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: var(--space-md);
+
+    padding: 15px 30px;
+
+    background: var(--navy);
+    color: var(--white);
+
+    font-weight: 600;
+    letter-spacing: .03em;
+
+    text-decoration: none;
+
+    border-radius: 2px;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+
+}
+
+
+.button::after {
+
+    content: "→";
+
+    transition: transform .25s ease;
+
+}
+
+
+.button:hover {
+
+    background: var(--accent);
+    transform: translateY(-2px);
+
+}
+
+
+.button:hover::after {
+
+    transform: translateX(4px);
+
+}
+
+
+
+/* =====================================================
+   07. Hero
+===================================================== */
+
+
+.hero {
+
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-xl);
+
+}
+
+
+.hero-layout {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: var(--space-xl);
+
+    align-items: center;
+
+}
+
+
+.hero-content p {
+
+    margin-top: var(--space-md);
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+}
+
+
+.hero-visual {
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+
+/* =====================================================
+   08. Transformation Card
+===================================================== */
+
+
+.transformation-card {
+
+    width: 100%;
+    max-width: 320px;
+
+    background: var(--white);
+
+    padding: var(--space-lg);
+
+    border: 1px solid var(--border);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.04);
+
+}
+
+
+.transformation-card div {
+
+    padding: 16px;
+
+    margin-bottom: 12px;
+
+    background: var(--background);
+
+    text-align: center;
+
+    font-weight: 600;
+
+    color: var(--navy);
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+
+}
+
+
+.transformation-card div:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.transformation-card div:hover {
+
+    background: var(--accent);
+
+    color: var(--white);
+
+    transform: translateX(5px);
+
+}
+
+
+
+/* =====================================================
+   09. Service Grid
+===================================================== */
+
+
+.service-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: var(--space-md);
+
+}
+
+
+
+.service-card {
+
+    background: var(--white);
+
+    padding: var(--space-lg);
+
+    border: 1px solid var(--border);
+
+    border-radius: 4px;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+
+}
+
+
+.service-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--accent);
+
+}
+
+
+.service-card span {
+
+    display: block;
+
+    margin-bottom: var(--space-sm);
+
+    color: var(--accent);
+
+    font-size: .9rem;
+
+    font-weight: 600;
+
+}
+
+
+.service-card h3 {
+
+    margin-bottom: var(--space-sm);
+
+}
+
+
+.service-card p {
+
+    color: #555;
+
+}
+
+
+
+/* Keep CTA as grid item but make it behave properly */
+
+.service-grid .button {
+
+    justify-self: start;
+
+}
+
+
+
+/* =====================================================
+   10. Footer
+===================================================== */
+
+
+footer {
+
+    background: var(--navy);
+
+    color: var(--white);
+
+    padding: var(--space-xl) 24px 24px;
+
+}
+
+
+
+.footer-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-xl);
+
+}
+
+
+
+.footer-brand {
+
+    max-width: 350px;
+
+}
+
+
+
+.footer-brand h3 {
+
+    color: var(--white);
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    margin-bottom: var(--space-sm);
+
+}
+
+
+
+.footer-tagline {
+
+    color: var(--accent);
+
+    font-weight: 600;
+
+    margin-bottom: var(--space-sm);
+
+}
+
+
+
+.footer-description {
+
+    color: rgba(255,255,255,.75);
+
+}
+
+
+
+.footer-credential {
+
+    margin-top: var(--space-sm);
+
+    font-size: .9rem;
+
+    color: rgba(255,255,255,.6);
+
+}
+
+
+
+.footer-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-lg);
+
+}
+
+
+
+.footer-links h4 {
+
+    color: var(--accent);
+
+    margin-bottom: var(--space-sm);
+
+}
+
+
+
+.footer-links a {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--white);
+
+    opacity: .85;
+
+    text-decoration: none;
+
+    transition: opacity .2s ease;
+
+}
+
+
+
+.footer-links a:hover {
+
+    opacity: 1;
+
+}
+
+
+
+.footer-bottom {
+
+    margin-top: var(--space-xl);
+
+    padding-top: var(--space-md);
+
+    border-top:
+        1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.footer-bottom p {
+
+    color: rgba(255,255,255,.55);
+
+    font-size: .9rem;
+
+}
+
+
+
+/* =====================================================
+   11. Desktop Enhancements
+===================================================== */
+
+
+@media (min-width: 600px) {
+
+
+    .container {
+
+        padding-inline: 40px;
+
+    }
+
+
+    section {
+
+        padding: 80px 0;
+
+    }
+
+
+    .navbar {
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 30px 40px;
+
+    }
+
+
+    .nav-links {
+
+        flex-direction: row;
+
+        gap: 30px;
+
+    }
+
+
+    .footer-links {
+
+        flex-direction: row;
+
+        gap: 60px;
+
+    }
+
+
+}
+
+
+
+@media (min-width: 900px) {
+
+
+    .hero {
+
+        padding-top: 70px;
+
+    }
+
+
+    .hero-layout {
+
+        grid-template-columns:
+            1.2fr .8fr;
+
+        gap: 60px;
+
+    }
+
+
+    .service-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+
+    .footer-content {
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        gap: 60px;
+
+    }
+
+
+}
