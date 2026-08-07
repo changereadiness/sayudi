@@ -365,7 +365,21 @@ main > section + section {
 
 }
 
+/* =========================
+   Section Spacing Utilities
+========================= */
 
+.section-sm {
+    padding: 48px 0;
+}
+
+.section-md {
+    padding: 64px 0;
+}
+
+.section-lg {
+    padding: 96px 0;
+}
 
 /* =========================
    Cards
