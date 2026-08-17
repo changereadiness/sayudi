@@ -489,7 +489,28 @@ Terms of Use
 </footer>
 
 
+<script>
 
+const nav = document.querySelector(".navbar");
+const toggle = document.querySelector(".nav-toggle");
+
+toggle.addEventListener("click", () => {
+
+    const isOpen = nav.classList.toggle("nav-open");
+
+    toggle.setAttribute(
+        "aria-expanded",
+        isOpen
+    );
+
+    toggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close menu" : "Open menu"
+    );
+
+});
+
+</script>
 
 </body>
 
