@@ -490,26 +490,32 @@ Terms of Use
 
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-const nav = document.querySelector(".navbar");
-const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".navbar");
+    const toggle = document.querySelector(".nav-toggle");
 
-toggle.addEventListener("click", () => {
+    if (!nav || !toggle) {
+        return;
+    }
 
-    const isOpen = nav.classList.toggle("nav-open");
+    toggle.addEventListener("click", function () {
 
-    toggle.setAttribute(
-        "aria-expanded",
-        isOpen
-    );
+        const isOpen = nav.classList.toggle("nav-open");
 
-    toggle.setAttribute(
-        "aria-label",
-        isOpen ? "Close menu" : "Open menu"
-    );
+        toggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        toggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close menu" : "Open menu"
+        );
+
+    });
 
 });
-
 </script>
 
 </body>
