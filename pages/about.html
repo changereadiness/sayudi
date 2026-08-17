@@ -17,6 +17,45 @@
 
 <link rel="stylesheet" href="../assets/css/style.css?v=4">
 
+    <style>
+
+.founder-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.founder-image {
+    display: flex;
+    justify-content: center;
+}
+
+.founder-image img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.founder-content {
+    max-width: 700px;
+}
+
+@media (min-width: 900px) {
+
+    .founder-section {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 60px;
+    }
+
+    .founder-image {
+        justify-content: flex-start;
+    }
+
+}
+
+</style>
 </head>
 
 
