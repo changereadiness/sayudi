@@ -40,7 +40,15 @@
 </head>
 
 
+<script>
+const nav = document.querySelector('.navbar');
+const toggle = document.querySelector('.nav-toggle');
 
+toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', isOpen);
+});
+</script>
 <body>
 
 
@@ -49,11 +57,15 @@
 
 <nav class="navbar">
 
-
 <a href="index.html" class="logo">
     SAYUDI
 </a>
 
+<button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 
 <ul class="nav-links">
 
