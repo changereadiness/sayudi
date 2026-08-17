@@ -388,6 +388,14 @@ header {
 }
 
 
+.hero > .container > p {
+    margin-top: 24px;
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
 .hero-visual {
     display: flex;
     justify-content: center;
