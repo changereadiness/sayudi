@@ -184,7 +184,6 @@ header {
        background: var(--background);
 }
 
-
 .navbar {
     width: min(calc(100% - 32px), var(--container));
     min-height: 72px;
@@ -193,7 +192,7 @@ header {
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     position: relative;
 }
@@ -246,6 +245,8 @@ header {
     color: var(--navy);
 
     cursor: pointer;
+       position: absolute;
+    left: 0;
 }
 
 
