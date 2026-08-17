@@ -380,15 +380,9 @@ header {
 }
 
 
-.hero-content p {
-    margin-top: 24px;
-
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
-
-.hero > .container > p {
+.hero p {
     margin-top: 32px;
+
     font-size: 1.05rem;
     line-height: 1.8;
 }
