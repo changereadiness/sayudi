@@ -392,7 +392,15 @@ header {
     display: flex;
     justify-content: center;
 }
+.hero > .container:not(.hero-layout) h1 {
+    margin-bottom: 32px;
+}
 
+
+.hero > .container:not(.hero-layout) p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
 
 /* =====================================================
    09. Transformation Card
