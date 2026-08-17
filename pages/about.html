@@ -15,9 +15,12 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../assets/css/style.css?v=4">
+<link rel="stylesheet" href="../assets/css/style.css?v=2">
 
-    <style>
+
+<style>
+
+/* Founder section */
 
 .founder-section {
     display: grid;
@@ -27,13 +30,16 @@
 }
 
 .founder-image {
-    display: flex;
-    justify-content: center;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
 }
 
 .founder-image img {
+    display: block;
     width: 180px;
     height: 180px;
+    max-width: 180px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -42,20 +48,22 @@
     max-width: 700px;
 }
 
+
 @media (min-width: 900px) {
 
     .founder-section {
-        grid-template-columns: 220px minmax(0, 1fr);
+        grid-template-columns: 180px minmax(0, 1fr);
         gap: 60px;
     }
 
     .founder-image {
-        justify-content: flex-start;
+        margin: 0;
     }
 
 }
 
 </style>
+
 </head>
 
 
@@ -124,8 +132,6 @@
 <main>
 
 
-    <!-- HERO -->
-
     <section class="hero">
 
         <div class="container">
@@ -143,8 +149,6 @@
     </section>
 
 
-    <!-- OUR PERSPECTIVE -->
-
     <section>
 
         <div class="container">
@@ -156,7 +160,7 @@
                 </h2>
 
                 <p>
-                    Transformation goes beyhond being a strategic or a technological challenge. It is an organizational challenge. Successful transformation requires alignment between leadership intent, organizational reality, and the ability of people to adopt new ways of working.
+                    Transformation goes beyond being a strategic or technological challenge. It is an organizational challenge. Successful transformation requires alignment between leadership intent, organizational reality, and the ability of people to adopt new ways of working.
                 </p>
 
             </div>
@@ -165,8 +169,6 @@
 
     </section>
 
-
-    <!-- FOUNDER -->
 
     <section>
 
@@ -208,8 +210,6 @@
 
     </section>
 
-
-    <!-- EXPERIENCE -->
 
     <section>
 
@@ -276,8 +276,6 @@
 
     </section>
 
-
-    <!-- CTA -->
 
     <section class="hero">
 
