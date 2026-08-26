@@ -1,106 +1,1241 @@
 /* =====================================================
-   20. MRLD VISUAL PROPORTION OVERRIDES
-   -----------------------------------------------------
-   ONLY shared visual proportions are adjusted here.
-   Exposure content, layouts, colors and component
-   behavior remain unchanged.
+   SAYUDI
+   GLOBAL DESIGN SYSTEM + EXPOSURE HOMEPAGE
 ===================================================== */
 
 
-/* -----------------------------------------------------
-   Global Container
------------------------------------------------------ */
+/* =====================================================
+   01. DESIGN TOKENS
+===================================================== */
 
-.container {
-    width: min(1280px, calc(100% - 64px));
+:root {
+
+    --navy: #0B1F33;
+    --charcoal: #2C2C2C;
+    --background: #F8F8F6;
+    --white: #FFFFFF;
+    --accent: #476B8A;
+
+    --border: #D9DDE0;
+    --text-muted: #687278;
+
+    --heading-font: "Manrope", sans-serif;
+    --body-font: "Inter", sans-serif;
+
 }
 
 
-/* -----------------------------------------------------
-   Navigation
------------------------------------------------------ */
+/* =====================================================
+   02. RESET
+===================================================== */
 
-.navbar {
-    width: min(1280px, calc(100% - 64px));
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 
-/* Main Logo */
+html {
+    scroll-behavior: smooth;
+}
 
-.logo {
-    font-size: 1.5rem;
+
+body {
+    margin: 0;
+
+    background: var(--background);
+
+    color: var(--charcoal);
+
+    font-family: var(--body-font);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+img {
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+a {
+    color: inherit;
+}
+
+
+p,
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   03. TYPOGRAPHY
+===================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 20px;
+
+    color: var(--navy);
+
+    font-family: var(--heading-font);
 
     font-weight: 700;
 
-    letter-spacing: 4px;
+    letter-spacing: -.025em;
+
+    line-height: 1.15;
 }
 
 
-/* Desktop Navigation */
+h1 {
+    font-size: clamp(2.8rem, 6vw, 5.4rem);
+
+    letter-spacing: -.045em;
+}
+
+
+h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.7rem);
+
+    letter-spacing: -.04em;
+}
+
+
+h3 {
+    font-size: 1.5rem;
+}
+
+
+h4 {
+    font-size: 1rem;
+}
+
+
+p {
+    margin-bottom: 20px;
+}
+
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-size: .68rem;
+
+    font-weight: 600;
+
+    letter-spacing: .16em;
+
+    line-height: 1.4;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   04. GLOBAL LAYOUT
+===================================================== */
+
+.container {
+    width: min(1180px, calc(100% - 64px));
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =====================================================
+   05. NAVIGATION
+===================================================== */
+
+header {
+    position: relative;
+
+    z-index: 100;
+}
+
+
+.navbar {
+    width: min(1180px, calc(100% - 64px));
+
+    min-height: 96px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.logo {
+    color: var(--navy);
+
+    font-family: var(--heading-font);
+
+    font-size: 1.45rem;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    text-decoration: none;
+}
+
 
 .nav-links {
-    gap: 32px;
+    display: flex;
+
+    align-items: center;
+
+    gap: 34px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
 }
 
 
 .nav-links a {
-    font-size: .9rem;
+    color: var(--charcoal);
+
+    font-size: 1rem;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color .2s ease;
 }
 
 
-/* -----------------------------------------------------
-   Footer
------------------------------------------------------ */
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+
+.nav-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 9px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+.nav-toggle span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    margin: 5px 0;
+
+    background: var(--navy);
+}
+
+
+/* =====================================================
+   06. BUTTONS
+===================================================== */
+
+.button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 14px 24px;
+
+    background: var(--navy);
+
+    color: var(--white);
+
+    border: 1px solid var(--navy);
+
+    font-family: var(--body-font);
+
+    font-size: .9rem;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+
+.button:hover {
+    background: var(--accent);
+
+    border-color: var(--accent);
+
+    color: var(--white);
+
+    transform: translateY(-1px);
+}
+
+
+.button-light {
+    background: var(--white);
+
+    border-color: var(--white);
+
+    color: var(--navy);
+}
+
+
+.button-light:hover {
+    background: transparent;
+
+    border-color: var(--white);
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   07. EXPOSURE — HERO
+===================================================== */
+
+.exposure-hero {
+    padding-top: 72px;
+    padding-bottom: 96px;
+}
+
+
+.exposure-hero-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(300px, .9fr);
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+
+.exposure-hero-content {
+    max-width: 780px;
+}
+
+
+.exposure-hero h1 {
+    max-width: 780px;
+}
+
+
+.exposure-hero-lead {
+    max-width: 680px;
+
+    margin-top: 30px;
+
+    color: var(--text-muted);
+
+    font-size: 1.12rem;
+
+    line-height: 1.85;
+}
+
+
+.exposure-hero-question {
+    max-width: 650px;
+
+    margin-top: 34px;
+    padding-left: 22px;
+
+    border-left: 2px solid var(--accent);
+
+    color: var(--charcoal);
+
+    font-family: var(--heading-font);
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+.exposure-hero-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-top: 36px;
+}
+
+
+.exposure-hero-actions .button {
+    margin-top: 0;
+}
+
+
+.exposure-text-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 14px 4px;
+
+    color: var(--navy);
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.exposure-text-link span {
+    transition: transform .2s ease;
+}
+
+
+.exposure-text-link:hover {
+    color: var(--accent);
+}
+
+
+.exposure-text-link:hover span {
+    transform: translateX(4px);
+}
+
+
+/* =====================================================
+   08. EXPOSURE — HERO VISUAL
+===================================================== */
+
+.exposure-visual {
+    position: relative;
+
+    min-height: 430px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--navy);
+
+    overflow: hidden;
+
+    border-radius: 3px;
+}
+
+
+.exposure-visual::before {
+    content: "";
+
+    position: absolute;
+
+    width: 340px;
+    height: 340px;
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    border-radius: 50%;
+}
+
+
+.exposure-visual::after {
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 50%;
+}
+
+
+.exposure-visual-inner {
+    position: relative;
+
+    z-index: 2;
+
+    width: 78%;
+}
+
+
+.exposure-visual-label {
+    display: block;
+
+    margin-bottom: 26px;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: .68rem;
+
+    font-weight: 600;
+
+    letter-spacing: .16em;
+
+    text-transform: uppercase;
+}
+
+
+.exposure-visual-statement {
+    color: var(--white);
+
+    font-family: var(--heading-font);
+
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+
+    font-weight: 700;
+
+    letter-spacing: -.03em;
+
+    line-height: 1.12;
+}
+
+
+.exposure-visual-line {
+    width: 60px;
+    height: 2px;
+
+    margin: 28px 0;
+
+    background: var(--accent);
+}
+
+
+.exposure-visual-note {
+    color: rgba(255,255,255,.62);
+
+    font-size: .88rem;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   09. EXPOSURE — OPENING
+===================================================== */
+
+.exposure-opening {
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    background: var(--white);
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+.exposure-opening-content {
+    max-width: 900px;
+}
+
+
+.exposure-opening h2 {
+    max-width: 850px;
+
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+
+.exposure-opening p {
+    max-width: 780px;
+
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
+}
+
+
+/* =====================================================
+   10. EXPOSURE — SIX VECTORS
+===================================================== */
+
+.exposure-vectors {
+    padding-top: 104px;
+    padding-bottom: 104px;
+}
+
+
+.exposure-vectors-header {
+    max-width: 800px;
+
+    margin-bottom: 56px;
+}
+
+
+.exposure-vectors-header h2 {
+    margin-bottom: 18px;
+}
+
+
+.exposure-vectors-header p {
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
+}
+
+
+.vector-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1px;
+
+    background: var(--border);
+
+    border: 1px solid var(--border);
+}
+
+
+.exposure-vector {
+    min-width: 0;
+
+    min-height: 320px;
+
+    padding: 36px;
+
+    background: var(--background);
+
+    display: block;
+
+    border: 0;
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+}
+
+
+.exposure-vector:hover {
+    background: var(--white);
+
+    transform: translateY(-2px);
+}
+
+
+.vector-number {
+    display: block;
+
+    margin-bottom: 36px;
+
+    color: var(--accent);
+
+    font-size: .7rem;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+}
+
+
+.vector-name {
+    margin-bottom: 18px;
+
+    color: var(--navy);
+
+    font-family: var(--heading-font);
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+}
+
+
+.vector-question {
+    max-width: none;
+
+    color: var(--charcoal);
+
+    font-family: var(--heading-font);
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    line-height: 1.55;
+}
+
+
+.vector-description {
+    margin-top: 10px;
+
+    color: var(--text-muted);
+
+    font-size: .9rem;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   11. PERSPECTIVE
+===================================================== */
+
+.perspective-section {
+    padding-top: 104px;
+    padding-bottom: 104px;
+
+    background: var(--navy);
+
+    color: var(--white);
+}
+
+
+.perspective-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(300px, .75fr);
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+
+.perspective-section h2 {
+    max-width: 760px;
+
+    color: var(--white);
+}
+
+
+.perspective-section p {
+    max-width: 700px;
+
+    color: rgba(255,255,255,.68);
+}
+
+
+.perspective-question {
+    padding-top: 4px;
+
+    color: rgba(255,255,255,.82);
+
+    font-family: var(--heading-font);
+
+    font-size: 1.15rem;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+.perspective-question::before {
+    content: "THE QUESTION";
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-family: var(--body-font);
+
+    font-size: .68rem;
+
+    font-weight: 600;
+
+    letter-spacing: .16em;
+}
+
+
+/* =====================================================
+   12. FAILURE SCENARIOS
+===================================================== */
+
+.scenarios-section {
+    padding-top: 104px;
+    padding-bottom: 104px;
+}
+
+
+.scenarios-header {
+    max-width: 780px;
+
+    margin-bottom: 56px;
+}
+
+
+.scenarios-header p {
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
+}
+
+
+.scenario-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 1px;
+
+    background: var(--border);
+
+    border: 1px solid var(--border);
+}
+
+
+.scenario {
+    min-width: 0;
+
+    min-height: 320px;
+
+    padding: 36px;
+
+    background: var(--background);
+}
+
+
+.scenario-number {
+    display: block;
+
+    margin-bottom: 36px;
+
+    color: var(--accent);
+
+    font-size: .7rem;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+}
+
+
+.scenario h3 {
+    margin-bottom: 18px;
+
+    color: var(--navy);
+}
+
+
+.scenario p {
+    color: var(--text-muted);
+
+    font-size: .92rem;
+}
+
+
+/* =====================================================
+   13. FIELD NOTES
+===================================================== */
+
+.field-notes {
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    background: var(--white);
+
+    border-top: 1px solid var(--border);
+}
+
+
+.field-notes-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, .8fr)
+        minmax(0, 1.2fr);
+
+    gap: 90px;
+
+    align-items: start;
+}
+
+
+.field-notes h2 {
+    max-width: 500px;
+}
+
+
+.field-notes-intro p {
+    color: var(--text-muted);
+}
+
+
+.field-note-list {
+    border-top: 1px solid var(--border);
+}
+
+
+.field-note {
+    display: block;
+
+    padding: 25px 0;
+
+    color: inherit;
+
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--border);
+
+    transition:
+        padding .2s ease,
+        color .2s ease;
+}
+
+
+.field-note:hover {
+    padding-left: 10px;
+
+    color: var(--accent);
+}
+
+
+.field-note-meta {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--accent);
+
+    font-size: .68rem;
+
+    font-weight: 600;
+
+    letter-spacing: .12em;
+
+    text-transform: uppercase;
+}
+
+
+.field-note strong {
+    display: block;
+
+    color: var(--navy);
+
+    font-family: var(--heading-font);
+
+    font-size: 1rem;
+}
+
+
+.field-note:hover strong {
+    color: var(--accent);
+}
+
+
+/* =====================================================
+   14. FINAL CTA
+===================================================== */
+
+.exposure-cta {
+    padding-top: 40px;
+    padding-bottom: 112px;
+}
+
+
+.exposure-cta-box {
+    padding: 72px;
+
+    background: var(--navy);
+
+    border-radius: 3px;
+}
+
+
+.exposure-cta-box h2 {
+    max-width: 800px;
+
+    margin-bottom: 20px;
+
+    color: var(--white);
+}
+
+
+.exposure-cta-box p {
+    max-width: 680px;
+
+    color: rgba(255,255,255,.68);
+}
+
+
+.exposure-cta-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 22px;
+
+    margin-top: 32px;
+}
+
+
+.exposure-cta-actions .button {
+    margin-top: 0;
+}
+
+
+.exposure-cta-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 14px 0;
+
+    color: var(--white);
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.exposure-cta-link:hover {
+    color: var(--accent);
+}
+
+
+/* =====================================================
+   15. FOOTER
+===================================================== */
+
+footer {
+    background: var(--navy);
+
+    color: var(--white);
+}
+
 
 .footer-content {
-    width: min(1280px, calc(100% - 64px));
+    width: min(1180px, calc(100% - 64px));
 
-    padding-top: 72px;
-    padding-bottom: 24px;
+    margin: 0 auto;
+
+    padding-top: 88px;
+    padding-bottom: 72px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 90px;
 }
 
 
 .footer-brand h3 {
-    font-size: 1.5rem;
+    margin-bottom: 14px;
 
-    font-weight: 700;
+    color: var(--white);
 
-    letter-spacing: 4px;
+    font-size: 1.75rem;
+}
+
+
+.footer-tagline {
+    color: rgba(255,255,255,.8);
+
+    font-family: var(--heading-font);
+
+    font-size: 1.1rem;
+}
+
+
+.footer-description {
+    max-width: 460px;
+
+    color: rgba(255,255,255,.55);
+
+    font-size: 1rem;
+}
+
+
+.footer-credential {
+    margin-top: 30px;
+
+    color: rgba(255,255,255,.4);
+
+    font-size: .82rem;
 }
 
 
 .footer-links {
-    gap: 48px;
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 42px;
 }
 
 
 .footer-links h4 {
-    font-size: .75rem;
+    margin-bottom: 20px;
 
-    font-weight: 600;
+    color: var(--white);
 
-    letter-spacing: .1em;
+    font-size: .9rem;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
 }
 
 
 .footer-links a {
-    font-size: .9rem;
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: rgba(255,255,255,.58);
+
+    font-size: .98rem;
+
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+
+.footer-links a:hover {
+    color: var(--white);
 }
 
 
 .footer-bottom {
-    width: min(1280px, calc(100% - 64px));
+    width: min(1180px, calc(100% - 64px));
 
-    margin-top: 64px;
+    margin: 0 auto;
 
     padding-top: 24px;
     padding-bottom: 24px;
+
+    border-top: 1px solid rgba(255,255,255,.1);
 }
 
 
-/* -----------------------------------------------------
-   Tablet
------------------------------------------------------ */
+.footer-bottom p {
+    margin: 0;
+
+    color: rgba(255,255,255,.38);
+
+    font-size: .8rem;
+}
+
+
+/* =====================================================
+   16. LARGE TABLET / SMALL DESKTOP
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .exposure-hero-layout {
+        gap: 56px;
+    }
+
+
+    .perspective-layout {
+        gap: 60px;
+    }
+
+
+    .field-notes-layout {
+        gap: 60px;
+    }
+
+}
+
+
+/* =====================================================
+   17. TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .exposure-hero-layout,
+    .perspective-layout,
+    .field-notes-layout {
+        grid-template-columns: 1fr;
+
+        gap: 56px;
+    }
+
+
+    .scenario-grid,
+    .vector-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .exposure-visual {
+        min-height: 360px;
+    }
+
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 56px;
+    }
+
+}
+
+
+/* =====================================================
+   18. MOBILE
+===================================================== */
 
 @media (max-width: 700px) {
 
@@ -108,30 +1243,175 @@
     .navbar,
     .footer-content,
     .footer-bottom {
-        width: min(100% - 32px, 1280px);
+        width: min(100% - 40px, 1180px);
     }
 
 
     .navbar {
-        min-height: 84px;
+        min-height: 80px;
     }
 
 
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+    }
+
+
+    .nav-toggle {
+        display: block;
     }
 
 
     .nav-links {
-        top: 84px;
+        position: absolute;
+
+        top: 80px;
+        left: 20px;
+        right: 20px;
+
+        display: none;
+
+        padding: 18px;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+
+    .nav-links.is-open {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0;
+    }
+
+
+    .nav-links li {
+        width: 100%;
+    }
+
+
+    .nav-links a {
+        display: block;
+
+        width: 100%;
+
+        padding: 13px 4px;
+
+        font-size: 1rem;
+    }
+
+
+    .exposure-hero {
+        padding-top: 48px;
+        padding-bottom: 72px;
+    }
+
+
+    .exposure-hero-actions {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .exposure-opening,
+    .exposure-vectors,
+    .perspective-section,
+    .scenarios-section,
+    .field-notes {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+
+
+    .vector-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .exposure-vector {
+        min-height: auto;
+
+        padding: 32px 28px;
+    }
+
+
+    .vector-number {
+        margin-bottom: 30px;
+    }
+
+
+    .vector-name {
+        margin-bottom: 16px;
+
+        font-size: 1.25rem;
+    }
+
+
+    .vector-question {
+        font-size: .98rem;
+    }
+
+
+    .scenario {
+        min-height: auto;
+
+        padding: 32px 28px;
+    }
+
+
+    .exposure-cta {
+        padding-top: 32px;
+        padding-bottom: 80px;
+    }
+
+
+    .exposure-cta-box {
+        padding: 42px 28px;
+    }
+
+
+    .footer-links {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 36px 24px;
+    }
+
+
+    .footer-brand h3 {
+        font-size: 1.6rem;
+    }
+
+
+    .footer-tagline {
+        font-size: 1rem;
+    }
+
+
+    .footer-description {
+        font-size: .95rem;
+    }
+
+
+    .footer-links a {
+        font-size: .95rem;
     }
 
 }
 
 
-/* -----------------------------------------------------
-   Small Mobile
------------------------------------------------------ */
+/* =====================================================
+   19. SMALL MOBILE
+===================================================== */
 
 @media (max-width: 480px) {
 
@@ -143,8 +1423,49 @@
     }
 
 
+    h1 {
+        font-size: clamp(2.45rem, 12vw, 3.4rem);
+    }
+
+
+    h2 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+    }
+
+
     .logo {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
+    }
+
+
+    .exposure-visual {
+        min-height: 320px;
+    }
+
+
+    .exposure-visual-inner {
+        width: 82%;
+    }
+
+
+    .exposure-vector {
+        padding: 30px 24px;
+    }
+
+
+    .exposure-vector:hover {
+        transform: none;
+    }
+
+
+    .scenario {
+        padding: 30px 24px;
+    }
+
+
+    .footer-links {
+        grid-template-columns: 1fr;
     }
 
 }
+```
