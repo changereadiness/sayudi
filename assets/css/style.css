@@ -1435,3 +1435,14 @@ footer {
             transparent 36px
         );
 }
+/* HERO TEST */
+.home-section:first-of-type {
+    background: repeating-linear-gradient(
+        135deg,
+        #F8F8F6 0px,
+        #F8F8F6 39px,
+        #E8ECEF 40px,
+        #F8F8F6 41px
+    ) !important;
+}
+}
