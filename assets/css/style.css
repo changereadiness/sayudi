@@ -212,7 +212,7 @@ header {
 
     color: var(--charcoal);
 
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 500;
 
     text-decoration: none;
@@ -1415,16 +1415,5 @@ footer {
     .footer-links {
         grid-template-columns: 1fr;
     }
-/* REMOVE HERO DECORATION */
 
-.home-intro,
-.home-intro::before,
-.home-intro::after,
-.home-section:first-child,
-.home-section:first-child::before,
-.home-section:first-child::after {
-    background-image: none !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-}
 }
