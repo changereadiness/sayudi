@@ -1,6 +1,7 @@
 /* =====================================================
    SAYUDI
    GLOBAL DESIGN SYSTEM + EXPOSURE HOMEPAGE
+   Current index.html is the source of truth.
 ===================================================== */
 
 
@@ -45,13 +46,10 @@ body {
     margin: 0;
 
     background: var(--background);
-
     color: var(--charcoal);
 
     font-family: var(--body-font);
-
     font-size: 16px;
-
     line-height: 1.7;
 
     -webkit-font-smoothing: antialiased;
@@ -63,7 +61,6 @@ img {
     display: block;
 
     max-width: 100%;
-
     height: auto;
 }
 
@@ -90,10 +87,6 @@ h4 {
 }
 
 
-/* =====================================================
-   03. TYPOGRAPHY
-===================================================== */
-
 h1,
 h2,
 h3,
@@ -103,25 +96,21 @@ h4 {
     color: var(--navy);
 
     font-family: var(--heading-font);
-
     font-weight: 700;
 
     letter-spacing: -.025em;
-
     line-height: 1.15;
 }
 
 
 h1 {
     font-size: clamp(2.8rem, 6vw, 5.4rem);
-
     letter-spacing: -.045em;
 }
 
 
 h2 {
     font-size: clamp(2.2rem, 4.5vw, 3.7rem);
-
     letter-spacing: -.04em;
 }
 
@@ -149,11 +138,9 @@ p {
     color: var(--accent);
 
     font-size: .68rem;
-
     font-weight: 600;
 
     letter-spacing: .16em;
-
     line-height: 1.4;
 
     text-transform: uppercase;
@@ -161,7 +148,7 @@ p {
 
 
 /* =====================================================
-   04. GLOBAL LAYOUT
+   03. GLOBAL LAYOUT
 ===================================================== */
 
 .container {
@@ -173,7 +160,7 @@ p {
 
 
 /* =====================================================
-   05. NAVIGATION
+   04. NAVIGATION
 ===================================================== */
 
 header {
@@ -193,7 +180,6 @@ header {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 }
 
@@ -204,7 +190,6 @@ header {
     font-family: var(--heading-font);
 
     font-size: 1.45rem;
-
     font-weight: 800;
 
     letter-spacing: .08em;
@@ -231,7 +216,6 @@ header {
     color: var(--charcoal);
 
     font-size: 1rem;
-
     font-weight: 500;
 
     text-decoration: none;
@@ -274,7 +258,7 @@ header {
 
 
 /* =====================================================
-   06. BUTTONS
+   05. BUTTONS
 ===================================================== */
 
 .button {
@@ -288,15 +272,12 @@ header {
     padding: 14px 24px;
 
     background: var(--navy);
-
     color: var(--white);
 
     border: 1px solid var(--navy);
 
     font-family: var(--body-font);
-
     font-size: .9rem;
-
     font-weight: 600;
 
     text-decoration: none;
@@ -339,93 +320,13 @@ header {
 
 
 /* =====================================================
-   07. EXPOSURE — HERO
+   06. TEXT LINKS
 ===================================================== */
 
-.exposure-hero {
-    padding-top: 72px;
-    padding-bottom: 96px;
-}
-
-
-.exposure-hero-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.1fr)
-        minmax(300px, .9fr);
-
-    gap: 90px;
-
-    align-items: center;
-}
-
-
-.exposure-hero-content {
-    max-width: 780px;
-}
-
-
-.exposure-hero h1 {
-    max-width: 780px;
-}
-
-
-.exposure-hero-lead {
-    max-width: 680px;
-
-    margin-top: 30px;
-
-    color: var(--text-muted);
-
-    font-size: 1.12rem;
-
-    line-height: 1.85;
-}
-
-
-.exposure-hero-question {
-    max-width: 650px;
-
-    margin-top: 34px;
-    padding-left: 22px;
-
-    border-left: 2px solid var(--accent);
-
-    color: var(--charcoal);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.05rem;
-
-    font-weight: 600;
-
-    line-height: 1.6;
-}
-
-
-.exposure-hero-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 18px;
-
-    margin-top: 36px;
-}
-
-
-.exposure-hero-actions .button {
-    margin-top: 0;
-}
-
-
-.exposure-text-link {
+.text-link {
     display: inline-flex;
 
     align-items: center;
-
-    gap: 8px;
 
     padding: 14px 4px;
 
@@ -434,142 +335,37 @@ header {
     font-weight: 600;
 
     text-decoration: none;
+
+    transition: color .2s ease;
 }
 
 
-.exposure-text-link span {
-    transition: transform .2s ease;
-}
-
-
-.exposure-text-link:hover {
+.text-link:hover {
     color: var(--accent);
 }
 
 
-.exposure-text-link:hover span {
-    transform: translateX(4px);
-}
-
-
-/* =====================================================
-   08. EXPOSURE — HERO VISUAL
-===================================================== */
-
-.exposure-visual {
-    position: relative;
-
-    min-height: 430px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: var(--navy);
-
-    overflow: hidden;
-
-    border-radius: 3px;
-}
-
-
-.exposure-visual::before {
-    content: "";
-
-    position: absolute;
-
-    width: 340px;
-    height: 340px;
-
-    border: 1px solid rgba(255,255,255,.09);
-
-    border-radius: 50%;
-}
-
-
-.exposure-visual::after {
-    content: "";
-
-    position: absolute;
-
-    width: 210px;
-    height: 210px;
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    border-radius: 50%;
-}
-
-
-.exposure-visual-inner {
-    position: relative;
-
-    z-index: 2;
-
-    width: 78%;
-}
-
-
-.exposure-visual-label {
-    display: block;
-
-    margin-bottom: 26px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .16em;
-
-    text-transform: uppercase;
-}
-
-
-.exposure-visual-statement {
+.text-link-light {
     color: var(--white);
-
-    font-family: var(--heading-font);
-
-    font-size: clamp(1.8rem, 4vw, 2.7rem);
-
-    font-weight: 700;
-
-    letter-spacing: -.03em;
-
-    line-height: 1.12;
 }
 
 
-.exposure-visual-line {
-    width: 60px;
-    height: 2px;
-
-    margin: 28px 0;
-
-    background: var(--accent);
-}
-
-
-.exposure-visual-note {
-    color: rgba(255,255,255,.62);
-
-    font-size: .88rem;
-
-    line-height: 1.7;
+.text-link-light:hover {
+    color: var(--accent);
 }
 
 
 /* =====================================================
-   09. EXPOSURE — OPENING
+   07. GENERAL HOME SECTIONS
 ===================================================== */
 
-.exposure-opening {
-    padding-top: 96px;
-    padding-bottom: 96px;
+.home-section {
+    padding-top: 104px;
+    padding-bottom: 104px;
+}
 
+
+.home-section-light {
     background: var(--white);
 
     border-top: 1px solid var(--border);
@@ -577,19 +373,89 @@ header {
 }
 
 
-.exposure-opening-content {
+.home-section-dark {
+    background: var(--navy);
+
+    color: var(--white);
+}
+
+
+/* =====================================================
+   08. HOME — HERO / INTRO
+===================================================== */
+
+.home-intro {
     max-width: 900px;
 }
 
 
-.exposure-opening h2 {
-    max-width: 850px;
+.home-intro h1 {
+    max-width: 900px;
 
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin-bottom: 30px;
 }
 
 
-.exposure-opening p {
+.home-intro > p:not(.home-question) {
+    max-width: 760px;
+
+    color: var(--text-muted);
+
+    font-size: 1.08rem;
+}
+
+
+.home-question {
+    max-width: 700px;
+
+    margin-top: 34px;
+    margin-bottom: 0;
+
+    padding-left: 22px;
+
+    border-left: 2px solid var(--accent);
+
+    color: var(--charcoal);
+
+    font-family: var(--heading-font);
+
+    font-size: 1.08rem;
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+.home-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 36px;
+}
+
+
+/* =====================================================
+   09. HOME — COPY
+===================================================== */
+
+.home-copy {
+    max-width: 900px;
+}
+
+
+.home-copy h2 {
+    max-width: 850px;
+
+    margin-bottom: 24px;
+}
+
+
+.home-copy p {
     max-width: 780px;
 
     color: var(--text-muted);
@@ -599,35 +465,37 @@ header {
 
 
 /* =====================================================
-   10. EXPOSURE — SIX VECTORS
+   10. SECTION HEADERS
 ===================================================== */
 
-.exposure-vectors {
-    padding-top: 104px;
-    padding-bottom: 104px;
-}
-
-
-.exposure-vectors-header {
+.section-header {
     max-width: 800px;
 
     margin-bottom: 56px;
 }
 
 
-.exposure-vectors-header h2 {
+.section-header h2 {
+    max-width: 820px;
+
     margin-bottom: 18px;
 }
 
 
-.exposure-vectors-header p {
+.section-header p {
+    max-width: 760px;
+
     color: var(--text-muted);
 
     font-size: 1.05rem;
 }
 
 
-.vector-list {
+/* =====================================================
+   11. HOME — EXPOSURE CARDS
+===================================================== */
+
+.home-card-grid {
     display: grid;
 
     grid-template-columns:
@@ -641,7 +509,7 @@ header {
 }
 
 
-.exposure-vector {
+.home-card {
     min-width: 0;
 
     min-height: 320px;
@@ -650,24 +518,20 @@ header {
 
     background: var(--background);
 
-    display: block;
-
-    border: 0;
-
     transition:
         background .25s ease,
         transform .25s ease;
 }
 
 
-.exposure-vector:hover {
+.home-card:hover {
     background: var(--white);
 
     transform: translateY(-2px);
 }
 
 
-.vector-number {
+.card-number {
     display: block;
 
     margin-bottom: 36px;
@@ -675,46 +539,34 @@ header {
     color: var(--accent);
 
     font-size: .7rem;
-
     font-weight: 600;
 
     letter-spacing: .12em;
 }
 
 
-.vector-name {
+.home-card h3 {
     margin-bottom: 18px;
 
     color: var(--navy);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.35rem;
-
-    font-weight: 700;
-
-    line-height: 1.25;
 }
 
 
-.vector-question {
-    max-width: none;
+.card-question {
+    margin-bottom: 10px;
 
     color: var(--charcoal);
 
     font-family: var(--heading-font);
 
     font-size: 1rem;
-
     font-weight: 600;
 
     line-height: 1.55;
 }
 
 
-.vector-description {
-    margin-top: 10px;
-
+.home-card > p:not(.card-question) {
     color: var(--text-muted);
 
     font-size: .9rem;
@@ -724,82 +576,58 @@ header {
 
 
 /* =====================================================
-   11. PERSPECTIVE
+   12. HOME — DARK PERSPECTIVE
 ===================================================== */
 
-.perspective-section {
-    padding-top: 104px;
-    padding-bottom: 104px;
+.home-section-dark .eyebrow {
+    color: var(--accent);
+}
 
-    background: var(--navy);
+
+.home-section-dark h2 {
+    max-width: 800px;
 
     color: var(--white);
 }
 
 
-.perspective-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(300px, .75fr);
-
-    gap: 100px;
-
-    align-items: start;
+.home-section-dark .section-header {
+    max-width: 900px;
 }
 
 
-.perspective-section h2 {
-    max-width: 760px;
-
-    color: var(--white);
-}
-
-
-.perspective-section p {
-    max-width: 700px;
+.home-section-dark .section-header p {
+    max-width: 780px;
 
     color: rgba(255,255,255,.68);
 }
 
 
-.perspective-question {
-    padding-top: 4px;
+.home-statement {
+    max-width: 900px;
 
-    color: rgba(255,255,255,.82);
+    margin-top: 64px;
+
+    padding-top: 34px;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+
+    color: var(--white);
 
     font-family: var(--heading-font);
 
-    font-size: 1.15rem;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
 
-    font-weight: 600;
+    font-weight: 700;
 
-    line-height: 1.6;
-}
+    letter-spacing: -.025em;
 
-
-.perspective-question::before {
-    content: "THE QUESTION";
-
-    display: block;
-
-    margin-bottom: 18px;
-
-    color: var(--accent);
-
-    font-family: var(--body-font);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .16em;
+    line-height: 1.3;
 }
 
 
 /* =====================================================
-   12. FAILURE SCENARIOS
+   13. FAILURE SCENARIOS
 ===================================================== */
 
 .scenarios-section {
@@ -809,13 +637,20 @@ header {
 
 
 .scenarios-header {
-    max-width: 780px;
+    max-width: 800px;
 
     margin-bottom: 56px;
 }
 
 
+.scenarios-header h2 {
+    max-width: 850px;
+}
+
+
 .scenarios-header p {
+    max-width: 760px;
+
     color: var(--text-muted);
 
     font-size: 1.05rem;
@@ -873,52 +708,23 @@ header {
     color: var(--text-muted);
 
     font-size: .92rem;
+
+    line-height: 1.7;
 }
 
 
 /* =====================================================
-   13. FIELD NOTES
+   14. FIELD NOTES
 ===================================================== */
 
-.field-notes {
-    padding-top: 96px;
-    padding-bottom: 96px;
-
-    background: var(--white);
+.home-list {
+    max-width: 900px;
 
     border-top: 1px solid var(--border);
 }
 
 
-.field-notes-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, .8fr)
-        minmax(0, 1.2fr);
-
-    gap: 90px;
-
-    align-items: start;
-}
-
-
-.field-notes h2 {
-    max-width: 500px;
-}
-
-
-.field-notes-intro p {
-    color: var(--text-muted);
-}
-
-
-.field-note-list {
-    border-top: 1px solid var(--border);
-}
-
-
-.field-note {
+.home-list-item {
     display: block;
 
     padding: 25px 0;
@@ -935,14 +741,14 @@ header {
 }
 
 
-.field-note:hover {
+.home-list-item:hover {
     padding-left: 10px;
 
     color: var(--accent);
 }
 
 
-.field-note-meta {
+.home-list-item span {
     display: block;
 
     margin-bottom: 8px;
@@ -950,7 +756,6 @@ header {
     color: var(--accent);
 
     font-size: .68rem;
-
     font-weight: 600;
 
     letter-spacing: .12em;
@@ -959,7 +764,7 @@ header {
 }
 
 
-.field-note strong {
+.home-list-item strong {
     display: block;
 
     color: var(--navy);
@@ -970,22 +775,16 @@ header {
 }
 
 
-.field-note:hover strong {
+.home-list-item:hover strong {
     color: var(--accent);
 }
 
 
 /* =====================================================
-   14. FINAL CTA
+   15. FINAL CTA
 ===================================================== */
 
-.exposure-cta {
-    padding-top: 40px;
-    padding-bottom: 112px;
-}
-
-
-.exposure-cta-box {
+.home-cta {
     padding: 72px;
 
     background: var(--navy);
@@ -994,7 +793,7 @@ header {
 }
 
 
-.exposure-cta-box h2 {
+.home-cta h2 {
     max-width: 800px;
 
     margin-bottom: 20px;
@@ -1003,51 +802,27 @@ header {
 }
 
 
-.exposure-cta-box p {
+.home-cta p {
     max-width: 680px;
 
     color: rgba(255,255,255,.68);
+
+    font-size: 1rem;
 }
 
 
-.exposure-cta-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 22px;
-
-    margin-top: 32px;
-}
-
-
-.exposure-cta-actions .button {
-    margin-top: 0;
-}
-
-
-.exposure-cta-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 14px 0;
-
-    color: var(--white);
-
-    font-weight: 600;
-
-    text-decoration: none;
-}
-
-
-.exposure-cta-link:hover {
+.home-cta .eyebrow {
     color: var(--accent);
 }
 
 
+.home-cta .home-actions {
+    margin-top: 32px;
+}
+
+
 /* =====================================================
-   15. FOOTER
+   16. FOOTER
 ===================================================== */
 
 footer {
@@ -1176,22 +951,19 @@ footer {
 
 
 /* =====================================================
-   16. LARGE TABLET / SMALL DESKTOP
+   17. LARGE TABLET / SMALL DESKTOP
 ===================================================== */
 
 @media (max-width: 1000px) {
 
-    .exposure-hero-layout {
-        gap: 56px;
+    .home-card-grid,
+    .scenario-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
 
-    .perspective-layout {
-        gap: 60px;
-    }
-
-
-    .field-notes-layout {
+    .footer-content {
         gap: 60px;
     }
 
@@ -1199,28 +971,27 @@ footer {
 
 
 /* =====================================================
-   17. TABLET
+   18. TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
 
-    .exposure-hero-layout,
-    .perspective-layout,
-    .field-notes-layout {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
+    .home-section,
+    .scenarios-section {
+        padding-top: 88px;
+        padding-bottom: 88px;
     }
 
 
-    .scenario-grid,
-    .vector-list {
+    .home-card-grid,
+    .scenario-grid {
         grid-template-columns: 1fr;
     }
 
 
-    .exposure-visual {
-        min-height: 360px;
+    .home-card,
+    .scenario {
+        min-height: auto;
     }
 
 
@@ -1234,7 +1005,7 @@ footer {
 
 
 /* =====================================================
-   18. MOBILE
+   19. MOBILE
 ===================================================== */
 
 @media (max-width: 700px) {
@@ -1308,13 +1079,33 @@ footer {
     }
 
 
-    .exposure-hero {
-        padding-top: 48px;
+    .home-section,
+    .scenarios-section {
+        padding-top: 72px;
         padding-bottom: 72px;
     }
 
 
-    .exposure-hero-actions {
+    .home-intro h1 {
+        margin-bottom: 24px;
+    }
+
+
+    .home-intro > p:not(.home-question) {
+        font-size: 1rem;
+    }
+
+
+    .home-question {
+        margin-top: 28px;
+
+        padding-left: 18px;
+
+        font-size: 1rem;
+    }
+
+
+    .home-actions {
         align-items: flex-start;
 
         flex-direction: column;
@@ -1323,65 +1114,51 @@ footer {
     }
 
 
-    .exposure-opening,
-    .exposure-vectors,
-    .perspective-section,
-    .scenarios-section,
-    .field-notes {
-        padding-top: 72px;
-        padding-bottom: 72px;
+    .section-header,
+    .scenarios-header {
+        margin-bottom: 40px;
     }
 
 
-    .vector-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    .exposure-vector {
-        min-height: auto;
-
+    .home-card {
         padding: 32px 28px;
     }
 
 
-    .vector-number {
+    .card-number,
+    .scenario-number {
         margin-bottom: 30px;
     }
 
 
-    .vector-name {
-        margin-bottom: 16px;
-
-        font-size: 1.25rem;
-    }
-
-
-    .vector-question {
-        font-size: .98rem;
-    }
-
-
     .scenario {
-        min-height: auto;
-
         padding: 32px 28px;
     }
 
 
-    .exposure-cta {
-        padding-top: 32px;
-        padding-bottom: 80px;
+    .home-statement {
+        margin-top: 48px;
+
+        padding-top: 28px;
+
+        font-size: 1.5rem;
     }
 
 
-    .exposure-cta-box {
+    .home-cta {
         padding: 42px 28px;
     }
 
 
+    .footer-content {
+        padding-top: 72px;
+        padding-bottom: 56px;
+    }
+
+
     .footer-links {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
 
         gap: 36px 24px;
     }
@@ -1410,7 +1187,7 @@ footer {
 
 
 /* =====================================================
-   19. SMALL MOBILE
+   20. SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
@@ -1438,28 +1215,18 @@ footer {
     }
 
 
-    .exposure-visual {
-        min-height: 320px;
-    }
-
-
-    .exposure-visual-inner {
-        width: 82%;
-    }
-
-
-    .exposure-vector {
+    .home-card {
         padding: 30px 24px;
-    }
-
-
-    .exposure-vector:hover {
-        transform: none;
     }
 
 
     .scenario {
         padding: 30px 24px;
+    }
+
+
+    .home-statement {
+        font-size: 1.4rem;
     }
 
 
