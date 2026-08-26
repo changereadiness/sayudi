@@ -165,7 +165,7 @@ p {
 ===================================================== */
 
 .container {
-    width: min(1180px, calc(100% - 64px));
+    width: min(1280px, calc(100% - 32px));
 
     margin-left: auto;
     margin-right: auto;
@@ -184,9 +184,9 @@ header {
 
 
 .navbar {
-    width: min(1180px, calc(100% - 64px));
+    width: min(1280px, calc(100% - 32px));
 
-    min-height: 96px;
+    min-height: 72px;
 
     margin: 0 auto;
 
@@ -203,11 +203,11 @@ header {
 
     font-family: var(--heading-font);
 
-    font-size: 1.45rem;
+    font-size: 1.5rem;
 
-    font-weight: 800;
+    font-weight: 700;
 
-    letter-spacing: .08em;
+    letter-spacing: 4px;
 
     text-decoration: none;
 }
@@ -218,7 +218,7 @@ header {
 
     align-items: center;
 
-    gap: 34px;
+    gap: 32px;
 
     margin: 0;
     padding: 0;
@@ -230,11 +230,13 @@ header {
 .nav-links a {
     color: var(--charcoal);
 
-    font-size: 1rem;
+    font-size: .9rem;
 
     font-weight: 500;
 
     text-decoration: none;
+
+    white-space: nowrap;
 
     transition: color .2s ease;
 }
@@ -1051,6 +1053,8 @@ header {
 ===================================================== */
 
 footer {
+    padding: 72px 0 24px;
+
     background: var(--navy);
 
     color: var(--white);
@@ -1058,38 +1062,48 @@ footer {
 
 
 .footer-content {
-    width: min(1180px, calc(100% - 64px));
+    width: min(1280px, calc(100% - 32px));
 
     margin: 0 auto;
-
-    padding-top: 88px;
-    padding-bottom: 72px;
 
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
+        minmax(300px, 1fr)
+        minmax(500px, 1.5fr);
 
-    gap: 90px;
+    gap: 100px;
+
+    align-items: start;
+}
+
+
+.footer-brand {
+    max-width: 420px;
 }
 
 
 .footer-brand h3 {
-    margin-bottom: 14px;
+    margin-bottom: 20px;
 
     color: var(--white);
 
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
 }
 
 
 .footer-tagline {
+    margin-bottom: 16px;
+
     color: rgba(255,255,255,.8);
 
     font-family: var(--heading-font);
 
-    font-size: 1.1rem;
+    font-size: .9rem;
 }
 
 
@@ -1098,7 +1112,9 @@ footer {
 
     color: rgba(255,255,255,.55);
 
-    font-size: 1rem;
+    font-size: .9rem;
+
+    line-height: 1.7;
 }
 
 
@@ -1117,18 +1133,20 @@ footer {
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: 42px;
+    gap: 48px;
 }
 
 
 .footer-links h4 {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     color: var(--white);
 
-    font-size: .9rem;
+    font-size: .75rem;
 
-    letter-spacing: .08em;
+    font-weight: 600;
+
+    letter-spacing: .1em;
 
     text-transform: uppercase;
 }
@@ -1137,11 +1155,11 @@ footer {
 .footer-links a {
     display: block;
 
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 
-    color: rgba(255,255,255,.58);
+    color: rgba(255,255,255,.62);
 
-    font-size: .98rem;
+    font-size: .9rem;
 
     text-decoration: none;
 
@@ -1155,12 +1173,11 @@ footer {
 
 
 .footer-bottom {
-    width: min(1180px, calc(100% - 64px));
+    width: min(1280px, calc(100% - 32px));
 
-    margin: 0 auto;
+    margin: 64px auto 0;
 
     padding-top: 24px;
-    padding-bottom: 24px;
 
     border-top: 1px solid rgba(255,255,255,.1);
 }
@@ -1169,7 +1186,7 @@ footer {
 .footer-bottom p {
     margin: 0;
 
-    color: rgba(255,255,255,.38);
+    color: rgba(255,255,255,.48);
 
     font-size: .8rem;
 }
@@ -1243,12 +1260,12 @@ footer {
     .navbar,
     .footer-content,
     .footer-bottom {
-        width: min(100% - 40px, 1180px);
+        width: min(100% - 32px, 1280px);
     }
 
 
     .navbar {
-        min-height: 80px;
+        min-height: 84px;
     }
 
 
@@ -1265,9 +1282,9 @@ footer {
     .nav-links {
         position: absolute;
 
-        top: 80px;
-        left: 20px;
-        right: 20px;
+        top: 84px;
+        left: 0;
+        right: 0;
 
         display: none;
 
@@ -1380,30 +1397,38 @@ footer {
     }
 
 
-    .footer-links {
-        grid-template-columns: 1fr 1fr;
+    .footer-content {
+        grid-template-columns: 1fr;
 
-        gap: 36px 24px;
+        gap: 56px;
     }
 
 
     .footer-brand h3 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
 
     .footer-tagline {
-        font-size: 1rem;
+        font-size: .9rem;
     }
 
 
     .footer-description {
-        font-size: .95rem;
+        font-size: .9rem;
+    }
+
+
+    .footer-links {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 32px;
     }
 
 
     .footer-links a {
-        font-size: .95rem;
+        font-size: .9rem;
     }
 
 }
@@ -1433,8 +1458,18 @@ footer {
     }
 
 
+    .navbar {
+        min-height: 80px;
+    }
+
+
     .logo {
         font-size: 1.25rem;
+    }
+
+
+    .nav-links {
+        top: 80px;
     }
 
 
@@ -1465,156 +1500,6 @@ footer {
 
     .footer-links {
         grid-template-columns: 1fr;
-    }
-
-}
-/* =====================================================
-   20. MRLD VISUAL PROPORTION OVERRIDES
-   -----------------------------------------------------
-   ONLY shared visual proportions are adjusted here.
-   Exposure content, layouts, colors and component
-   behavior remain unchanged.
-===================================================== */
-
-
-/* -----------------------------------------------------
-   Global Container
------------------------------------------------------ */
-
-.container {
-    width: min(1280px, calc(100% - 64px));
-}
-
-
-/* -----------------------------------------------------
-   Navigation
------------------------------------------------------ */
-
-.navbar {
-    width: min(1280px, calc(100% - 64px));
-}
-
-
-/* Main Logo */
-
-.logo {
-    font-size: 1.5rem;
-
-    font-weight: 700;
-
-    letter-spacing: 4px;
-}
-
-
-/* Desktop Navigation */
-
-.nav-links {
-    gap: 32px;
-}
-
-
-.nav-links a {
-    font-size: .9rem;
-}
-
-
-/* -----------------------------------------------------
-   Footer
------------------------------------------------------ */
-
-.footer-content {
-    width: min(1280px, calc(100% - 64px));
-
-    padding-top: 72px;
-    padding-bottom: 24px;
-}
-
-
-.footer-brand h3 {
-    font-size: 1.5rem;
-
-    font-weight: 700;
-
-    letter-spacing: 4px;
-}
-
-
-.footer-links {
-    gap: 48px;
-}
-
-
-.footer-links h4 {
-    font-size: .75rem;
-
-    font-weight: 600;
-
-    letter-spacing: .1em;
-}
-
-
-.footer-links a {
-    font-size: .9rem;
-}
-
-
-.footer-bottom {
-    width: min(1280px, calc(100% - 64px));
-
-    margin-top: 64px;
-
-    padding-top: 24px;
-    padding-bottom: 24px;
-}
-
-
-/* -----------------------------------------------------
-   Tablet
------------------------------------------------------ */
-
-@media (max-width: 700px) {
-
-    .container,
-    .navbar,
-    .footer-content,
-    .footer-bottom {
-        width: min(100% - 32px, 1280px);
-    }
-
-
-    .navbar {
-        min-height: 84px;
-    }
-
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-
-    .nav-links {
-        top: 84px;
-    }
-
-}
-
-
-/* -----------------------------------------------------
-   Small Mobile
------------------------------------------------------ */
-
-@media (max-width: 480px) {
-
-    .container,
-    .navbar,
-    .footer-content,
-    .footer-bottom {
-        width: calc(100% - 32px);
-    }
-
-
-    .logo {
-        font-size: 1.5rem;
     }
 
 }
