@@ -6,16 +6,75 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Thank You | Sayudi</title>
+<meta name="description" content="Thank you for contacting Sayudi.">
 
-<meta name="description" content="Thank you for contacting Sayudi. Your transformation readiness discussion request has been received.">
+<title>Thank You | Sayudi</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=2">
+<link
+    rel="stylesheet"
+    href="../assets/css/style.css"
+>
+
+
+<style>
+
+/* =====================================================
+   SAYUDI — THANK YOU PAGE
+   Page-specific styles only
+===================================================== */
+
+.thank-you-page {
+    padding: 120px 0 140px;
+}
+
+.thank-you-content {
+    max-width: 760px;
+}
+
+.thank-you-content h1 {
+    margin-top: 14px;
+}
+
+.thank-you-lead {
+    max-width: 680px;
+    margin-top: 28px;
+    color: var(--text-muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.thank-you-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 36px;
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.thank-you-link:hover {
+    color: var(--accent);
+}
+
+
+@media (max-width: 800px) {
+
+    .thank-you-page {
+        padding: 72px 0 96px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -23,13 +82,22 @@
 <body>
 
 
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <header>
 
     <nav class="navbar">
 
-        <a href="../index.html" class="logo">
+        <a
+            href="../index.html"
+            class="logo"
+            aria-label="Sayudi Home"
+        >
             SAYUDI
         </a>
+
 
         <button
             class="nav-toggle"
@@ -38,22 +106,28 @@
             aria-expanded="false"
             aria-controls="primary-navigation"
         >
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
 
-        <ul class="nav-links" id="primary-navigation">
+
+        <ul
+            class="nav-links"
+            id="primary-navigation"
+        >
 
             <li>
-                <a href="services.html">
-                    Advisory Solutions
+                <a href="exposure.html">
+                    Exposure
                 </a>
             </li>
 
             <li>
-                <a href="change-readiness.html">
-                    Work With Us
+                <a href="field-notes.html">
+                    Field Notes
                 </a>
             </li>
 
@@ -84,117 +158,48 @@
 
 <main>
 
+<section class="thank-you-page">
 
-    <section class="hero">
+    <div class="container">
 
-        <div class="container">
+        <div class="thank-you-content">
+
+            <span class="eyebrow">
+                RECEIVED
+            </span>
+
 
             <h1>
-                Thank You
+                Thank you.
             </h1>
 
-            <p>
-                Your transformation readiness discussion request has been received. We will review your information and get back to you shortly.
+
+            <p class="thank-you-lead">
+                Your message has been received. I’ll review the context
+                you shared and get back to you shortly.
             </p>
 
-        </div>
 
-    </section>
-
-
-    <section>
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <h2>
-                    What Happens Next
-                </h2>
-
-                <p>
-                    Every transformation begins with clarity. We will review your objectives, understand your current challenges, and identify the most relevant next steps.
-                </p>
-
-            </div>
-
-
-            <div class="service-grid">
-
-
-                <div class="service-card">
-
-                    <h3>
-                        01. Review Your Challenge
-                    </h3>
-
-                    <p>
-                        We will analyze the context you shared and identify the key transformation considerations.
-                    </p>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <h3>
-                        02. Discuss Readiness
-                    </h3>
-
-                    <p>
-                        We will connect to explore your current state, priorities, and readiness factors.
-                    </p>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <h3>
-                        03. Define Next Steps
-                    </h3>
-
-                    <p>
-                        Together, we will determine practical actions to improve alignment, adoption, and transformation confidence.
-                    </p>
-
-                </div>
-
-
-            </div>
+            <a
+                href="../index.html"
+                class="thank-you-link"
+            >
+                Return to Sayudi
+                <span>→</span>
+            </a>
 
         </div>
 
-    </section>
+    </div>
 
-
-    <section>
-
-        <div class="container">
-
-            <div class="contact-box">
-
-                <h2>
-                    Continue Exploring Sayudi
-                </h2>
-
-                <p>
-                    Learn more about our approach to transformation readiness, change intelligence, and AI adoption.
-                </p>
-
-                <a href="../index.html" class="button">
-                    Return to Homepage
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
+</section>
 
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -207,19 +212,24 @@
                 Sayudi
             </h3>
 
+
             <p class="footer-tagline">
-                Transformation readiness. Change intelligence.
+                Transformation exposure. Change intelligence.
             </p>
 
+
             <p class="footer-description">
-                Helping leaders understand readiness, strengthen alignment, and navigate complex transformation with confidence.
+                Helping leaders see the organizational conditions that
+                determine whether transformation survives contact with reality.
             </p>
+
 
             <p class="footer-credential">
                 Prosci® Certified Change Management Practitioner
             </p>
 
         </div>
+
 
 
         <div class="footer-links">
@@ -231,17 +241,21 @@
                     Explore
                 </h4>
 
-                <a href="services.html">
-                    Advisory Solutions
+
+                <a href="exposure.html">
+                    Exposure
                 </a>
 
-                <a href="change-readiness.html">
-                    Work With Us
+
+                <a href="field-notes.html">
+                    Field Notes
                 </a>
+
 
                 <a href="framework.html">
                     Framework
                 </a>
+
 
                 <a href="about.html">
                     About
@@ -250,19 +264,27 @@
             </div>
 
 
+
             <div>
 
                 <h4>
                     Connect
                 </h4>
 
-                <a href="https://www.linkedin.com/in/sayudi/" target="_blank">
+
+                <a
+                    href="https://www.linkedin.com/in/sayudi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     LinkedIn
                 </a>
+
 
                 <a href="mailto:contact@sayudi.com">
                     Email
                 </a>
+
 
                 <a href="contact.html">
                     Start a Conversation
@@ -271,15 +293,18 @@
             </div>
 
 
+
             <div>
 
                 <h4>
                     Legal
                 </h4>
 
+
                 <a href="privacy.html">
                     Privacy Policy
                 </a>
+
 
                 <a href="terms.html">
                     Terms of Use
@@ -290,8 +315,8 @@
 
         </div>
 
-
     </div>
+
 
 
     <div class="footer-bottom">
@@ -304,6 +329,10 @@
 
 </footer>
 
+
+<!-- =====================================================
+     NAVIGATION SCRIPT
+===================================================== -->
 
 <script>
 
