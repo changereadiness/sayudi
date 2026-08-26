@@ -10,27 +10,20 @@
 
 :root {
 
-    --graphite: #202426;
-    --graphite-dark: #151819;
+    --navy: #0B1F33;
+    --charcoal: #2C2C2C;
+    --background: #F8F8F6;
+    --white: #FFFFFF;
+    --accent: #476B8A;
 
-    --background: #F2F1ED;
-    --white: #FAFAF8;
-
-    --copper: #B56A3C;
-    --steel: #687278;
-
-    --text: #41474A;
-    --border: #D8D7D2;
-
-    --footer-text: rgba(250,250,248,.82);
-    --footer-muted: rgba(250,250,248,.62);
-    --footer-border: rgba(250,250,248,.16);
+    --border: #D9DDE0;
+    --text-muted: #687278;
 
     --heading-font: "Manrope", sans-serif;
     --body-font: "Inter", sans-serif;
 
-    --container: 1280px;
 }
+
 
 
 /* =====================================================
