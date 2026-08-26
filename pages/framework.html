@@ -6,14 +6,363 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Framework | Sayudi Transformation Advisory</title>
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+<title>Framework | Sayudi</title>
+
+<meta
+    name="description"
+    content="The Sayudi framework for understanding transformation exposure through six organizational vectors: Purpose, Interests, Adaptability, Ambassadors, Adoption, and Execution."
+>
+
+<meta
+    name="author"
+    content="Sayudi Inc."
+>
+
+<meta
+    property="og:title"
+    content="Framework | Sayudi"
+>
+
+<meta
+    property="og:description"
+    content="A practical framework for seeing the organizational conditions beneath transformation performance."
+>
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:image"
+    content="../assets/images/sayudi-preview.jpg"
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=2">
+<link
+    rel="stylesheet"
+    href="../assets/css/style.css"
+>
+
+
+<style>
+
+/* =====================================================
+   SAYUDI — FRAMEWORK PAGE
+   Page-specific styles only
+===================================================== */
+
+
+/* -----------------------------------------------------
+   Intro
+----------------------------------------------------- */
+
+.framework-page {
+    padding: 72px 0 112px;
+}
+
+.framework-intro {
+    max-width: 850px;
+    margin-bottom: 80px;
+}
+
+.framework-intro h1 {
+    max-width: 820px;
+    margin-top: 14px;
+}
+
+.framework-intro-lead {
+    max-width: 740px;
+    margin-top: 28px;
+    color: var(--text-muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+
+/* -----------------------------------------------------
+   Framework principle
+----------------------------------------------------- */
+
+.framework-principle {
+    padding: 72px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.framework-principle-content {
+    max-width: 850px;
+}
+
+.framework-principle h2 {
+    max-width: 800px;
+    margin-top: 14px;
+}
+
+.framework-principle p {
+    max-width: 720px;
+    color: var(--text-muted);
+}
+
+
+/* -----------------------------------------------------
+   Six vectors
+----------------------------------------------------- */
+
+.framework-vectors {
+    padding-top: 104px;
+}
+
+.framework-vectors-header {
+    max-width: 800px;
+    margin-bottom: 56px;
+}
+
+.framework-vectors-header h2 {
+    margin-top: 14px;
+}
+
+.framework-vectors-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.framework-vector-list {
+    border-top: 1px solid var(--border);
+}
+
+.framework-vector {
+    display: grid;
+    grid-template-columns: 72px minmax(180px, .7fr) minmax(0, 1.3fr);
+    gap: 36px;
+    padding: 38px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.framework-vector-number {
+    color: var(--accent);
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+}
+
+.framework-vector-name {
+    color: var(--navy);
+    font-family: var(--heading-font);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.framework-vector-content {
+    max-width: 650px;
+    color: var(--text-muted);
+    font-size: .95rem;
+    line-height: 1.7;
+}
+
+.framework-vector-content strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--charcoal);
+    font-family: var(--heading-font);
+    font-size: 1rem;
+}
+
+
+/* -----------------------------------------------------
+   Three layers
+----------------------------------------------------- */
+
+.framework-layers {
+    padding-top: 104px;
+}
+
+.framework-layers-header {
+    max-width: 780px;
+    margin-bottom: 56px;
+}
+
+.framework-layers-header h2 {
+    margin-top: 14px;
+}
+
+.framework-layers-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.framework-layer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+}
+
+.framework-layer {
+    min-height: 260px;
+    padding: 34px;
+    background: var(--background);
+}
+
+.framework-layer-number {
+    display: block;
+    margin-bottom: 28px;
+    color: var(--accent);
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+}
+
+.framework-layer h3 {
+    margin-bottom: 14px;
+    color: var(--navy);
+}
+
+.framework-layer p {
+    color: var(--text-muted);
+    font-size: .92rem;
+    line-height: 1.7;
+}
+
+
+/* -----------------------------------------------------
+   Difference
+----------------------------------------------------- */
+
+.framework-difference {
+    margin-top: 104px;
+    padding: 72px 0;
+    background: var(--navy);
+}
+
+.framework-difference-content {
+    max-width: 850px;
+}
+
+.framework-difference .eyebrow {
+    color: var(--accent);
+}
+
+.framework-difference h2 {
+    max-width: 800px;
+    margin-top: 14px;
+    color: var(--white);
+}
+
+.framework-difference p {
+    max-width: 720px;
+    color: rgba(255,255,255,.68);
+}
+
+
+/* -----------------------------------------------------
+   CTA
+----------------------------------------------------- */
+
+.framework-cta {
+    margin-top: 104px;
+}
+
+.framework-cta-box {
+    padding: 64px;
+    background: var(--background);
+    border: 1px solid var(--border);
+}
+
+.framework-cta-box h2 {
+    max-width: 760px;
+    margin-top: 14px;
+}
+
+.framework-cta-box p {
+    max-width: 650px;
+    color: var(--text-muted);
+}
+
+.framework-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+    padding: 14px 0;
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.framework-cta-link:hover {
+    color: var(--accent);
+}
+
+
+/* -----------------------------------------------------
+   Responsive
+----------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+    .framework-page {
+        padding-top: 52px;
+        padding-bottom: 80px;
+    }
+
+    .framework-intro {
+        margin-bottom: 60px;
+    }
+
+    .framework-principle {
+        padding: 60px 0;
+    }
+
+    .framework-vectors {
+        padding-top: 80px;
+    }
+
+    .framework-vector {
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 18px;
+        padding: 30px 0;
+    }
+
+    .framework-vector-content {
+        grid-column: 2;
+    }
+
+    .framework-layers {
+        padding-top: 80px;
+    }
+
+    .framework-layer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .framework-difference {
+        margin-top: 80px;
+        padding: 60px 0;
+    }
+
+    .framework-cta {
+        margin-top: 80px;
+    }
+
+    .framework-cta-box {
+        padding: 44px 28px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -21,13 +370,22 @@
 <body>
 
 
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <header>
 
     <nav class="navbar">
 
-        <a href="../index.html" class="logo">
+        <a
+            href="../index.html"
+            class="logo"
+            aria-label="Sayudi Home"
+        >
             SAYUDI
         </a>
+
 
         <button
             class="nav-toggle"
@@ -36,22 +394,28 @@
             aria-expanded="false"
             aria-controls="primary-navigation"
         >
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
 
-        <ul class="nav-links" id="primary-navigation">
+
+        <ul
+            class="nav-links"
+            id="primary-navigation"
+        >
 
             <li>
-                <a href="services.html">
-                    Advisory Solutions
+                <a href="exposure.html">
+                    Exposure
                 </a>
             </li>
 
             <li>
-                <a href="change-readiness.html">
-                    Work With Us
+                <a href="field-notes.html">
+                    Field Notes
                 </a>
             </li>
 
@@ -83,200 +447,472 @@
 <main>
 
 
-    <section class="hero">
+<section class="framework-page">
 
-        <div class="container">
+    <div class="container">
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <div class="framework-intro">
+
+            <span class="eyebrow">
+                THE FRAMEWORK
+            </span>
+
 
             <h1>
-                The Sayudi Readiness Framework
+                Transformation is not only a delivery problem.
             </h1>
 
-            <p>
-                A structured approach to understanding whether an organization is prepared to adopt, sustain, and realize value from transformational change.
+
+            <p class="framework-intro-lead">
+                A transformation succeeds when the organization can absorb,
+                sustain, and act on what the transformation requires.
+            </p>
+
+
+            <p class="framework-intro-lead">
+                The Sayudi framework looks beneath conventional measures of
+                progress to examine the organizational conditions that can
+                determine whether change survives contact with reality.
             </p>
 
         </div>
 
-    </section>
 
+        <!-- =================================================
+             PRINCIPLE
+        ================================================== -->
 
-    <section>
+        <section class="framework-principle">
 
-        <div class="container">
+            <div class="framework-principle-content">
 
-            <div class="section-header">
+                <span class="eyebrow">
+                    THE PRINCIPLE
+                </span>
+
 
                 <h2>
-                    Why Readiness Matters
+                    What is visible is not necessarily what is decisive.
                 </h2>
 
-                <p>
-                    Transformation initiatives often focus on strategy, technology, and execution plans while underestimating the organizational conditions required for adoption and sustained success.
-                </p>
 
                 <p>
-                    The Sayudi Readiness Framework helps leaders identify potential barriers, strengthen alignment, and create the conditions required for successful transformation.
+                    Transformation dashboards are useful. Milestones,
+                    budgets, adoption figures, and delivery metrics all tell
+                    us something.
+                </p>
+
+
+                <p>
+                    They do not necessarily tell us why the organization is
+                    behaving the way it is — or whether the conditions
+                    underneath the reported performance are becoming fragile.
+                </p>
+
+
+                <p>
+                    The framework therefore starts with a different question:
+                    <strong>where is the organization exposed?</strong>
                 </p>
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <section>
+        <!-- =================================================
+             SIX VECTORS
+        ================================================== -->
 
-        <div class="container">
+        <section class="framework-vectors">
 
-            <div class="section-header">
+            <div class="framework-vectors-header">
+
+                <span class="eyebrow">
+                    SIX EXPOSURE VECTORS
+                </span>
+
 
                 <h2>
-                    The Sayudi Readiness Framework
+                    Six places where exposure can hide.
                 </h2>
 
+
                 <p>
-                    Transformation readiness depends on six organizational conditions that influence alignment, adoption, and execution.
+                    Each vector represents a different organizational condition
+                    that can influence transformation performance without
+                    necessarily appearing in conventional reporting.
                 </p>
 
             </div>
 
 
-            <div class="service-grid">
+            <div class="framework-vector-list">
 
 
-                <div class="service-card">
+                <article class="framework-vector">
 
-                    <span>
+                    <span class="framework-vector-number">
                         01
                     </span>
 
-                    <h3>
-                        Clarity of Purpose
-                    </h3>
 
-                    <p>
-                        Is the reason for change clearly understood, communicated, and connected to organizational objectives?
-                    </p>
-
-                </div>
+                    <div class="framework-vector-name">
+                        Purpose
+                    </div>
 
 
-                <div class="service-card">
+                    <div class="framework-vector-content">
 
-                    <span>
+                        <strong>
+                            Shared meaning.
+                        </strong>
+
+                        Whether people understand the transformation in
+                        fundamentally compatible ways — and whether that
+                        understanding remains intact as the work progresses.
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="framework-vector">
+
+                    <span class="framework-vector-number">
                         02
                     </span>
 
-                    <h3>
-                        Stakeholder Alignment
-                    </h3>
 
-                    <p>
-                        Are leaders, sponsors, and key stakeholders aligned on priorities, expectations, and desired outcomes?
-                    </p>
-
-                </div>
+                    <div class="framework-vector-name">
+                        Interests
+                    </div>
 
 
-                <div class="service-card">
+                    <div class="framework-vector-content">
 
-                    <span>
+                        <strong>
+                            What people stand to gain or lose.
+                        </strong>
+
+                        The incentives, power relationships, competing
+                        priorities, status, influence, and perceived losses
+                        that shape organizational behaviour.
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="framework-vector">
+
+                    <span class="framework-vector-number">
                         03
                     </span>
 
-                    <h3>
-                        Executive Ownership
-                    </h3>
 
-                    <p>
-                        Are leaders actively sponsoring the transformation and accountable for creating the conditions for success?
-                    </p>
-
-                </div>
+                    <div class="framework-vector-name">
+                        Adaptability
+                    </div>
 
 
-                <div class="service-card">
+                    <div class="framework-vector-content">
 
-                    <span>
+                        <strong>
+                            The ability to respond.
+                        </strong>
+
+                        Whether the organization can recognize when conditions
+                        have changed and alter its approach before outdated
+                        assumptions compound into larger problems.
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="framework-vector">
+
+                    <span class="framework-vector-number">
                         04
                     </span>
 
-                    <h3>
-                        Change Culture
-                    </h3>
 
-                    <p>
-                        Does the organization have the mindset, adaptability, and capacity required to navigate change?
-                    </p>
-
-                </div>
+                    <div class="framework-vector-name">
+                        Ambassadors
+                    </div>
 
 
-                <div class="service-card">
+                    <div class="framework-vector-content">
 
-                    <span>
+                        <strong>
+                            How transformation travels.
+                        </strong>
+
+                        The degree to which leaders and influential people
+                        throughout the organization reinforce, reinterpret,
+                        dilute, or undermine the intended change.
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="framework-vector">
+
+                    <span class="framework-vector-number">
                         05
                     </span>
 
-                    <h3>
-                        People Engagement
-                    </h3>
 
-                    <p>
-                        Are employees informed, involved, and prepared to adopt new ways of working?
-                    </p>
-
-                </div>
+                    <div class="framework-vector-name">
+                        Adoption
+                    </div>
 
 
-                <div class="service-card">
+                    <div class="framework-vector-content">
 
-                    <span>
+                        <strong>
+                            What actually changes.
+                        </strong>
+
+                        The difference between visible compliance and genuine
+                        behavioural change that persists when formal attention
+                        and pressure decline.
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="framework-vector">
+
+                    <span class="framework-vector-number">
                         06
                     </span>
 
-                    <h3>
-                        Delivery Readiness
-                    </h3>
 
-                    <p>
-                        Are capabilities, resources, governance, and execution structures in place to support successful implementation?
-                    </p>
+                    <div class="framework-vector-name">
+                        Execution
+                    </div>
 
-                </div>
+
+                    <div class="framework-vector-content">
+
+                        <strong>
+                            The organization's ability to deliver.
+                        </strong>
+
+                        Whether the organization possesses the capacity,
+                        coordination, decisions, resources, and operational
+                        conditions required to turn the transformation into
+                        reality.
+
+                    </div>
+
+                </article>
 
 
             </div>
 
-        </div>
-
-    </section>
+        </section>
 
 
-    <section class="hero">
+        <!-- =================================================
+             THREE LAYERS
+        ================================================== -->
 
-        <div class="container">
+        <section class="framework-layers">
 
-            <h2>
-                Assess readiness before transformation begins
-            </h2>
+            <div class="framework-layers-header">
 
-            <p>
-                Gain visibility into the factors that can accelerate or undermine your transformation efforts.
-            </p>
+                <span class="eyebrow">
+                    THREE LEVELS OF OBSERVATION
+                </span>
 
-            <a class="button" href="contact.html">
-                Schedule a Readiness Discussion
-            </a>
 
-        </div>
+                <h2>
+                    Exposure exists at more than one level.
+                </h2>
 
-    </section>
+
+                <p>
+                    The same transformation can look very different depending
+                    on where it is observed. The framework considers the gap
+                    between these perspectives rather than assuming that one
+                    view represents the whole system.
+                </p>
+
+            </div>
+
+
+            <div class="framework-layer-grid">
+
+
+                <article class="framework-layer">
+
+                    <span class="framework-layer-number">
+                        LEVEL 01
+                    </span>
+
+
+                    <h3>
+                        Executive
+                    </h3>
+
+
+                    <p>
+                        Strategy, governance, sponsorship, reported performance,
+                        major decisions, and the organizational narrative
+                        presented to leadership.
+                    </p>
+
+                </article>
+
+
+
+                <article class="framework-layer">
+
+                    <span class="framework-layer-number">
+                        LEVEL 02
+                    </span>
+
+
+                    <h3>
+                        Organizational
+                    </h3>
+
+
+                    <p>
+                        Functions, leaders, teams, incentives, competing
+                        priorities, communication patterns, and the practical
+                        interpretation of the transformation.
+                    </p>
+
+                </article>
+
+
+
+                <article class="framework-layer">
+
+                    <span class="framework-layer-number">
+                        LEVEL 03
+                    </span>
+
+
+                    <h3>
+                        Behavioural
+                    </h3>
+
+
+                    <p>
+                        What people actually do when the presentation ends,
+                        priorities collide, uncertainty appears, and the
+                        organization encounters real operating conditions.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DIFFERENCE
+        ================================================== -->
+
+        <section class="framework-difference">
+
+            <div class="framework-difference-content">
+
+                <span class="eyebrow">
+                    THE DIFFERENCE
+                </span>
+
+
+                <h2>
+                    The framework does not predict failure. It makes exposure harder to ignore.
+                </h2>
+
+
+                <p>
+                    Exposure is not a prophecy. Organizations are complex,
+                    conditions change, and no assessment can remove uncertainty.
+                </p>
+
+
+                <p>
+                    The purpose of the framework is more practical: surface
+                    conditions early enough that leaders can examine them,
+                    challenge assumptions, and act before hidden exposure
+                    becomes visible failure.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <section class="framework-cta">
+
+            <div class="framework-cta-box">
+
+                <span class="eyebrow">
+                    GO DEEPER
+                </span>
+
+
+                <h2>
+                    Start with the Exposure Index.
+                </h2>
+
+
+                <p>
+                    Explore the six vectors and the questions used to surface
+                    organizational exposure.
+                </p>
+
+
+                <a
+                    href="exposure.html"
+                    class="framework-cta-link"
+                >
+                    Explore Exposure
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</section>
 
 
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -289,19 +925,24 @@
                 Sayudi
             </h3>
 
+
             <p class="footer-tagline">
-                Transformation readiness. Change intelligence.
+                Transformation exposure. Change intelligence.
             </p>
 
+
             <p class="footer-description">
-                Helping leaders understand readiness, strengthen alignment, and navigate complex transformation with confidence.
+                Helping leaders see the organizational conditions that
+                determine whether transformation survives contact with reality.
             </p>
+
 
             <p class="footer-credential">
                 Prosci® Certified Change Management Practitioner
             </p>
 
         </div>
+
 
 
         <div class="footer-links">
@@ -313,17 +954,21 @@
                     Explore
                 </h4>
 
-                <a href="services.html">
-                    Advisory Solutions
+
+                <a href="exposure.html">
+                    Exposure
                 </a>
 
-                <a href="change-readiness.html">
-                    Work With Us
+
+                <a href="field-notes.html">
+                    Field Notes
                 </a>
+
 
                 <a href="framework.html">
                     Framework
                 </a>
+
 
                 <a href="about.html">
                     About
@@ -332,19 +977,27 @@
             </div>
 
 
+
             <div>
 
                 <h4>
                     Connect
                 </h4>
 
-                <a href="https://www.linkedin.com/in/sayudi/" target="_blank">
+
+                <a
+                    href="https://www.linkedin.com/in/sayudi/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     LinkedIn
                 </a>
+
 
                 <a href="mailto:contact@sayudi.com">
                     Email
                 </a>
+
 
                 <a href="contact.html">
                     Start a Conversation
@@ -353,15 +1006,18 @@
             </div>
 
 
+
             <div>
 
                 <h4>
                     Legal
                 </h4>
 
+
                 <a href="privacy.html">
                     Privacy Policy
                 </a>
+
 
                 <a href="terms.html">
                     Terms of Use
@@ -372,8 +1028,8 @@
 
         </div>
 
-
     </div>
+
 
 
     <div class="footer-bottom">
@@ -386,6 +1042,10 @@
 
 </footer>
 
+
+<!-- =====================================================
+     NAVIGATION SCRIPT
+===================================================== -->
 
 <script>
 
