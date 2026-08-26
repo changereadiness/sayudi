@@ -1,11 +1,11 @@
 /* =====================================================
    SAYUDI
-   GLOBAL DESIGN SYSTEM + EXPOSURE HOMEPAGE
+   Responsive Design System
 ===================================================== */
 
 
 /* =====================================================
-   01. DESIGN TOKENS
+   01. Variables
 ===================================================== */
 
 :root {
@@ -16,55 +16,59 @@
     --white: #FFFFFF;
     --accent: #476B8A;
 
-    --border: #D9DDE0;
-    --text-muted: #687278;
+    --text-muted: #555555;
+    --border: #E8E8E8;
 
     --heading-font: "Manrope", sans-serif;
     --body-font: "Inter", sans-serif;
+
+    --container: 1280px;
 
 }
 
 
 /* =====================================================
-   02. RESET
+   02. Reset
 ===================================================== */
 
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 
 body {
-    margin: 0;
-
-    background: var(--background);
-
-    color: var(--charcoal);
+    min-width: 320px;
 
     font-family: var(--body-font);
-
     font-size: 16px;
-
     line-height: 1.7;
 
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    color: var(--charcoal);
+    background: var(--background);
+
+    overflow-x: hidden;
 }
 
 
 img {
     display: block;
-
     max-width: 100%;
-
     height: auto;
+}
+
+
+a {
+    color: inherit;
 }
 
 
@@ -76,186 +80,146 @@ select {
 }
 
 
-a {
-    color: inherit;
-}
-
-
-p,
-h1,
-h2,
-h3,
-h4 {
-    margin-top: 0;
-}
-
-
 /* =====================================================
-   03. TYPOGRAPHY
+   03. Typography
 ===================================================== */
 
 h1,
 h2,
 h3,
 h4 {
-    margin-bottom: 20px;
-
-    color: var(--navy);
-
     font-family: var(--heading-font);
-
+    color: var(--navy);
     font-weight: 700;
-
-    letter-spacing: -.025em;
-
-    line-height: 1.15;
+    letter-spacing: -0.025em;
 }
 
 
 h1 {
-    font-size: clamp(2.8rem, 6vw, 5.4rem);
-
-    letter-spacing: -.045em;
+    font-size: clamp(2.4rem, 7vw, 4rem);
+    line-height: 1.08;
 }
 
 
 h2 {
-    font-size: clamp(2.2rem, 4.5vw, 3.7rem);
+    margin-bottom: 24px;
 
-    letter-spacing: -.04em;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.15;
 }
 
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+    line-height: 1.3;
 }
 
 
 h4 {
     font-size: 1rem;
+    line-height: 1.3;
 }
 
 
 p {
-    margin-bottom: 20px;
-}
-
-
-.eyebrow {
-    display: inline-block;
-
-    margin-bottom: 18px;
-
-    color: var(--accent);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .16em;
-
-    line-height: 1.4;
-
-    text-transform: uppercase;
+    max-width: 750px;
 }
 
 
 /* =====================================================
-   04. GLOBAL LAYOUT
+   04. Global Layout
 ===================================================== */
 
 .container {
-    width: min(1180px, calc(100% - 64px));
+    width: min(100% - 32px, var(--container));
+    margin-inline: auto;
+}
 
-    margin-left: auto;
-    margin-right: auto;
+
+section {
+    padding-block: 64px;
+}
+
+
+.section-header {
+    max-width: 750px;
+    margin-bottom: 40px;
+}
+
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
 }
 
 
 /* =====================================================
-   05. NAVIGATION
+   05. Header / Navigation
 ===================================================== */
 
 header {
-    position: relative;
-
-    z-index: 100;
+    width: 100%;
+    background: var(--background);
 }
 
 
 .navbar {
-    width: min(1180px, calc(100% - 64px));
+    width: min(100% - 32px, var(--container));
+    min-height: 72px;
 
-    min-height: 96px;
+    margin-inline: auto;
 
-    margin: 0 auto;
-
-    display: flex;
-
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
     align-items: center;
 
-    justify-content: space-between;
+    position: relative;
 }
 
 
 .logo {
-    color: var(--navy);
+    grid-column: 2;
+
+    justify-self: center;
 
     font-family: var(--heading-font);
+    font-size: 1.5rem;
+    font-weight: 700;
 
-    font-size: 1.45rem;
+    letter-spacing: 4px;
 
-    font-weight: 800;
-
-    letter-spacing: .08em;
-
-    text-decoration: none;
-}
-
-
-.nav-links {
-    display: flex;
-
-    align-items: center;
-
-    gap: 34px;
-
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-
-.nav-links a {
-    color: var(--charcoal);
-
-    font-size: 1rem;
-
-    font-weight: 500;
-
+    color: var(--navy);
     text-decoration: none;
 
-    transition: color .2s ease;
+    transition: color .25s ease;
 }
 
 
-.nav-links a:hover {
+.logo:hover {
     color: var(--accent);
 }
 
 
+/* =====================================================
+   06. Mobile Navigation
+===================================================== */
+
 .nav-toggle {
-    display: none;
+    grid-column: 1;
 
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
 
-    padding: 9px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-    border: 0;
+    gap: 5px;
 
     background: transparent;
+
+    color: var(--navy);
 
     cursor: pointer;
 }
@@ -264,1207 +228,558 @@ header {
 .nav-toggle span {
     display: block;
 
-    width: 100%;
+    width: 22px;
     height: 2px;
 
-    margin: 5px 0;
+    background: currentColor;
 
-    background: var(--navy);
+    transition:
+        transform .2s ease,
+        opacity .2s ease;
+}
+
+
+.nav-links {
+    display: none;
+
+    list-style: none;
+}
+
+
+.nav-links.is-open {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+
+    top: 72px;
+    left: 0;
+    right: 0;
+
+    z-index: 100;
+
+    background: var(--background);
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+.nav-links.is-open li {
+    width: 100%;
+}
+
+
+.nav-links.is-open a {
+    display: block;
+
+    padding: 15px 16px;
+
+    color: var(--charcoal);
+
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.nav-links.is-open li:last-child a {
+    border-bottom: 0;
+}
+
+
+.nav-links.is-open a:hover {
+    color: var(--navy);
+}
+
+
+/* Hamburger → X */
+
+.navbar:has(.nav-links.is-open) .nav-toggle span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+
+.navbar:has(.nav-links.is-open) .nav-toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.navbar:has(.nav-links.is-open) .nav-toggle span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 
 /* =====================================================
-   06. BUTTONS
+   07. Buttons
 ===================================================== */
 
 .button {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    min-height: 50px;
+    gap: 10px;
 
-    padding: 14px 24px;
+    min-height: 48px;
+
+    margin-top: 24px;
+    padding: 14px 26px;
 
     background: var(--navy);
-
     color: var(--white);
 
-    border: 1px solid var(--navy);
-
-    font-family: var(--body-font);
-
-    font-size: .9rem;
-
     font-weight: 600;
+    letter-spacing: .03em;
 
     text-decoration: none;
 
+    border-radius: 2px;
+
     transition:
-        background .2s ease,
-        border-color .2s ease,
-        color .2s ease,
-        transform .2s ease;
+        transform .25s ease,
+        background .25s ease;
+}
+
+
+.button::after {
+    content: "→";
+
+    transition: transform .25s ease;
 }
 
 
 .button:hover {
     background: var(--accent);
-
-    border-color: var(--accent);
-
-    color: var(--white);
-
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 
-.button-light {
-    background: var(--white);
-
-    border-color: var(--white);
-
-    color: var(--navy);
-}
-
-
-.button-light:hover {
-    background: transparent;
-
-    border-color: var(--white);
-
-    color: var(--white);
-}
-
-
-/* =====================================================
-   07. EXPOSURE — HERO
-===================================================== */
-
-.exposure-hero {
-    padding-top: 72px;
-    padding-bottom: 96px;
-}
-
-
-.exposure-hero-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.1fr)
-        minmax(300px, .9fr);
-
-    gap: 90px;
-
-    align-items: center;
-}
-
-
-.exposure-hero-content {
-    max-width: 780px;
-}
-
-
-.exposure-hero h1 {
-    max-width: 780px;
-}
-
-
-.exposure-hero-lead {
-    max-width: 680px;
-
-    margin-top: 30px;
-
-    color: var(--text-muted);
-
-    font-size: 1.12rem;
-
-    line-height: 1.85;
-}
-
-
-.exposure-hero-question {
-    max-width: 650px;
-
-    margin-top: 34px;
-    padding-left: 22px;
-
-    border-left: 2px solid var(--accent);
-
-    color: var(--charcoal);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.05rem;
-
-    font-weight: 600;
-
-    line-height: 1.6;
-}
-
-
-.exposure-hero-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 18px;
-
-    margin-top: 36px;
-}
-
-
-.exposure-hero-actions .button {
-    margin-top: 0;
-}
-
-
-.exposure-text-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 14px 4px;
-
-    color: var(--navy);
-
-    font-weight: 600;
-
-    text-decoration: none;
-}
-
-
-.exposure-text-link span {
-    transition: transform .2s ease;
-}
-
-
-.exposure-text-link:hover {
-    color: var(--accent);
-}
-
-
-.exposure-text-link:hover span {
+.button:hover::after {
     transform: translateX(4px);
 }
 
 
 /* =====================================================
-   08. EXPOSURE — HERO VISUAL
+   08. Hero
 ===================================================== */
 
-.exposure-visual {
-    position: relative;
+.hero {
+    padding-top: 40px;
+    padding-bottom: 64px;
+}
 
-    min-height: 430px;
 
-    display: flex;
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 48px;
 
     align-items: center;
+}
+
+
+.hero p {
+    margin-top: 32px;
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
+.hero-visual {
+    display: flex;
     justify-content: center;
-
-    background: var(--navy);
-
-    overflow: hidden;
-
-    border-radius: 3px;
+}
+.hero > .container:not(.hero-layout) h1 {
+    margin-bottom: 32px;
 }
 
 
-.exposure-visual::before {
-    content: "";
-
-    position: absolute;
-
-    width: 340px;
-    height: 340px;
-
-    border: 1px solid rgba(255,255,255,.09);
-
-    border-radius: 50%;
+.hero > .container:not(.hero-layout) p {
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
-
-
-.exposure-visual::after {
-    content: "";
-
-    position: absolute;
-
-    width: 210px;
-    height: 210px;
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    border-radius: 50%;
-}
-
-
-.exposure-visual-inner {
-    position: relative;
-
-    z-index: 2;
-
-    width: 78%;
-}
-
-
-.exposure-visual-label {
-    display: block;
-
-    margin-bottom: 26px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .16em;
-
-    text-transform: uppercase;
-}
-
-
-.exposure-visual-statement {
-    color: var(--white);
-
-    font-family: var(--heading-font);
-
-    font-size: clamp(1.8rem, 4vw, 2.7rem);
-
-    font-weight: 700;
-
-    letter-spacing: -.03em;
-
-    line-height: 1.12;
-}
-
-
-.exposure-visual-line {
-    width: 60px;
-    height: 2px;
-
-    margin: 28px 0;
-
-    background: var(--accent);
-}
-
-
-.exposure-visual-note {
-    color: rgba(255,255,255,.62);
-
-    font-size: .88rem;
-
-    line-height: 1.7;
-}
-
 
 /* =====================================================
-   09. EXPOSURE — OPENING
+   09. Transformation Card
 ===================================================== */
 
-.exposure-opening {
-    padding-top: 96px;
-    padding-bottom: 96px;
+.transformation-card {
+    width: 100%;
+    max-width: 320px;
+
+    padding: 40px;
 
     background: var(--white);
 
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-
-.exposure-opening-content {
-    max-width: 900px;
-}
-
-
-.exposure-opening h2 {
-    max-width: 850px;
-
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-}
-
-
-.exposure-opening p {
-    max-width: 780px;
-
-    color: var(--text-muted);
-
-    font-size: 1.05rem;
-}
-
-
-/* =====================================================
-   10. EXPOSURE — SIX VECTORS
-===================================================== */
-
-.exposure-vectors {
-    padding-top: 104px;
-    padding-bottom: 104px;
-}
-
-
-.exposure-vectors-header {
-    max-width: 800px;
-
-    margin-bottom: 56px;
-}
-
-
-.exposure-vectors-header h2 {
-    margin-bottom: 18px;
-}
-
-
-.exposure-vectors-header p {
-    color: var(--text-muted);
-
-    font-size: 1.05rem;
-}
-
-
-.vector-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 1px;
-
-    background: var(--border);
-
     border: 1px solid var(--border);
+    border-radius: 4px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .04);
 }
 
 
-.exposure-vector {
-    min-width: 0;
+.transformation-card div {
+    padding: 16px;
 
-    min-height: 320px;
-
-    padding: 36px;
+    margin-bottom: 12px;
 
     background: var(--background);
 
-    display: block;
+    text-align: center;
 
-    border: 0;
+    font-weight: 600;
+
+    color: var(--navy);
 
     transition:
         background .25s ease,
+        color .25s ease,
         transform .25s ease;
 }
 
 
-.exposure-vector:hover {
-    background: var(--white);
-
-    transform: translateY(-2px);
+.transformation-card div:last-child {
+    margin-bottom: 0;
 }
 
 
-.vector-number {
-    display: block;
+.transformation-card div:hover {
+    background: var(--accent);
+    color: var(--white);
 
-    margin-bottom: 36px;
-
-    color: var(--accent);
-
-    font-size: .7rem;
-
-    font-weight: 600;
-
-    letter-spacing: .12em;
-}
-
-
-.vector-name {
-    margin-bottom: 18px;
-
-    color: var(--navy);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.35rem;
-
-    font-weight: 700;
-
-    line-height: 1.25;
-}
-
-
-.vector-question {
-    max-width: none;
-
-    color: var(--charcoal);
-
-    font-family: var(--heading-font);
-
-    font-size: 1rem;
-
-    font-weight: 600;
-
-    line-height: 1.55;
-}
-
-
-.vector-description {
-    margin-top: 10px;
-
-    color: var(--text-muted);
-
-    font-size: .9rem;
-
-    line-height: 1.6;
+    transform: translateX(5px);
 }
 
 
 /* =====================================================
-   11. PERSPECTIVE
+   10. Service Grid
 ===================================================== */
 
-.perspective-section {
-    padding-top: 104px;
-    padding-bottom: 104px;
-
-    background: var(--navy);
-
-    color: var(--white);
-}
-
-
-.perspective-layout {
+.service-grid {
     display: grid;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(300px, .75fr);
+    grid-template-columns: 1fr;
 
-    gap: 100px;
-
-    align-items: start;
+    gap: 24px;
 }
 
 
-.perspective-section h2 {
-    max-width: 760px;
-
-    color: var(--white);
-}
-
-
-.perspective-section p {
-    max-width: 700px;
-
-    color: rgba(255,255,255,.68);
-}
-
-
-.perspective-question {
-    padding-top: 4px;
-
-    color: rgba(255,255,255,.82);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.15rem;
-
-    font-weight: 600;
-
-    line-height: 1.6;
-}
-
-
-.perspective-question::before {
-    content: "THE QUESTION";
-
-    display: block;
-
-    margin-bottom: 18px;
-
-    color: var(--accent);
-
-    font-family: var(--body-font);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .16em;
-}
-
-
-/* =====================================================
-   12. FAILURE SCENARIOS
-===================================================== */
-
-.scenarios-section {
-    padding-top: 104px;
-    padding-bottom: 104px;
-}
-
-
-.scenarios-header {
-    max-width: 780px;
-
-    margin-bottom: 56px;
-}
-
-
-.scenarios-header p {
-    color: var(--text-muted);
-
-    font-size: 1.05rem;
-}
-
-
-.scenario-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 1px;
-
-    background: var(--border);
-
-    border: 1px solid var(--border);
-}
-
-
-.scenario {
+.service-card {
     min-width: 0;
 
-    min-height: 320px;
-
-    padding: 36px;
-
-    background: var(--background);
-}
-
-
-.scenario-number {
-    display: block;
-
-    margin-bottom: 36px;
-
-    color: var(--accent);
-
-    font-size: .7rem;
-
-    font-weight: 600;
-
-    letter-spacing: .12em;
-}
-
-
-.scenario h3 {
-    margin-bottom: 18px;
-
-    color: var(--navy);
-}
-
-
-.scenario p {
-    color: var(--text-muted);
-
-    font-size: .92rem;
-}
-
-
-/* =====================================================
-   13. FIELD NOTES
-===================================================== */
-
-.field-notes {
-    padding-top: 96px;
-    padding-bottom: 96px;
+    padding: 40px;
 
     background: var(--white);
 
-    border-top: 1px solid var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
 }
 
 
-.field-notes-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, .8fr)
-        minmax(0, 1.2fr);
-
-    gap: 90px;
-
-    align-items: start;
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
 }
 
 
-.field-notes h2 {
-    max-width: 500px;
+.service-card span {
+    display: block;
+
+    margin-bottom: 16px;
+
+    color: var(--accent);
+
+    font-size: .9rem;
+    font-weight: 600;
 }
 
 
-.field-notes-intro p {
+.service-card h3 {
+    margin-bottom: 16px;
+}
+
+
+.service-card p {
     color: var(--text-muted);
 }
 
 
-.field-note-list {
-    border-top: 1px solid var(--border);
-}
-
-
-.field-note {
-    display: block;
-
-    padding: 25px 0;
-
-    color: inherit;
-
-    text-decoration: none;
-
-    border-bottom: 1px solid var(--border);
-
-    transition:
-        padding .2s ease,
-        color .2s ease;
-}
-
-
-.field-note:hover {
-    padding-left: 10px;
-
-    color: var(--accent);
-}
-
-
-.field-note-meta {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: var(--accent);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .12em;
-
-    text-transform: uppercase;
-}
-
-
-.field-note strong {
-    display: block;
-
-    color: var(--navy);
-
-    font-family: var(--heading-font);
-
-    font-size: 1rem;
-}
-
-
-.field-note:hover strong {
-    color: var(--accent);
-}
-
-
 /* =====================================================
-   14. FINAL CTA
+   11. Section Action
 ===================================================== */
 
-.exposure-cta {
-    padding-top: 40px;
-    padding-bottom: 112px;
-}
-
-
-.exposure-cta-box {
-    padding: 72px;
-
-    background: var(--navy);
-
-    border-radius: 3px;
-}
-
-
-.exposure-cta-box h2 {
-    max-width: 800px;
-
-    margin-bottom: 20px;
-
-    color: var(--white);
-}
-
-
-.exposure-cta-box p {
-    max-width: 680px;
-
-    color: rgba(255,255,255,.68);
-}
-
-
-.exposure-cta-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 22px;
-
-    margin-top: 32px;
-}
-
-
-.exposure-cta-actions .button {
-    margin-top: 0;
-}
-
-
-.exposure-cta-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 14px 0;
-
-    color: var(--white);
-
-    font-weight: 600;
-
-    text-decoration: none;
-}
-
-
-.exposure-cta-link:hover {
-    color: var(--accent);
+.section-action {
+    margin-top: 40px;
 }
 
 
 /* =====================================================
-   15. FOOTER
+   12. Footer
 ===================================================== */
 
 footer {
-    background: var(--navy);
+    padding: 64px 0 24px;
 
+    background: var(--navy);
     color: var(--white);
 }
 
 
 .footer-content {
-    width: min(1180px, calc(100% - 64px));
+    width: min(100% - 32px, var(--container));
+    margin-inline: auto;
 
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 
-    padding-top: 88px;
-    padding-bottom: 72px;
+    gap: 64px;
+}
 
-    display: grid;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
-    gap: 90px;
+.footer-brand {
+    max-width: 350px;
 }
 
 
 .footer-brand h3 {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 
     color: var(--white);
 
-    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 
 .footer-tagline {
-    color: rgba(255,255,255,.8);
+    margin-bottom: 16px;
 
-    font-family: var(--heading-font);
-
-    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 600;
 }
 
 
 .footer-description {
-    max-width: 460px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: 1rem;
+    color: rgba(255,255,255,.75);
 }
 
 
 .footer-credential {
-    margin-top: 30px;
+    margin-top: 16px;
 
-    color: rgba(255,255,255,.4);
+    color: rgba(255,255,255,.6);
 
-    font-size: .82rem;
+    font-size: .9rem;
 }
 
 
 .footer-links {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
 
-    gap: 42px;
+    gap: 40px;
 }
 
 
 .footer-links h4 {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 
-    color: var(--white);
-
-    font-size: .9rem;
-
-    letter-spacing: .08em;
-
-    text-transform: uppercase;
+    color: var(--accent);
 }
 
 
 .footer-links a {
     display: block;
 
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
-    color: rgba(255,255,255,.58);
+    color: var(--white);
 
-    font-size: .98rem;
+    opacity: .85;
 
     text-decoration: none;
 
-    transition: color .2s ease;
+    transition: opacity .2s ease;
 }
 
 
 .footer-links a:hover {
-    color: var(--white);
+    opacity: 1;
 }
 
 
 .footer-bottom {
-    width: min(1180px, calc(100% - 64px));
+    width: min(100% - 32px, var(--container));
 
-    margin: 0 auto;
+    margin: 64px auto 0;
 
     padding-top: 24px;
-    padding-bottom: 24px;
 
-    border-top: 1px solid rgba(255,255,255,.1);
+    border-top: 1px solid rgba(255,255,255,.15);
 }
 
 
 .footer-bottom p {
-    margin: 0;
+    color: rgba(255,255,255,.55);
 
-    color: rgba(255,255,255,.38);
-
-    font-size: .8rem;
+    font-size: .9rem;
 }
 
 
 /* =====================================================
-   16. LARGE TABLET / SMALL DESKTOP
+   13. Tablet
 ===================================================== */
 
-@media (max-width: 1000px) {
-
-    .exposure-hero-layout {
-        gap: 56px;
-    }
-
-
-    .perspective-layout {
-        gap: 60px;
-    }
-
-
-    .field-notes-layout {
-        gap: 60px;
-    }
-
-}
-
-
-/* =====================================================
-   17. TABLET
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .exposure-hero-layout,
-    .perspective-layout,
-    .field-notes-layout {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
-    }
-
-
-    .scenario-grid,
-    .vector-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    .exposure-visual {
-        min-height: 360px;
-    }
-
-
-    .footer-content {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
-    }
-
-}
-
-
-/* =====================================================
-   18. MOBILE
-===================================================== */
-
-@media (max-width: 700px) {
+@media (min-width: 700px) {
 
     .container,
     .navbar,
     .footer-content,
     .footer-bottom {
-        width: min(100% - 40px, 1180px);
+        width: min(100% - 48px, var(--container));
+    }
+
+
+    section {
+        padding-block: 80px;
     }
 
 
     .navbar {
-        min-height: 80px;
-    }
-
-
-    .logo {
-        font-size: 1.3rem;
-    }
-
-
-    .nav-toggle {
-        display: block;
-    }
-
-
-    .nav-links {
-        position: absolute;
-
-        top: 80px;
-        left: 20px;
-        right: 20px;
-
-        display: none;
-
-        padding: 18px;
-
-        background: var(--white);
-
-        border: 1px solid var(--border);
-
-        box-shadow: 0 12px 30px rgba(0,0,0,.08);
+        min-height: 84px;
     }
 
 
     .nav-links.is-open {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 0;
+        top: 84px;
     }
 
 
-    .nav-links li {
-        width: 100%;
-    }
-
-
-    .nav-links a {
-        display: block;
-
-        width: 100%;
-
-        padding: 13px 4px;
-
-        font-size: 1rem;
-    }
-
-
-    .exposure-hero {
-        padding-top: 48px;
-        padding-bottom: 72px;
-    }
-
-
-    .exposure-hero-actions {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 8px;
-    }
-
-
-    .exposure-opening,
-    .exposure-vectors,
-    .perspective-section,
-    .scenarios-section,
-    .field-notes {
-        padding-top: 72px;
-        padding-bottom: 72px;
-    }
-
-
-    .vector-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    .exposure-vector {
-        min-height: auto;
-
-        padding: 32px 28px;
-    }
-
-
-    .vector-number {
-        margin-bottom: 30px;
-    }
-
-
-    .vector-name {
-        margin-bottom: 16px;
-
-        font-size: 1.25rem;
-    }
-
-
-    .vector-question {
-        font-size: .98rem;
-    }
-
-
-    .scenario {
-        min-height: auto;
-
-        padding: 32px 28px;
-    }
-
-
-    .exposure-cta {
-        padding-top: 32px;
-        padding-bottom: 80px;
-    }
-
-
-    .exposure-cta-box {
-        padding: 42px 28px;
+    .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
 
     .footer-links {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, auto);
 
-        gap: 36px 24px;
-    }
-
-
-    .footer-brand h3 {
-        font-size: 1.6rem;
-    }
-
-
-    .footer-tagline {
-        font-size: 1rem;
-    }
-
-
-    .footer-description {
-        font-size: .95rem;
-    }
-
-
-    .footer-links a {
-        font-size: .95rem;
+        gap: 48px;
     }
 
 }
 
 
 /* =====================================================
-   19. SMALL MOBILE
+   14. Desktop
 ===================================================== */
 
-@media (max-width: 480px) {
+@media (min-width: 1050px) {
 
-    .container,
-    .navbar,
-    .footer-content,
-    .footer-bottom {
-        width: calc(100% - 32px);
-    }
+    .navbar {
+        min-height: 96px;
 
-
-    h1 {
-        font-size: clamp(2.45rem, 12vw, 3.4rem);
-    }
-
-
-    h2 {
-        font-size: clamp(2rem, 10vw, 2.8rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
 
     .logo {
-        font-size: 1.25rem;
+        order: 1;
+
+        justify-self: auto;
     }
 
 
-    .exposure-visual {
-        min-height: 320px;
+    .nav-toggle {
+        display: none;
     }
 
 
-    .exposure-visual-inner {
-        width: 82%;
+    .nav-links {
+        order: 2;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 28px;
+
+        list-style: none;
     }
 
 
-    .exposure-vector {
-        padding: 30px 24px;
+    .nav-links a {
+        color: var(--charcoal);
+
+        text-decoration: none;
+
+        white-space: nowrap;
+
+        transition: color .25s ease;
     }
 
 
-    .exposure-vector:hover {
-        transform: none;
+    .nav-links a:hover {
+        color: var(--navy);
     }
 
 
-    .scenario {
-        padding: 30px 24px;
+    .hero {
+        padding-top: 70px;
+        padding-bottom: 80px;
     }
 
 
-    .footer-links {
-        grid-template-columns: 1fr;
+    .hero-layout {
+        grid-template-columns:
+            minmax(0, 1.2fr)
+            minmax(280px, .8fr);
+
+        gap: 60px;
+    }
+
+
+    .service-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+
+    .footer-content {
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        gap: 60px;
+    }
+
+}
+
+
+/* =====================================================
+   15. Large Desktop
+===================================================== */
+
+@media (min-width: 1400px) {
+
+    .hero {
+        padding-top: 80px;
+        padding-bottom: 96px;
+    }
+
+
+    section {
+        padding-block: 96px;
     }
 
 }
