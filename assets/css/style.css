@@ -187,7 +187,7 @@ header {
     color: var(--navy);
 
     font-family: var(--heading-font);
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 800;
 
     letter-spacing: .1em;
@@ -199,7 +199,7 @@ header {
     display: flex;
     align-items: center;
 
-    gap: 32px;
+    gap: 38px;
 
     margin: 0;
     padding: 0;
@@ -212,7 +212,7 @@ header {
 
     color: var(--charcoal);
 
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
 
     text-decoration: none;
