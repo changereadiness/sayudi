@@ -1468,4 +1468,153 @@ footer {
     }
 
 }
-```
+/* =====================================================
+   20. MRLD VISUAL PROPORTION OVERRIDES
+   -----------------------------------------------------
+   ONLY shared visual proportions are adjusted here.
+   Exposure content, layouts, colors and component
+   behavior remain unchanged.
+===================================================== */
+
+
+/* -----------------------------------------------------
+   Global Container
+----------------------------------------------------- */
+
+.container {
+    width: min(1280px, calc(100% - 64px));
+}
+
+
+/* -----------------------------------------------------
+   Navigation
+----------------------------------------------------- */
+
+.navbar {
+    width: min(1280px, calc(100% - 64px));
+}
+
+
+/* Main Logo */
+
+.logo {
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+/* Desktop Navigation */
+
+.nav-links {
+    gap: 32px;
+}
+
+
+.nav-links a {
+    font-size: .9rem;
+}
+
+
+/* -----------------------------------------------------
+   Footer
+----------------------------------------------------- */
+
+.footer-content {
+    width: min(1280px, calc(100% - 64px));
+
+    padding-top: 72px;
+    padding-bottom: 24px;
+}
+
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+.footer-links {
+    gap: 48px;
+}
+
+
+.footer-links h4 {
+    font-size: .75rem;
+
+    font-weight: 600;
+
+    letter-spacing: .1em;
+}
+
+
+.footer-links a {
+    font-size: .9rem;
+}
+
+
+.footer-bottom {
+    width: min(1280px, calc(100% - 64px));
+
+    margin-top: 64px;
+
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+
+/* -----------------------------------------------------
+   Tablet
+----------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .container,
+    .navbar,
+    .footer-content,
+    .footer-bottom {
+        width: min(100% - 32px, 1280px);
+    }
+
+
+    .navbar {
+        min-height: 84px;
+    }
+
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+
+    .nav-links {
+        top: 84px;
+    }
+
+}
+
+
+/* -----------------------------------------------------
+   Small Mobile
+----------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+    .container,
+    .navbar,
+    .footer-content,
+    .footer-bottom {
+        width: calc(100% - 32px);
+    }
+
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+}
