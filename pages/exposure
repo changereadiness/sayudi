@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Initiative Stability Index (ISI)</title>
+
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; background: #f4f6f9; }
+h1 { font-weight: 600; }
+
+.vector {
+background: white;
+padding: 20px;
+margin-bottom: 25px;
+border-radius: 6px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.question { margin-bottom: 18px; }
+
+.scale-labels {
+display: flex;
+justify-content: space-between;
+font-size: 11px;
+color: #666;
+margin-top: 4px;
+}
+
+input[type="range"] {
+width: 100%;
+}
+
+.heat-box {
+width: 100%;
+height: 8px;
+border-radius: 4px;
+margin-top: 8px;
+background: #ddd;
+}
+
+.overall {
+background: #e6ebf2;
+padding: 20px;
+font-size: 18px;
+border-radius: 6px;
+margin-top: 20px;
+}
+
+.alert {
+color: #b30000;
+font-weight: bold;
+margin-top: 10px;
+}
+
+button {
+margin-top: 10px;
+margin-right: 10px;
+}
+
+@media print {
+button { display: none; }
+body { margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<h1>Initiative Stability Index (ISI)</h1>
+
+<label><strong>Initiative Name:</strong></label><br>
+<input type="text" id="initiativeName" style="width:300px;"><br><br>
+
+<div id="vectors"></div>
+
+<div class="overall">
+Overall ISI Score: <span id="overallScore">0.00</span><br>
+Stability Indicator: <span id="stabilityLabel">—</span>
+<div id="volatilityAlert" class="alert"></div>
+</div>
+
+<button onclick="captureBaseline()">Capture Baseline (Quarter Snapshot)</button>
+<button onclick="window.print()">Export to PDF</button>
+
+<script>
+
+let baselineData = null;
+
+const vectors = [
+{
+name: "Strategic Alignment Integrity",
+questions: [
+"In the past 30 days, how consistently have executive sponsors articulated the same strategic rationale for this initiative?",
+"How frequently have strategic decisions reinforced (rather than diluted) the initiative’s stated objectives?",
+"To what extent are business unit priorities visibly aligned with this initiative?",
+"How stable is the initiative’s scope compared to baseline definition?",
+"How clearly can mid-level leaders articulate the “why” behind this initiative?"
+]
+},
+{
+name: "Leadership Reinforcement Consistency",
+questions: [
+"How frequently have primary sponsors referenced the initiative in formal forums over the last 30 days?",
+"To what extent are leaders modeling the expected new behaviors?",
+"How often is progress on the initiative reviewed in leadership meetings?",
+"When resistance emerges, how consistently do leaders intervene to reinforce direction?",
+"Have any senior leaders signaled ambiguity about commitment to the initiative?"
+]
+},
+{
+name: "Stakeholder & Power Friction",
+questions: [
+"Have key stakeholder groups experienced a loss of influence, control, or status due to this initiative?",
+"How openly are concerns being surfaced by impacted groups?",
+"Have any informal influencers expressed skepticism in the past 30 days?",
+"To what extent are stakeholder incentives aligned with desired outcomes?",
+"Are escalation channels being used constructively?"
+]
+},
+{
+name: "Capability & Capacity Sufficiency",
+questions: [
+"Over the past 30 days, how adequate has the dedicated capacity been for advancing this initiative?",
+"To what extent do key delivery roles possess the required skills to execute their responsibilities?",
+"How frequently are initiative team members diverted to competing priorities?",
+"Is there clear ownership for all critical workstreams?",
+"How sustainable is the current execution pace over the next 90 days?"
+]
+},
+{
+name: "Delivery Design Robustness",
+questions: [
+"How realistic are current milestone timelines relative to complexity?",
+"To what extent are dependencies across workstreams actively managed?",
+"How often are risks formally reviewed and mitigated?",
+"How clearly defined are success criteria for the next 90 days?",
+"If a key assumption fails, how prepared is the team to adapt?"
+]
+},
+{
+name: "Adoption Momentum",
+questions: [
+"To what extent are target users consistently applying the new processes or behaviors?",
+"How frequently do teams revert to legacy practices?",
+"Are adoption metrics (formal or informal) reviewed regularly?",
+"How confident are frontline managers in coaching the new behaviors?",
+"Is visible progress reinforcing continued adoption?"
+]
+}
+];
+
+const container = document.getElementById("vectors");
+
+vectors.forEach((vector, vIndex) => {
+
+let div = document.createElement("div");
+div.className = "vector";
+
+div.innerHTML = `<h2>Vector ${vIndex+1}: ${vector.name}</h2>`;
+
+vector.questions.forEach((q, qIndex) => {
+
+div.innerHTML += `
+<div class="question">
+<p>${q}</p>
+<input type="range" min="1" max="5" step="1" value="3"
+oninput="calculateScores()"
+id="v${vIndex}q${qIndex}">
+<div class="scale-labels">
+<span>1<br>Unstable</span>
+<span>2</span>
+<span>3<br>Emerging Instability</span>
+<span>4</span>
+<span>5<br>Stable</span>
+</div>
+</div>
+`;
+
+});
+
+div.innerHTML += `
+<strong>Vector Score: <span id="vectorScore${vIndex}">0.00</span></strong>
+<div class="heat-box" id="heat${vIndex}"></div>
+`;
+
+container.appendChild(div);
+
+});
+
+function calculateScores() {
+
+let overallTotal = 0;
+let currentScores = [];
+
+vectors.forEach((vector, vIndex) => {
+
+let vectorTotal = 0;
+
+vector.questions.forEach((q, qIndex) => {
+let value = parseFloat(document.getElementById(`v${vIndex}q${qIndex}`).value);
+vectorTotal += value;
+});
+
+let avg = vectorTotal / vector.questions.length;
+currentScores.push(avg);
+
+document.getElementById(`vectorScore${vIndex}`).innerText = avg.toFixed(2);
+document.getElementById(`heat${vIndex}`).style.background =
+`rgba(0, 70, 140, ${avg/5})`;
+
+overallTotal += avg;
+
+});
+
+let overallAvg = overallTotal / vectors.length;
+document.getElementById("overallScore").innerText = overallAvg.toFixed(2);
+
+let label = "Stable";
+if (overallAvg < 3.5) label = "Pressured";
+if (overallAvg < 2.5) label = "At Risk";
+
+document.getElementById("stabilityLabel").innerText = label;
+
+checkVolatility(currentScores);
+
+}
+
+function captureBaseline() {
+
+let scores = [];
+
+vectors.forEach((v,i)=>{
+scores.push(parseFloat(document.getElementById(`vectorScore${i}`).innerText));
+});
+
+baselineData = {
+timestamp: new Date(),
+scores: scores
+};
+
+alert("Baseline captured: " + baselineData.timestamp.toLocaleString());
+
+}
+
+function checkVolatility(currentScores) {
+
+if (!baselineData) return;
+
+let volatile = false;
+
+currentScores.forEach((score,i)=>{
+let baselineScore = baselineData.scores[i];
+let drop = (baselineScore - score) / baselineScore;
+if (drop > 0.10) volatile = true;
+});
+
+document.getElementById("volatilityAlert").innerText =
+volatile ? "Volatile Trend Detected" : "";
+
+}
+
+calculateScores();
+
+</script>
+
+</body>
+</html>
