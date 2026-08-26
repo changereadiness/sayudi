@@ -1415,5 +1415,16 @@ footer {
     .footer-links {
         grid-template-columns: 1fr;
     }
+/* REMOVE HERO DECORATION */
 
+.home-intro,
+.home-intro::before,
+.home-intro::after,
+.home-section:first-child,
+.home-section:first-child::before,
+.home-section:first-child::after {
+    background-image: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
 }
