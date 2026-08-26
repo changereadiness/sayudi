@@ -1468,4 +1468,7 @@ footer {
     }
 
 }
-```
+
+body {
+    outline: 10px solid red !important;
+}
