@@ -199,7 +199,7 @@ header {
     display: flex;
     align-items: center;
 
-    gap: 38px;
+    gap: 32px;
 
     margin: 0;
     padding: 0;
@@ -1208,7 +1208,7 @@ footer {
     .navbar,
     .footer-content,
     .footer-bottom {
-        width: calc(100% - 40px);
+      width: min(100% - 32px, 1280px);
     }
 
     .navbar {
