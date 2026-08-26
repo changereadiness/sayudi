@@ -6,64 +6,215 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contact | Sayudi</title>
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
 
-<meta name="description" content="Connect with Sayudi to discuss transformation readiness, organizational change, AI adoption, and reducing transformation risk.">
+<title>Start a Conversation | Sayudi</title>
+
+<meta
+    name="description"
+    content="Start a conversation with Sayudi about transformation exposure, organizational change, adoption, and execution."
+>
+
+<meta
+    name="author"
+    content="Sayudi Inc."
+>
+
+<meta
+    property="og:title"
+    content="Start a Conversation | Sayudi"
+>
+
+<meta
+    property="og:description"
+    content="Discuss your transformation, the conditions around it, and where organizational exposure may exist."
+>
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:image"
+    content="../assets/images/sayudi-preview.jpg"
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=2">
+<link
+    rel="stylesheet"
+    href="../assets/css/style.css"
+>
 
 
 <style>
 
-/* Contact form */
+/* =====================================================
+   SAYUDI — CONTACT PAGE
+   Page-specific styles only
+===================================================== */
+
+.contact-page {
+    padding: 72px 0 112px;
+}
+
+
+/* -----------------------------------------------------
+   Intro
+----------------------------------------------------- */
+
+.contact-intro {
+    max-width: 820px;
+    margin-bottom: 72px;
+}
+
+.contact-intro h1 {
+    max-width: 780px;
+    margin-top: 14px;
+}
+
+.contact-intro p {
+    max-width: 700px;
+    margin-top: 28px;
+    color: var(--text-muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+
+/* -----------------------------------------------------
+   Form
+----------------------------------------------------- */
 
 .contact-box {
     max-width: 760px;
-    margin: 0 auto;
 }
 
-.contact-box h2 {
-    margin-bottom: 30px;
+.contact-box-header {
+    margin-bottom: 40px;
 }
+
+.contact-box-header h2 {
+    margin-top: 14px;
+}
+
+.contact-box-header p {
+    max-width: 650px;
+    margin-top: 16px;
+    color: var(--text-muted);
+}
+
 
 .contact-box form {
     display: flex;
     flex-direction: column;
 }
 
+
 .contact-box label {
-    margin-top: 20px;
+    margin-top: 22px;
     margin-bottom: 8px;
+
+    color: var(--navy);
+
+    font-size: .9rem;
     font-weight: 600;
 }
+
 
 .contact-box input,
 .contact-box select,
 .contact-box textarea {
+
     width: 100%;
     box-sizing: border-box;
+
     padding: 14px 16px;
-    font-family: inherit;
-    font-size: 1rem;
-    border: 1px solid #d6d6d6;
-    border-radius: 4px;
-    background: #fff;
+
+    color: var(--charcoal);
+
+    font-family: var(--body-font);
+    font-size: .95rem;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 3px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
+
+.contact-box input:focus,
+.contact-box select:focus,
+.contact-box textarea:focus {
+
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 2px rgba(71,107,138,.08);
+}
+
+
 .contact-box textarea {
+    min-height: 150px;
     resize: vertical;
 }
+
 
 .contact-box button {
     margin-top: 30px;
     align-self: flex-start;
+
     border: none;
     cursor: pointer;
+}
+
+
+/* -----------------------------------------------------
+   Closing note
+----------------------------------------------------- */
+
+.contact-note {
+    max-width: 650px;
+
+    margin-top: 52px;
+    padding-top: 28px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: .88rem;
+    line-height: 1.7;
+}
+
+
+/* -----------------------------------------------------
+   Responsive
+----------------------------------------------------- */
+
+@media (max-width: 800px) {
+
+    .contact-page {
+        padding-top: 52px;
+        padding-bottom: 80px;
+    }
+
+    .contact-intro {
+        margin-bottom: 60px;
+    }
+
 }
 
 </style>
@@ -74,13 +225,22 @@
 <body>
 
 
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
 <header>
 
     <nav class="navbar">
 
-        <a href="../index.html" class="logo">
+        <a
+            href="../index.html"
+            class="logo"
+            aria-label="Sayudi Home"
+        >
             SAYUDI
         </a>
+
 
         <button
             class="nav-toggle"
@@ -89,22 +249,28 @@
             aria-expanded="false"
             aria-controls="primary-navigation"
         >
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
 
-        <ul class="nav-links" id="primary-navigation">
+
+        <ul
+            class="nav-links"
+            id="primary-navigation"
+        >
 
             <li>
-                <a href="services.html">
-                    Advisory Solutions
+                <a href="exposure.html">
+                    Exposure
                 </a>
             </li>
 
             <li>
-                <a href="change-readiness.html">
-                    Work With Us
+                <a href="field-notes.html">
+                    Field Notes
                 </a>
             </li>
 
@@ -136,239 +302,195 @@
 <main>
 
 
-    <!-- HERO -->
+<!-- =====================================================
+     PAGE
+===================================================== -->
 
-    <section class="hero">
+<section class="contact-page">
 
-        <div class="container">
+    <div class="container">
+
+
+        <div class="contact-intro">
+
+            <span class="eyebrow">
+                START A CONVERSATION
+            </span>
+
 
             <h1>
-                Start a Conversation
+                Let's look at the transformation differently.
             </h1>
 
+
             <p>
-                Every transformation begins with understanding where you stand today. Sayudi helps leaders identify readiness gaps, reduce transformation risk, and define practical next steps.
+                Tell us what you are working through, what you are seeing,
+                or what you are not sure you can see. The first conversation
+                is about understanding the situation.
             </p>
 
         </div>
 
-    </section>
 
+        <!-- =================================================
+             CONTACT FORM
+        ================================================== -->
 
-    <!-- READINESS -->
+        <div class="contact-box">
 
-    <section>
+            <div class="contact-box-header">
 
-        <div class="container">
+                <span class="eyebrow">
+                    YOUR SITUATION
+                </span>
 
-            <div class="section-header">
 
                 <h2>
-                    Begin With Readiness
+                    Tell us about your transformation.
                 </h2>
 
+
                 <p>
-                    Before investing further in transformation, understand where your organization stands and what conditions are required for success.
+                    A few details are enough to start the conversation.
                 </p>
 
             </div>
 
 
-            <div class="service-grid">
+            <form
+                action="https://formspree.io/f/meeyyygg"
+                method="POST"
+            >
 
+                <label for="name">
+                    Name
+                </label>
 
-                <div class="service-card">
-
-                    <span>
-                        01
-                    </span>
-
-                    <h3>
-                        Understand Your Current State
-                    </h3>
-
-                    <p>
-                        Identify organizational strengths, readiness gaps, and potential risks that may impact transformation outcomes.
-                    </p>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <span>
-                        02
-                    </span>
-
-                    <h3>
-                        Align Leadership and Teams
-                    </h3>
-
-                    <p>
-                        Create shared understanding around objectives, priorities, and the actions required to move change forward.
-                    </p>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <span>
-                        03
-                    </span>
-
-                    <h3>
-                        Build Conditions for Success
-                    </h3>
-
-                    <p>
-                        Define practical recommendations to improve readiness, support adoption, and increase transformation confidence.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT FORM -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="contact-box">
-
-                <h2>
-                    Tell us about your transformation
-                </h2>
-
-
-                <form
-                    action="https://formspree.io/f/meeyyygg"
-                    method="POST"
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    required
                 >
 
-                    <label for="name">
-                        Name
-                    </label>
 
-                    <input
-                        id="name"
-                        type="text"
-                        name="name"
-                        placeholder="Your name"
-                        required
-                    >
+                <label for="email">
+                    Email
+                </label>
 
-
-                    <label for="email">
-                        Email
-                    </label>
-
-                    <input
-                        id="email"
-                        type="email"
-                        name="email"
-                        placeholder="Your email"
-                        required
-                    >
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                    required
+                >
 
 
-                    <label for="organization">
-                        Organization
-                    </label>
+                <label for="organization">
+                    Organization
+                </label>
 
-                    <input
-                        id="organization"
-                        type="text"
-                        name="organization"
-                        placeholder="Organization name"
-                    >
-
-
-                    <label for="initiative">
-                        What are you preparing for?
-                    </label>
-
-                    <select
-                        id="initiative"
-                        name="initiative"
-                    >
-
-                        <option>
-                            Transformation initiative
-                        </option>
-
-                        <option>
-                            Change readiness assessment
-                        </option>
-
-                        <option>
-                            AI adoption
-                        </option>
-
-                        <option>
-                            Other
-                        </option>
-
-                    </select>
+                <input
+                    id="organization"
+                    type="text"
+                    name="organization"
+                    placeholder="Organization name"
+                >
 
 
-                    <label for="message">
-                        Message
-                    </label>
+                <label for="initiative">
+                    What are you preparing for?
+                </label>
 
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        placeholder="Tell us about your transformation challenge"
-                        required
-                    ></textarea>
+                <select
+                    id="initiative"
+                    name="initiative"
+                >
 
+                    <option>
+                        Transformation initiative
+                    </option>
 
-                    <input
-                        type="hidden"
-                        name="_subject"
-                        value="New Sayudi Readiness Discussion Request"
-                    >
+                    <option>
+                        Change readiness assessment
+                    </option>
 
-                    <input
-                        type="hidden"
-                        name="_next"
-                        value="https://sayudi.com/pages/thank-you.html"
-                    >
+                    <option>
+                        AI adoption
+                    </option>
 
-                    <input
-                        type="text"
-                        name="_gotcha"
-                        style="display:none"
-                    >
+                    <option>
+                        Other
+                    </option>
+
+                </select>
 
 
-                    <button
-                        class="button"
-                        type="submit"
-                    >
-                        Request a Readiness Discussion
-                    </button>
+                <label for="message">
+                    Message
+                </label>
 
-                </form>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us about your transformation challenge"
+                    required
+                ></textarea>
 
-            </div>
+
+                <!-- Formspree configuration — DO NOT REMOVE -->
+
+                <input
+                    type="hidden"
+                    name="_subject"
+                    value="New Sayudi Readiness Discussion Request"
+                >
+
+                <input
+                    type="hidden"
+                    name="_next"
+                    value="https://sayudi.com/pages/thank-you.html"
+                >
+
+                <input
+                    type="text"
+                    name="_gotcha"
+                    style="display:none"
+                >
+
+
+                <button
+                    class="button"
+                    type="submit"
+                >
+                    Start the Conversation
+                </button>
+
+            </form>
+
+
+            <p class="contact-note">
+                Your message will be reviewed directly. If there is a useful
+                conversation to have, we will follow up.
+            </p>
 
         </div>
 
-    </section>
+
+    </div>
+
+</section>
 
 
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
@@ -381,19 +503,24 @@
                 Sayudi
             </h3>
 
+
             <p class="footer-tagline">
-                Transformation readiness. Change intelligence.
+                Transformation exposure. Change intelligence.
             </p>
 
+
             <p class="footer-description">
-                Helping leaders understand readiness, strengthen alignment, and navigate complex transformation with confidence.
+                Helping leaders see the organizational conditions that
+                determine whether transformation survives contact with reality.
             </p>
+
 
             <p class="footer-credential">
                 Prosci® Certified Change Management Practitioner
             </p>
 
         </div>
+
 
 
         <div class="footer-links">
@@ -405,17 +532,21 @@
                     Explore
                 </h4>
 
-                <a href="services.html">
-                    Advisory Solutions
+
+                <a href="exposure.html">
+                    Exposure
                 </a>
 
-                <a href="change-readiness.html">
-                    Work With Us
+
+                <a href="field-notes.html">
+                    Field Notes
                 </a>
+
 
                 <a href="framework.html">
                     Framework
                 </a>
+
 
                 <a href="about.html">
                     About
@@ -424,22 +555,27 @@
             </div>
 
 
+
             <div>
 
                 <h4>
                     Connect
                 </h4>
 
+
                 <a
                     href="https://www.linkedin.com/in/sayudi/"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
                     LinkedIn
                 </a>
 
+
                 <a href="mailto:contact@sayudi.com">
                     Email
                 </a>
+
 
                 <a href="contact.html">
                     Start a Conversation
@@ -448,15 +584,18 @@
             </div>
 
 
+
             <div>
 
                 <h4>
                     Legal
                 </h4>
 
+
                 <a href="privacy.html">
                     Privacy Policy
                 </a>
+
 
                 <a href="terms.html">
                     Terms of Use
@@ -467,8 +606,8 @@
 
         </div>
 
-
     </div>
+
 
 
     <div class="footer-bottom">
@@ -481,6 +620,10 @@
 
 </footer>
 
+
+<!-- =====================================================
+     NAVIGATION SCRIPT
+===================================================== -->
 
 <script>
 
