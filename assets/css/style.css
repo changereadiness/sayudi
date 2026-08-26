@@ -1,11 +1,11 @@
 /* =====================================================
    SAYUDI
-   Transformation Exposure Design System
+   GLOBAL DESIGN SYSTEM + EXPOSURE HOMEPAGE
 ===================================================== */
 
 
 /* =====================================================
-   01. Variables
+   01. DESIGN TOKENS
 ===================================================== */
 
 :root {
@@ -16,59 +16,55 @@
     --white: #FFFFFF;
     --accent: #476B8A;
 
-    --text-muted: #555555;
-    --border: #E8E8E8;
+    --border: #D9DDE0;
+    --text-muted: #687278;
 
     --heading-font: "Manrope", sans-serif;
     --body-font: "Inter", sans-serif;
-
-    --container: 1280px;
 
 }
 
 
 /* =====================================================
-   02. Reset
+   02. RESET
 ===================================================== */
 
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 
 html {
     scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
 }
 
 
 body {
-    min-width: 320px;
+    margin: 0;
 
-    font-family: var(--body-font);
-    font-size: 16px;
-    line-height: 1.7;
-
-    color: var(--charcoal);
     background: var(--background);
 
-    overflow-x: hidden;
+    color: var(--charcoal);
+
+    font-family: var(--body-font);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 
 img {
     display: block;
+
     max-width: 100%;
+
     height: auto;
-}
-
-
-a {
-    color: inherit;
 }
 
 
@@ -80,168 +76,186 @@ select {
 }
 
 
+a {
+    color: inherit;
+}
+
+
+p,
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
+}
+
+
 /* =====================================================
-   03. Typography
+   03. TYPOGRAPHY
 ===================================================== */
 
 h1,
 h2,
 h3,
 h4 {
-    font-family: var(--heading-font);
+    margin-bottom: 20px;
+
     color: var(--navy);
+
+    font-family: var(--heading-font);
+
     font-weight: 700;
-    letter-spacing: -0.025em;
-}
 
+    letter-spacing: -.025em;
 
-h1 {
-    font-size: clamp(2.4rem, 7vw, 4rem);
-    line-height: 1.08;
-}
-
-
-h2 {
-    margin-bottom: 24px;
-
-    font-size: clamp(2rem, 5vw, 2.8rem);
     line-height: 1.15;
 }
 
 
+h1 {
+    font-size: clamp(2.8rem, 6vw, 5.4rem);
+
+    letter-spacing: -.045em;
+}
+
+
+h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.7rem);
+
+    letter-spacing: -.04em;
+}
+
+
 h3 {
-    font-size: 1.35rem;
-    line-height: 1.3;
+    font-size: 1.5rem;
 }
 
 
 h4 {
     font-size: 1rem;
-    line-height: 1.3;
 }
 
 
 p {
-    max-width: 750px;
-}
-
-
-/* =====================================================
-   04. Global Layout
-===================================================== */
-
-.container {
-    width: min(100% - 32px, var(--container));
-    margin-inline: auto;
-}
-
-
-section {
-    padding-block: 64px;
+    margin-bottom: 20px;
 }
 
 
 .eyebrow {
-    display: block;
+    display: inline-block;
 
     margin-bottom: 18px;
 
     color: var(--accent);
 
     font-size: .68rem;
+
     font-weight: 600;
 
     letter-spacing: .16em;
+
+    line-height: 1.4;
 
     text-transform: uppercase;
 }
 
 
-.section-header {
-    max-width: 750px;
-    margin-bottom: 40px;
-}
+/* =====================================================
+   04. GLOBAL LAYOUT
+===================================================== */
 
+.container {
+    width: min(1180px, calc(100% - 64px));
 
-.section-header p {
-    color: var(--text-muted);
-    font-size: 1.05rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 /* =====================================================
-   05. Header / Navigation
+   05. NAVIGATION
 ===================================================== */
 
 header {
-    width: 100%;
-    background: var(--background);
+    position: relative;
+
+    z-index: 100;
 }
 
 
 .navbar {
-    width: min(100% - 32px, var(--container));
-    min-height: 72px;
+    width: min(1180px, calc(100% - 64px));
 
-    margin-inline: auto;
+    min-height: 88px;
 
-    display: grid;
-    grid-template-columns: 44px 1fr 44px;
+    margin: 0 auto;
+
+    display: flex;
 
     align-items: center;
 
-    position: relative;
+    justify-content: space-between;
 }
 
 
 .logo {
-    grid-column: 2;
-
-    justify-self: center;
-
-    font-family: var(--heading-font);
-    font-size: 1.5rem;
-    font-weight: 700;
-
-    letter-spacing: 4px;
-
     color: var(--navy);
 
-    text-decoration: none;
+    font-family: var(--heading-font);
 
-    transition: color .25s ease;
+    font-size: 1.15rem;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+
+    text-decoration: none;
 }
 
 
-.logo:hover {
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.nav-links a {
+    color: var(--charcoal);
+
+    font-size: .86rem;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+
+.nav-links a:hover {
     color: var(--accent);
 }
 
 
-/* =====================================================
-   06. Mobile Navigation
-===================================================== */
-
 .nav-toggle {
-    grid-column: 1;
+    display: none;
 
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
 
-    display: inline-flex;
-
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 5px;
-
-    background: transparent;
+    padding: 9px;
 
     border: 0;
 
-    color: var(--navy);
+    background: transparent;
 
     cursor: pointer;
 }
@@ -250,91 +264,17 @@ header {
 .nav-toggle span {
     display: block;
 
-    width: 22px;
+    width: 100%;
     height: 2px;
 
-    background: currentColor;
+    margin: 5px 0;
 
-    transition:
-        transform .2s ease,
-        opacity .2s ease;
-}
-
-
-.nav-links {
-    display: none;
-
-    list-style: none;
-}
-
-
-.nav-links.is-open {
-    display: flex;
-
-    flex-direction: column;
-
-    position: absolute;
-
-    top: 72px;
-    left: 0;
-    right: 0;
-
-    z-index: 100;
-
-    background: var(--background);
-
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-
-.nav-links.is-open li {
-    width: 100%;
-}
-
-
-.nav-links.is-open a {
-    display: block;
-
-    padding: 15px 16px;
-
-    color: var(--charcoal);
-
-    text-decoration: none;
-
-    border-bottom: 1px solid var(--border);
-}
-
-
-.nav-links.is-open li:last-child a {
-    border-bottom: 0;
-}
-
-
-.nav-links.is-open a:hover {
-    color: var(--navy);
-}
-
-
-/* Hamburger → X */
-
-.navbar:has(.nav-links.is-open) .nav-toggle span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-
-.navbar:has(.nav-links.is-open) .nav-toggle span:nth-child(2) {
-    opacity: 0;
-}
-
-
-.navbar:has(.nav-links.is-open) .nav-toggle span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    background: var(--navy);
 }
 
 
 /* =====================================================
-   07. Buttons
+   06. BUTTONS
 ===================================================== */
 
 .button {
@@ -343,62 +283,63 @@ header {
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    min-height: 50px;
 
-    min-height: 48px;
-
-    margin-top: 24px;
-
-    padding: 14px 26px;
+    padding: 14px 24px;
 
     background: var(--navy);
+
     color: var(--white);
 
+    border: 1px solid var(--navy);
+
+    font-family: var(--body-font);
+
+    font-size: .9rem;
+
     font-weight: 600;
-    letter-spacing: .03em;
 
     text-decoration: none;
 
-    border-radius: 2px;
-
     transition:
-        transform .25s ease,
-        background .25s ease;
-}
-
-
-.button::after {
-    content: "→";
-
-    transition: transform .25s ease;
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .2s ease;
 }
 
 
 .button:hover {
     background: var(--accent);
 
-    transform: translateY(-2px);
-}
+    border-color: var(--accent);
 
+    color: var(--white);
 
-.button:hover::after {
-    transform: translateX(4px);
+    transform: translateY(-1px);
 }
 
 
 .button-light {
     background: var(--white);
+
+    border-color: var(--white);
+
     color: var(--navy);
 }
 
 
 .button-light:hover {
-    background: var(--background);
+    background: transparent;
+
+    border-color: var(--white);
+
+    color: var(--white);
 }
 
 
 /* =====================================================
-   08. Exposure Hero
+   07. EXPOSURE — HERO
 ===================================================== */
 
 .exposure-hero {
@@ -438,6 +379,7 @@ header {
     color: var(--text-muted);
 
     font-size: 1.12rem;
+
     line-height: 1.85;
 }
 
@@ -446,7 +388,6 @@ header {
     max-width: 650px;
 
     margin-top: 34px;
-
     padding-left: 22px;
 
     border-left: 2px solid var(--accent);
@@ -456,6 +397,7 @@ header {
     font-family: var(--heading-font);
 
     font-size: 1.05rem;
+
     font-weight: 600;
 
     line-height: 1.6;
@@ -511,7 +453,7 @@ header {
 
 
 /* =====================================================
-   09. Hero Visual
+   08. EXPOSURE — HERO VISUAL
 ===================================================== */
 
 .exposure-visual {
@@ -577,6 +519,7 @@ header {
     color: rgba(255,255,255,.55);
 
     font-size: .68rem;
+
     font-weight: 600;
 
     letter-spacing: .16em;
@@ -620,7 +563,7 @@ header {
 
 
 /* =====================================================
-   10. Opening Statement
+   09. EXPOSURE — OPENING
 ===================================================== */
 
 .exposure-opening {
@@ -656,9 +599,7 @@ header {
 
 
 /* =====================================================
-   11. Six Exposure Vectors
-   Card architecture intentionally mirrors
-   Failure Scenarios.
+   10. EXPOSURE — SIX VECTORS
 ===================================================== */
 
 .exposure-vectors {
@@ -687,11 +628,16 @@ header {
 
 
 /*
-   The vector list becomes a card grid.
+   The vectors intentionally use the same architecture
+   as Failure Scenarios.
 
-   This is deliberately NOT a three-column
-   row/table layout. Each vector owns its
-   complete content, exactly like a scenario.
+   Desktop:
+   3 self-contained cards
+
+   Mobile:
+   1 self-contained card per row
+
+   There is no internal column rearrangement.
 */
 
 .vector-list {
@@ -717,9 +663,9 @@ header {
 
     background: var(--background);
 
-    display: flex;
+    display: block;
 
-    flex-direction: column;
+    border: 0;
 
     transition:
         background .25s ease,
@@ -730,7 +676,7 @@ header {
 .exposure-vector:hover {
     background: var(--white);
 
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 
@@ -742,6 +688,7 @@ header {
     color: var(--accent);
 
     font-size: .7rem;
+
     font-weight: 600;
 
     letter-spacing: .12em;
@@ -756,20 +703,22 @@ header {
     font-family: var(--heading-font);
 
     font-size: 1.35rem;
+
     font-weight: 700;
 
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
 
 .vector-question {
-    max-width: 650px;
+    max-width: none;
 
     color: var(--charcoal);
 
     font-family: var(--heading-font);
 
     font-size: 1rem;
+
     font-weight: 600;
 
     line-height: 1.55;
@@ -777,18 +726,18 @@ header {
 
 
 .vector-description {
-    margin-top: 12px;
+    margin-top: 10px;
 
     color: var(--text-muted);
 
-    font-size: .92rem;
+    font-size: .9rem;
 
-    line-height: 1.65;
+    line-height: 1.6;
 }
 
 
 /* =====================================================
-   12. Perspective
+   11. PERSPECTIVE
 ===================================================== */
 
 .perspective-section {
@@ -836,6 +785,7 @@ header {
     font-family: var(--heading-font);
 
     font-size: 1.15rem;
+
     font-weight: 600;
 
     line-height: 1.6;
@@ -854,6 +804,7 @@ header {
     font-family: var(--body-font);
 
     font-size: .68rem;
+
     font-weight: 600;
 
     letter-spacing: .16em;
@@ -861,7 +812,7 @@ header {
 
 
 /* =====================================================
-   13. Failure Scenarios
+   12. FAILURE SCENARIOS
 ===================================================== */
 
 .scenarios-section {
@@ -917,6 +868,7 @@ header {
     color: var(--accent);
 
     font-size: .7rem;
+
     font-weight: 600;
 
     letter-spacing: .12em;
@@ -938,7 +890,7 @@ header {
 
 
 /* =====================================================
-   14. Field Notes
+   13. FIELD NOTES
 ===================================================== */
 
 .field-notes {
@@ -1011,6 +963,7 @@ header {
     color: var(--accent);
 
     font-size: .68rem;
+
     font-weight: 600;
 
     letter-spacing: .12em;
@@ -1036,7 +989,7 @@ header {
 
 
 /* =====================================================
-   15. Final CTA
+   14. FINAL CTA
 ===================================================== */
 
 .exposure-cta {
@@ -1107,145 +1060,151 @@ header {
 
 
 /* =====================================================
-   16. Tablet
+   15. FOOTER
 ===================================================== */
 
-@media (min-width: 700px) {
+footer {
+    background: var(--navy);
 
-    .container,
-    .navbar,
-    .footer-content,
-    .footer-bottom {
-        width: min(100% - 48px, var(--container));
-    }
+    color: var(--white);
+}
 
 
-    section {
-        padding-block: 80px;
-    }
+.footer-content {
+    width: min(1180px, calc(100% - 64px));
+
+    margin: 0 auto;
+
+    padding-top: 80px;
+    padding-bottom: 64px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+    gap: 80px;
+}
 
 
-    .navbar {
-        min-height: 84px;
-    }
+.footer-brand h3 {
+    margin-bottom: 10px;
+
+    color: var(--white);
+
+    font-size: 1.5rem;
+}
 
 
-    .nav-links.is-open {
-        top: 84px;
-    }
+.footer-tagline {
+    color: rgba(255,255,255,.8);
+
+    font-family: var(--heading-font);
+
+    font-size: 1rem;
+}
 
 
-    /*
-       Two-column vector cards on tablet.
-    */
+.footer-description {
+    max-width: 460px;
 
-    .vector-list {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
+    color: rgba(255,255,255,.55);
 
-
-    .scenario-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
+    font-size: .9rem;
+}
 
 
-    .footer-links {
-        grid-template-columns:
-            repeat(3, auto);
+.footer-credential {
+    margin-top: 28px;
 
-        gap: 48px;
-    }
+    color: rgba(255,255,255,.4);
 
+    font-size: .72rem;
+}
+
+
+.footer-links {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 36px;
+}
+
+
+.footer-links h4 {
+    margin-bottom: 18px;
+
+    color: var(--white);
+
+    font-size: .8rem;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+}
+
+
+.footer-links a {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: rgba(255,255,255,.58);
+
+    font-size: .85rem;
+
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+
+.footer-bottom {
+    width: min(1180px, calc(100% - 64px));
+
+    margin: 0 auto;
+
+    padding-top: 22px;
+    padding-bottom: 22px;
+
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: rgba(255,255,255,.38);
+
+    font-size: .72rem;
 }
 
 
 /* =====================================================
-   17. Desktop
+   16. LARGE TABLET / SMALL DESKTOP
 ===================================================== */
 
-@media (min-width: 1050px) {
+@media (max-width: 1000px) {
 
-    .navbar {
-        min-height: 96px;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: space-between;
+    .exposure-hero-layout {
+        gap: 56px;
     }
 
 
-    .logo {
-        order: 1;
-
-        justify-self: auto;
+    .perspective-layout {
+        gap: 60px;
     }
 
 
-    .nav-toggle {
-        display: none;
-    }
-
-
-    .nav-links {
-        order: 2;
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 28px;
-
-        list-style: none;
-    }
-
-
-    .nav-links a {
-        color: var(--charcoal);
-
-        text-decoration: none;
-
-        white-space: nowrap;
-
-        transition: color .25s ease;
-    }
-
-
-    .nav-links a:hover {
-        color: var(--navy);
-    }
-
-
-    .exposure-hero {
-        padding-top: 72px;
-        padding-bottom: 96px;
-    }
-
-
-    /*
-       Three cards on desktop, matching
-       Failure Scenarios exactly.
-    */
-
-    .vector-list {
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-    }
-
-
-    .scenario-grid {
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-    }
-
-
-    .footer-content {
-        flex-direction: row;
-
-        justify-content: space-between;
-
+    .field-notes-layout {
         gap: 60px;
     }
 
@@ -1253,40 +1212,111 @@ header {
 
 
 /* =====================================================
-   18. Large Desktop
+   17. TABLET
 ===================================================== */
 
-@media (min-width: 1400px) {
+@media (max-width: 900px) {
 
-    section {
-        padding-block: 96px;
+    .exposure-hero-layout,
+    .perspective-layout,
+    .field-notes-layout {
+        grid-template-columns: 1fr;
+
+        gap: 56px;
     }
 
 
-    .exposure-hero {
-        padding-top: 80px;
-        padding-bottom: 96px;
+    .scenario-grid,
+    .vector-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .exposure-visual {
+        min-height: 360px;
+    }
+
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 56px;
     }
 
 }
 
 
 /* =====================================================
-   19. Mobile
+   18. MOBILE
 ===================================================== */
 
-@media (max-width: 699px) {
+@media (max-width: 700px) {
+
+    .container,
+    .navbar,
+    .footer-content,
+    .footer-bottom {
+        width: min(100% - 40px, 1180px);
+    }
+
+
+    .navbar {
+        min-height: 76px;
+    }
+
+
+    .nav-toggle {
+        display: block;
+    }
+
+
+    .nav-links {
+        position: absolute;
+
+        top: 76px;
+        left: 20px;
+        right: 20px;
+
+        display: none;
+
+        padding: 18px;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+
+    .nav-links.is-open {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0;
+    }
+
+
+    .nav-links li {
+        width: 100%;
+    }
+
+
+    .nav-links a {
+        display: block;
+
+        width: 100%;
+
+        padding: 12px 4px;
+    }
+
 
     .exposure-hero {
         padding-top: 48px;
         padding-bottom: 72px;
-    }
-
-
-    .exposure-hero-layout {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
     }
 
 
@@ -1296,16 +1326,6 @@ header {
         flex-direction: column;
 
         gap: 8px;
-    }
-
-
-    .exposure-visual {
-        min-height: 320px;
-    }
-
-
-    .exposure-visual-inner {
-        width: 82%;
     }
 
 
@@ -1320,17 +1340,12 @@ header {
 
 
     /*
-       ONE CARD PER ROW.
-
-       No special grid-column rules.
-       No horizontal layout.
-       No vertical text.
+       Six Exposure Vectors now use the same
+       one-card-per-row model as Failure Scenarios.
     */
 
     .vector-list {
         grid-template-columns: 1fr;
-
-        gap: 1px;
     }
 
 
@@ -1341,35 +1356,20 @@ header {
     }
 
 
-    .exposure-vector:hover {
-        transform: none;
-    }
-
-
     .vector-number {
-        margin-bottom: 24px;
+        margin-bottom: 30px;
     }
 
 
     .vector-name {
         margin-bottom: 16px;
 
-        font-size: 1.3rem;
+        font-size: 1.25rem;
     }
 
 
     .vector-question {
         font-size: .98rem;
-    }
-
-
-    .vector-description {
-        font-size: .9rem;
-    }
-
-
-    .scenario-grid {
-        grid-template-columns: 1fr;
     }
 
 
@@ -1380,21 +1380,8 @@ header {
     }
 
 
-    .perspective-layout {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
-    }
-
-
-    .field-notes-layout {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
-    }
-
-
     .exposure-cta {
+        padding-top: 32px;
         padding-bottom: 80px;
     }
 
@@ -1404,19 +1391,17 @@ header {
     }
 
 
-    .exposure-cta-actions {
-        align-items: flex-start;
+    .footer-links {
+        grid-template-columns: 1fr 1fr;
 
-        flex-direction: column;
-
-        gap: 8px;
+        gap: 36px 24px;
     }
 
 }
 
 
 /* =====================================================
-   20. Small Mobile
+   19. SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
@@ -1425,12 +1410,17 @@ header {
     .navbar,
     .footer-content,
     .footer-bottom {
-        width: min(100% - 32px, var(--container));
+        width: calc(100% - 32px);
     }
 
 
     h1 {
-        font-size: clamp(2.25rem, 11vw, 3rem);
+        font-size: clamp(2.45rem, 12vw, 3.4rem);
+    }
+
+
+    h2 {
+        font-size: clamp(2rem, 10vw, 2.8rem);
     }
 
 
@@ -1449,132 +1439,18 @@ header {
     }
 
 
+    .exposure-vector:hover {
+        transform: none;
+    }
+
+
     .scenario {
         padding: 30px 24px;
     }
 
 
-    .exposure-cta-box {
-        padding: 38px 24px;
+    .footer-links {
+        grid-template-columns: 1fr;
     }
 
-}
-
-
-/* =====================================================
-   21. Footer
-===================================================== */
-
-footer {
-    padding: 64px 0 24px;
-
-    background: var(--navy);
-
-    color: var(--white);
-}
-
-
-.footer-content {
-    width: min(100% - 32px, var(--container));
-
-    margin-inline: auto;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 64px;
-}
-
-
-.footer-brand {
-    max-width: 350px;
-}
-
-
-.footer-brand h3 {
-    margin-bottom: 16px;
-
-    color: var(--white);
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-}
-
-
-.footer-tagline {
-    margin-bottom: 16px;
-
-    color: var(--accent);
-
-    font-weight: 600;
-}
-
-
-.footer-description {
-    color: rgba(255,255,255,.75);
-}
-
-
-.footer-credential {
-    margin-top: 16px;
-
-    color: rgba(255,255,255,.6);
-
-    font-size: .9rem;
-}
-
-
-.footer-links {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 40px;
-}
-
-
-.footer-links h4 {
-    margin-bottom: 16px;
-
-    color: var(--accent);
-}
-
-
-.footer-links a {
-    display: block;
-
-    margin-bottom: 10px;
-
-    color: var(--white);
-
-    opacity: .85;
-
-    text-decoration: none;
-
-    transition: opacity .2s ease;
-}
-
-
-.footer-links a:hover {
-    opacity: 1;
-}
-
-
-.footer-bottom {
-    width: min(100% - 32px, var(--container));
-
-    margin: 64px auto 0;
-
-    padding-top: 24px;
-
-    border-top: 1px solid rgba(255,255,255,.15);
-}
-
-
-.footer-bottom p {
-    color: rgba(255,255,255,.55);
-
-    font-size: .9rem;
 }
