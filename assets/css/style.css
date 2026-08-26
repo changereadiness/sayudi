@@ -172,6 +172,27 @@ p {
 }
 
 
+.home-section {
+    padding-top: 104px;
+    padding-bottom: 104px;
+}
+
+
+.home-section-light {
+    background: var(--white);
+
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+
+.home-section-dark {
+    background: var(--navy);
+
+    color: var(--white);
+}
+
+
 /* =====================================================
    05. NAVIGATION
 ===================================================== */
@@ -180,10 +201,14 @@ header {
     position: relative;
 
     z-index: 100;
+
+    background: var(--background);
 }
 
 
 .navbar {
+    position: relative;
+
     width: min(1180px, calc(100% - 64px));
 
     min-height: 96px;
@@ -339,42 +364,63 @@ header {
 
 
 /* =====================================================
-   07. EXPOSURE — HERO
+   07. TEXT LINKS
 ===================================================== */
 
-.exposure-hero {
-    padding-top: 72px;
-    padding-bottom: 96px;
-}
-
-
-.exposure-hero-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.1fr)
-        minmax(300px, .9fr);
-
-    gap: 90px;
+.text-link {
+    display: inline-flex;
 
     align-items: center;
+
+    gap: 8px;
+
+    padding: 14px 4px;
+
+    color: var(--navy);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
 }
 
 
-.exposure-hero-content {
-    max-width: 780px;
+.text-link:hover {
+    color: var(--accent);
 }
 
 
-.exposure-hero h1 {
-    max-width: 780px;
+.text-link-light {
+    color: var(--white);
 }
 
 
-.exposure-hero-lead {
-    max-width: 680px;
+.text-link-light:hover {
+    color: rgba(255,255,255,.68);
+}
 
-    margin-top: 30px;
+
+/* =====================================================
+   08. HOME — HERO
+===================================================== */
+
+.home-intro {
+    max-width: 900px;
+}
+
+
+.home-intro h1 {
+    max-width: 900px;
+
+    margin-bottom: 28px;
+}
+
+
+.home-intro > p:not(.home-question) {
+    max-width: 720px;
 
     color: var(--text-muted);
 
@@ -384,10 +430,12 @@ header {
 }
 
 
-.exposure-hero-question {
-    max-width: 650px;
+.home-question {
+    max-width: 680px;
 
     margin-top: 34px;
+    margin-bottom: 0;
+
     padding-left: 22px;
 
     border-left: 2px solid var(--accent);
@@ -404,10 +452,12 @@ header {
 }
 
 
-.exposure-hero-actions {
+.home-actions {
     display: flex;
 
     flex-wrap: wrap;
+
+    align-items: center;
 
     gap: 18px;
 
@@ -415,181 +465,63 @@ header {
 }
 
 
-.exposure-hero-actions .button {
-    margin-top: 0;
+/* =====================================================
+   09. HOME — SECTION HEADERS
+===================================================== */
+
+.section-header {
+    max-width: 800px;
+
+    margin-bottom: 56px;
 }
 
 
-.exposure-text-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 14px 4px;
-
-    color: var(--navy);
-
-    font-weight: 600;
-
-    text-decoration: none;
+.section-header h2 {
+    margin-bottom: 18px;
 }
 
 
-.exposure-text-link span {
-    transition: transform .2s ease;
+.section-header p {
+    max-width: 760px;
+
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
 }
 
 
-.exposure-text-link:hover {
+.home-section-dark .section-header p {
+    color: rgba(255,255,255,.68);
+}
+
+
+.home-section-dark .section-header h2 {
+    color: var(--white);
+}
+
+
+.home-section-dark .eyebrow {
     color: var(--accent);
 }
 
 
-.exposure-text-link:hover span {
-    transform: translateX(4px);
-}
-
-
 /* =====================================================
-   08. EXPOSURE — HERO VISUAL
+   10. HOME — PROBLEM / COPY
 ===================================================== */
 
-.exposure-visual {
-    position: relative;
-
-    min-height: 430px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: var(--navy);
-
-    overflow: hidden;
-
-    border-radius: 3px;
-}
-
-
-.exposure-visual::before {
-    content: "";
-
-    position: absolute;
-
-    width: 340px;
-    height: 340px;
-
-    border: 1px solid rgba(255,255,255,.09);
-
-    border-radius: 50%;
-}
-
-
-.exposure-visual::after {
-    content: "";
-
-    position: absolute;
-
-    width: 210px;
-    height: 210px;
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    border-radius: 50%;
-}
-
-
-.exposure-visual-inner {
-    position: relative;
-
-    z-index: 2;
-
-    width: 78%;
-}
-
-
-.exposure-visual-label {
-    display: block;
-
-    margin-bottom: 26px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .16em;
-
-    text-transform: uppercase;
-}
-
-
-.exposure-visual-statement {
-    color: var(--white);
-
-    font-family: var(--heading-font);
-
-    font-size: clamp(1.8rem, 4vw, 2.7rem);
-
-    font-weight: 700;
-
-    letter-spacing: -.03em;
-
-    line-height: 1.12;
-}
-
-
-.exposure-visual-line {
-    width: 60px;
-    height: 2px;
-
-    margin: 28px 0;
-
-    background: var(--accent);
-}
-
-
-.exposure-visual-note {
-    color: rgba(255,255,255,.62);
-
-    font-size: .88rem;
-
-    line-height: 1.7;
-}
-
-
-/* =====================================================
-   09. EXPOSURE — OPENING
-===================================================== */
-
-.exposure-opening {
-    padding-top: 96px;
-    padding-bottom: 96px;
-
-    background: var(--white);
-
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-
-.exposure-opening-content {
+.home-copy {
     max-width: 900px;
 }
 
 
-.exposure-opening h2 {
+.home-copy h2 {
     max-width: 850px;
 
     font-size: clamp(2.2rem, 5vw, 3.5rem);
 }
 
 
-.exposure-opening p {
+.home-copy p {
     max-width: 780px;
 
     color: var(--text-muted);
@@ -599,35 +531,10 @@ header {
 
 
 /* =====================================================
-   10. EXPOSURE — SIX VECTORS
+   11. HOME — EXPOSURE CARDS
 ===================================================== */
 
-.exposure-vectors {
-    padding-top: 104px;
-    padding-bottom: 104px;
-}
-
-
-.exposure-vectors-header {
-    max-width: 800px;
-
-    margin-bottom: 56px;
-}
-
-
-.exposure-vectors-header h2 {
-    margin-bottom: 18px;
-}
-
-
-.exposure-vectors-header p {
-    color: var(--text-muted);
-
-    font-size: 1.05rem;
-}
-
-
-.vector-list {
+.home-card-grid {
     display: grid;
 
     grid-template-columns:
@@ -641,7 +548,7 @@ header {
 }
 
 
-.exposure-vector {
+.home-card {
     min-width: 0;
 
     min-height: 320px;
@@ -650,24 +557,20 @@ header {
 
     background: var(--background);
 
-    display: block;
-
-    border: 0;
-
     transition:
         background .25s ease,
         transform .25s ease;
 }
 
 
-.exposure-vector:hover {
+.home-card:hover {
     background: var(--white);
 
     transform: translateY(-2px);
 }
 
 
-.vector-number {
+.card-number {
     display: block;
 
     margin-bottom: 36px;
@@ -682,23 +585,24 @@ header {
 }
 
 
-.vector-name {
+.home-card h3 {
     margin-bottom: 18px;
 
     color: var(--navy);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.35rem;
-
-    font-weight: 700;
-
-    line-height: 1.25;
 }
 
 
-.vector-question {
-    max-width: none;
+.home-card p {
+    color: var(--text-muted);
+
+    font-size: .9rem;
+
+    line-height: 1.65;
+}
+
+
+.home-card .card-question {
+    margin-bottom: 10px;
 
     color: var(--charcoal);
 
@@ -712,94 +616,51 @@ header {
 }
 
 
-.vector-description {
-    margin-top: 10px;
-
-    color: var(--text-muted);
-
-    font-size: .9rem;
-
-    line-height: 1.6;
-}
-
-
 /* =====================================================
-   11. PERSPECTIVE
+   12. HOME — DARK PERSPECTIVE
 ===================================================== */
 
-.perspective-section {
+.home-section-dark {
     padding-top: 104px;
     padding-bottom: 104px;
+}
 
-    background: var(--navy);
+
+.home-section-dark .section-header {
+    max-width: 900px;
+
+    margin-bottom: 48px;
+}
+
+
+.home-section-dark .section-header h2 {
+    max-width: 800px;
+}
+
+
+.home-statement {
+    max-width: 850px;
+
+    padding-top: 42px;
+
+    border-top: 1px solid rgba(255,255,255,.12);
 
     color: var(--white);
-}
-
-
-.perspective-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(300px, .75fr);
-
-    gap: 100px;
-
-    align-items: start;
-}
-
-
-.perspective-section h2 {
-    max-width: 760px;
-
-    color: var(--white);
-}
-
-
-.perspective-section p {
-    max-width: 700px;
-
-    color: rgba(255,255,255,.68);
-}
-
-
-.perspective-question {
-    padding-top: 4px;
-
-    color: rgba(255,255,255,.82);
 
     font-family: var(--heading-font);
 
-    font-size: 1.15rem;
+    font-size: clamp(1.7rem, 4vw, 2.7rem);
 
-    font-weight: 600;
+    font-weight: 700;
 
-    line-height: 1.6;
-}
+    letter-spacing: -.03em;
 
-
-.perspective-question::before {
-    content: "THE QUESTION";
-
-    display: block;
-
-    margin-bottom: 18px;
-
-    color: var(--accent);
-
-    font-family: var(--body-font);
-
-    font-size: .68rem;
-
-    font-weight: 600;
-
-    letter-spacing: .16em;
+    line-height: 1.2;
 }
 
 
 /* =====================================================
-   12. FAILURE SCENARIOS
+   13. FAILURE SCENARIOS
 ===================================================== */
 
 .scenarios-section {
@@ -812,6 +673,11 @@ header {
     max-width: 780px;
 
     margin-bottom: 56px;
+}
+
+
+.scenarios-header h2 {
+    margin-bottom: 18px;
 }
 
 
@@ -844,6 +710,17 @@ header {
     padding: 36px;
 
     background: var(--background);
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+}
+
+
+.scenario:hover {
+    background: var(--white);
+
+    transform: translateY(-2px);
 }
 
 
@@ -870,64 +747,37 @@ header {
 
 
 .scenario p {
+    margin-bottom: 0;
+
     color: var(--text-muted);
 
     font-size: .92rem;
+
+    line-height: 1.7;
 }
 
 
 /* =====================================================
-   13. FIELD NOTES
+   14. FIELD NOTES
 ===================================================== */
 
-.field-notes {
-    padding-top: 96px;
-    padding-bottom: 96px;
-
-    background: var(--white);
+.home-list {
+    max-width: 900px;
 
     border-top: 1px solid var(--border);
 }
 
 
-.field-notes-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, .8fr)
-        minmax(0, 1.2fr);
-
-    gap: 90px;
-
-    align-items: start;
-}
-
-
-.field-notes h2 {
-    max-width: 500px;
-}
-
-
-.field-notes-intro p {
-    color: var(--text-muted);
-}
-
-
-.field-note-list {
-    border-top: 1px solid var(--border);
-}
-
-
-.field-note {
+.home-list-item {
     display: block;
 
     padding: 25px 0;
 
+    border-bottom: 1px solid var(--border);
+
     color: inherit;
 
     text-decoration: none;
-
-    border-bottom: 1px solid var(--border);
 
     transition:
         padding .2s ease,
@@ -935,14 +785,14 @@ header {
 }
 
 
-.field-note:hover {
+.home-list-item:hover {
     padding-left: 10px;
 
     color: var(--accent);
 }
 
 
-.field-note-meta {
+.home-list-item span {
     display: block;
 
     margin-bottom: 8px;
@@ -955,11 +805,11 @@ header {
 
     letter-spacing: .12em;
 
-    text-transform: uppercase;
+    line-height: 1.4;
 }
 
 
-.field-note strong {
+.home-list-item strong {
     display: block;
 
     color: var(--navy);
@@ -967,25 +817,23 @@ header {
     font-family: var(--heading-font);
 
     font-size: 1rem;
+
+    font-weight: 700;
+
+    line-height: 1.45;
 }
 
 
-.field-note:hover strong {
+.home-list-item:hover strong {
     color: var(--accent);
 }
 
 
 /* =====================================================
-   14. FINAL CTA
+   15. FINAL CTA
 ===================================================== */
 
-.exposure-cta {
-    padding-top: 40px;
-    padding-bottom: 112px;
-}
-
-
-.exposure-cta-box {
+.home-cta {
     padding: 72px;
 
     background: var(--navy);
@@ -994,7 +842,7 @@ header {
 }
 
 
-.exposure-cta-box h2 {
+.home-cta h2 {
     max-width: 800px;
 
     margin-bottom: 20px;
@@ -1003,51 +851,27 @@ header {
 }
 
 
-.exposure-cta-box p {
+.home-cta p {
     max-width: 680px;
 
     color: rgba(255,255,255,.68);
+
+    font-size: 1.05rem;
 }
 
 
-.exposure-cta-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 22px;
-
-    margin-top: 32px;
-}
-
-
-.exposure-cta-actions .button {
-    margin-top: 0;
-}
-
-
-.exposure-cta-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 14px 0;
-
-    color: var(--white);
-
-    font-weight: 600;
-
-    text-decoration: none;
-}
-
-
-.exposure-cta-link:hover {
+.home-cta .eyebrow {
     color: var(--accent);
 }
 
 
+.home-cta .home-actions {
+    margin-top: 32px;
+}
+
+
 /* =====================================================
-   15. FOOTER
+   16. FOOTER
 ===================================================== */
 
 footer {
@@ -1176,22 +1000,19 @@ footer {
 
 
 /* =====================================================
-   16. LARGE TABLET / SMALL DESKTOP
+   17. LARGE TABLET / SMALL DESKTOP
 ===================================================== */
 
 @media (max-width: 1000px) {
 
-    .exposure-hero-layout {
-        gap: 56px;
+    .home-card-grid,
+    .scenario-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
 
-    .perspective-layout {
-        gap: 60px;
-    }
-
-
-    .field-notes-layout {
+    .footer-content {
         gap: 60px;
     }
 
@@ -1199,28 +1020,26 @@ footer {
 
 
 /* =====================================================
-   17. TABLET
+   18. TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
 
-    .exposure-hero-layout,
-    .perspective-layout,
-    .field-notes-layout {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
+    .home-section {
+        padding-top: 88px;
+        padding-bottom: 88px;
     }
 
 
-    .scenario-grid,
-    .vector-list {
+    .home-card-grid,
+    .scenario-grid {
         grid-template-columns: 1fr;
     }
 
 
-    .exposure-visual {
-        min-height: 360px;
+    .home-card,
+    .scenario {
+        min-height: auto;
     }
 
 
@@ -1234,7 +1053,7 @@ footer {
 
 
 /* =====================================================
-   18. MOBILE
+   19. MOBILE
 ===================================================== */
 
 @media (max-width: 700px) {
@@ -1308,13 +1127,36 @@ footer {
     }
 
 
-    .exposure-hero {
-        padding-top: 48px;
+    .home-section,
+    .home-section-dark,
+    .scenarios-section {
+        padding-top: 72px;
         padding-bottom: 72px;
     }
 
 
-    .exposure-hero-actions {
+    .home-intro h1 {
+        margin-bottom: 24px;
+    }
+
+
+    .home-intro > p:not(.home-question) {
+        font-size: 1rem;
+
+        line-height: 1.75;
+    }
+
+
+    .home-question {
+        margin-top: 28px;
+
+        padding-left: 18px;
+
+        font-size: 1rem;
+    }
+
+
+    .home-actions {
         align-items: flex-start;
 
         flex-direction: column;
@@ -1323,60 +1165,59 @@ footer {
     }
 
 
-    .exposure-opening,
-    .exposure-vectors,
-    .perspective-section,
-    .scenarios-section,
-    .field-notes {
-        padding-top: 72px;
-        padding-bottom: 72px;
+    .section-header,
+    .scenarios-header {
+        margin-bottom: 42px;
     }
 
 
-    .vector-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    .exposure-vector {
-        min-height: auto;
-
+    .home-card {
         padding: 32px 28px;
     }
 
 
-    .vector-number {
+    .card-number,
+    .scenario-number {
         margin-bottom: 30px;
     }
 
 
-    .vector-name {
-        margin-bottom: 16px;
-
-        font-size: 1.25rem;
+    .home-card h3,
+    .scenario h3 {
+        font-size: 1.35rem;
     }
 
 
-    .vector-question {
+    .home-card .card-question {
         font-size: .98rem;
     }
 
 
     .scenario {
-        min-height: auto;
-
         padding: 32px 28px;
     }
 
 
-    .exposure-cta {
+    .home-statement {
         padding-top: 32px;
-        padding-bottom: 80px;
+
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
     }
 
 
-    .exposure-cta-box {
+    .home-cta {
         padding: 42px 28px;
+    }
+
+
+    .home-cta p {
+        font-size: 1rem;
+    }
+
+
+    .footer-content {
+        padding-top: 72px;
+        padding-bottom: 56px;
     }
 
 
@@ -1410,7 +1251,7 @@ footer {
 
 
 /* =====================================================
-   19. SMALL MOBILE
+   20. SMALL MOBILE
 ===================================================== */
 
 @media (max-width: 480px) {
@@ -1438,32 +1279,38 @@ footer {
     }
 
 
-    .exposure-visual {
-        min-height: 320px;
+    .home-section,
+    .home-section-dark,
+    .scenarios-section {
+        padding-top: 64px;
+        padding-bottom: 64px;
     }
 
 
-    .exposure-visual-inner {
-        width: 82%;
-    }
-
-
-    .exposure-vector {
+    .home-card,
+    .scenario {
         padding: 30px 24px;
     }
 
 
-    .exposure-vector:hover {
+    .home-card:hover,
+    .scenario:hover {
         transform: none;
     }
 
 
-    .scenario {
-        padding: 30px 24px;
+    .home-list-item {
+        padding: 22px 0;
+    }
+
+
+    .home-cta {
+        padding: 38px 24px;
     }
 
 
     .footer-links {
         grid-template-columns: 1fr;
     }
+
 }
