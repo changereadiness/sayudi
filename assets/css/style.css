@@ -1417,32 +1417,3 @@ footer {
     }
 
 }
-
-/* =====================================================
-   HERO — FULL-WIDTH OBLIQUE LINE BACKGROUND
-===================================================== */
-
-.home-section:first-child {
-    position: relative;
-    overflow: hidden;
-
-    background:
-        repeating-linear-gradient(
-            135deg,
-            transparent 0,
-            transparent 34px,
-            rgba(71,107,138,.07) 35px,
-            transparent 36px
-        );
-}
-/* HERO TEST */
-.home-section:first-of-type {
-    background: repeating-linear-gradient(
-        135deg,
-        #F8F8F6 0px,
-        #F8F8F6 39px,
-        #E8ECEF 40px,
-        #F8F8F6 41px
-    ) !important;
-}
-}
