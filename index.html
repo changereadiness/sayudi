@@ -53,795 +53,6 @@
     href="assets/css/style.css"
 >
 
-
-<style>
-
-/* =====================================================
-   SAYUDI — EXPOSURE HOMEPAGE
-   Page-specific architecture
-===================================================== */
-
-
-/* =====================================================
-   01. Hero
-===================================================== */
-
-.exposure-hero {
-    padding-top: 72px;
-    padding-bottom: 96px;
-}
-
-
-.exposure-hero-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.1fr)
-        minmax(300px, .9fr);
-
-    gap: 90px;
-
-    align-items: center;
-}
-
-
-.exposure-hero-content {
-    max-width: 780px;
-}
-
-
-.exposure-hero h1 {
-    max-width: 780px;
-}
-
-
-.exposure-hero-lead {
-    max-width: 680px;
-
-    margin-top: 30px;
-
-    color: var(--text-muted);
-
-    font-size: 1.12rem;
-    line-height: 1.85;
-}
-
-
-.exposure-hero-question {
-    max-width: 650px;
-
-    margin-top: 34px;
-    padding-left: 22px;
-
-    border-left: 2px solid var(--accent);
-
-    color: var(--charcoal);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.05rem;
-    font-weight: 600;
-
-    line-height: 1.6;
-}
-
-
-.exposure-hero-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 18px;
-
-    margin-top: 36px;
-}
-
-
-.exposure-hero-actions .button {
-    margin-top: 0;
-}
-
-
-.exposure-text-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    padding: 14px 4px;
-
-    color: var(--navy);
-
-    font-weight: 600;
-
-    text-decoration: none;
-}
-
-
-.exposure-text-link span {
-    transition: transform .2s ease;
-}
-
-
-.exposure-text-link:hover {
-    color: var(--accent);
-}
-
-
-.exposure-text-link:hover span {
-    transform: translateX(4px);
-}
-
-
-/* =====================================================
-   02. Hero visual
-===================================================== */
-
-.exposure-visual {
-    position: relative;
-
-    min-height: 430px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: var(--navy);
-
-    overflow: hidden;
-
-    border-radius: 3px;
-}
-
-
-.exposure-visual::before {
-    content: "";
-
-    position: absolute;
-
-    width: 340px;
-    height: 340px;
-
-    border: 1px solid rgba(255,255,255,.09);
-
-    border-radius: 50%;
-}
-
-
-.exposure-visual::after {
-    content: "";
-
-    position: absolute;
-
-    width: 210px;
-    height: 210px;
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    border-radius: 50%;
-}
-
-
-.exposure-visual-inner {
-    position: relative;
-
-    z-index: 2;
-
-    width: 78%;
-}
-
-
-.exposure-visual-label {
-    margin-bottom: 26px;
-
-    color: rgba(255,255,255,.55);
-
-    font-size: .68rem;
-    font-weight: 600;
-
-    letter-spacing: .16em;
-
-    text-transform: uppercase;
-}
-
-
-.exposure-visual-statement {
-    color: var(--white);
-
-    font-family: var(--heading-font);
-
-    font-size: clamp(1.8rem, 4vw, 2.7rem);
-
-    font-weight: 700;
-
-    letter-spacing: -.03em;
-
-    line-height: 1.12;
-}
-
-
-.exposure-visual-line {
-    width: 60px;
-    height: 2px;
-
-    margin: 28px 0;
-
-    background: var(--accent);
-}
-
-
-.exposure-visual-note {
-    color: rgba(255,255,255,.62);
-
-    font-size: .88rem;
-
-    line-height: 1.7;
-}
-
-
-/* =====================================================
-   03. Opening statement
-===================================================== */
-
-.exposure-opening {
-    padding-top: 96px;
-    padding-bottom: 96px;
-
-    background: var(--white);
-
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-}
-
-
-.exposure-opening-content {
-    max-width: 900px;
-}
-
-
-.exposure-opening h2 {
-    max-width: 850px;
-
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-}
-
-
-.exposure-opening p {
-    max-width: 780px;
-
-    color: var(--text-muted);
-
-    font-size: 1.05rem;
-}
-
-/* =====================================================
-   04. Exposure vectors
-===================================================== */
-
-.exposure-vectors {
-    padding-top: 104px;
-    padding-bottom: 104px;
-}
-
-
-.exposure-vectors-header {
-    max-width: 800px;
-
-    margin-bottom: 56px;
-}
-
-
-.exposure-vectors-header h2 {
-    margin-bottom: 18px;
-}
-
-
-.exposure-vectors-header p {
-    color: var(--text-muted);
-
-    font-size: 1.05rem;
-}
-
-
-.vector-list {
-    border-top: 1px solid var(--border);
-}
-
-
-.exposure-vector {
-    display: grid;
-
-    grid-template-columns: 80px minmax(180px, .65fr) minmax(0, 1.35fr);
-
-    gap: 40px;
-
-    padding: 38px 0;
-
-    border-bottom: 1px solid var(--border);
-
-    transition:
-        padding .25s ease,
-        background .25s ease;
-}
-
-
-.exposure-vector:hover {
-    padding-left: 18px;
-    padding-right: 18px;
-
-    background: rgba(255,255,255,.55);
-}
-
-
-.vector-number {
-    color: var(--accent);
-
-    font-size: .72rem;
-    font-weight: 600;
-
-    letter-spacing: .12em;
-}
-
-
-.vector-name {
-    color: var(--navy);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.35rem;
-    font-weight: 700;
-
-    line-height: 1.25;
-}
-
-
-.vector-question {
-    max-width: 650px;
-
-    color: var(--charcoal);
-
-    font-family: var(--heading-font);
-
-    font-size: 1rem;
-    font-weight: 600;
-
-    line-height: 1.55;
-}
-
-
-.vector-description {
-    margin-top: 10px;
-
-    color: var(--text-muted);
-
-    font-size: .9rem;
-}
-
-/* =====================================================
-   05. Perspective
-===================================================== */
-
-.perspective-section {
-    padding-top: 104px;
-    padding-bottom: 104px;
-
-    background: var(--navy);
-
-    color: var(--white);
-}
-
-
-.perspective-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(300px, .75fr);
-
-    gap: 100px;
-
-    align-items: start;
-}
-
-
-.perspective-section h2 {
-    color: var(--white);
-
-    max-width: 760px;
-}
-
-
-.perspective-section p {
-    color: rgba(255,255,255,.68);
-
-    max-width: 700px;
-}
-
-
-.perspective-question {
-    padding-top: 4px;
-
-    color: rgba(255,255,255,.82);
-
-    font-family: var(--heading-font);
-
-    font-size: 1.15rem;
-    font-weight: 600;
-
-    line-height: 1.6;
-}
-
-
-.perspective-question::before {
-    content: "THE QUESTION";
-
-    display: block;
-
-    margin-bottom: 18px;
-
-    color: var(--accent);
-
-    font-family: var(--body-font);
-
-    font-size: .68rem;
-    font-weight: 600;
-
-    letter-spacing: .16em;
-}
-
-
-/* =====================================================
-   06. Failure scenarios
-===================================================== */
-
-.scenarios-section {
-    padding-top: 104px;
-    padding-bottom: 104px;
-}
-
-
-.scenarios-header {
-    max-width: 780px;
-
-    margin-bottom: 56px;
-}
-
-
-.scenarios-header p {
-    color: var(--text-muted);
-
-    font-size: 1.05rem;
-}
-
-
-.scenario-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 1px;
-
-    background: var(--border);
-
-    border: 1px solid var(--border);
-}
-
-
-.scenario {
-    min-height: 320px;
-
-    padding: 36px;
-
-    background: var(--background);
-}
-
-
-.scenario-number {
-    display: block;
-
-    margin-bottom: 36px;
-
-    color: var(--accent);
-
-    font-size: .7rem;
-    font-weight: 600;
-
-    letter-spacing: .12em;
-}
-
-
-.scenario h3 {
-    margin-bottom: 18px;
-
-    color: var(--navy);
-}
-
-
-.scenario p {
-    color: var(--text-muted);
-
-    font-size: .92rem;
-}
-
-
-/* =====================================================
-   07. Field Notes
-===================================================== */
-
-.field-notes {
-    padding-top: 96px;
-    padding-bottom: 96px;
-
-    background: var(--white);
-
-    border-top: 1px solid var(--border);
-}
-
-
-.field-notes-layout {
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, .8fr)
-        minmax(0, 1.2fr);
-
-    gap: 90px;
-
-    align-items: start;
-}
-
-
-.field-notes h2 {
-    max-width: 500px;
-}
-
-
-.field-notes-intro p {
-    color: var(--text-muted);
-}
-
-
-.field-note-list {
-    border-top: 1px solid var(--border);
-}
-
-
-.field-note {
-    display: block;
-
-    padding: 25px 0;
-
-    color: inherit;
-
-    text-decoration: none;
-
-    border-bottom: 1px solid var(--border);
-
-    transition:
-        padding .2s ease,
-        color .2s ease;
-}
-
-
-.field-note:hover {
-    padding-left: 10px;
-
-    color: var(--accent);
-}
-
-
-.field-note-meta {
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: var(--accent);
-
-    font-size: .68rem;
-    font-weight: 600;
-
-    letter-spacing: .12em;
-
-    text-transform: uppercase;
-}
-
-
-.field-note strong {
-    display: block;
-
-    color: var(--navy);
-
-    font-family: var(--heading-font);
-
-    font-size: 1rem;
-}
-
-
-.field-note:hover strong {
-    color: var(--accent);
-}
-
-
-/* =====================================================
-   08. Final invitation
-===================================================== */
-
-.exposure-cta {
-    padding-top: 40px;
-    padding-bottom: 112px;
-}
-
-
-.exposure-cta-box {
-    padding: 72px;
-
-    background: var(--navy);
-
-    border-radius: 3px;
-}
-
-
-.exposure-cta-box h2 {
-    max-width: 800px;
-
-    margin-bottom: 20px;
-
-    color: var(--white);
-}
-
-
-.exposure-cta-box p {
-    max-width: 680px;
-
-    color: rgba(255,255,255,.68);
-}
-
-
-.exposure-cta-actions {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 22px;
-
-    margin-top: 32px;
-}
-
-
-.exposure-cta-actions .button {
-    margin-top: 0;
-}
-
-
-.exposure-cta-link {
-    display: inline-flex;
-
-    align-items: center;
-
-    padding: 14px 0;
-
-    color: var(--white);
-
-    font-weight: 600;
-
-    text-decoration: none;
-}
-
-
-.exposure-cta-link:hover {
-    color: var(--accent);
-}
-
-
-/* =====================================================
-   09. Responsive
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .exposure-hero-layout,
-    .perspective-layout,
-    .field-notes-layout {
-        grid-template-columns: 1fr;
-
-        gap: 56px;
-    }
-
-
-    .scenario-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .exposure-visual {
-        min-height: 360px;
-    }
-
-}
-
-
-@media (max-width: 700px) {
-
-    .exposure-hero {
-        padding-top: 48px;
-        padding-bottom: 72px;
-    }
-
-
-    .exposure-vector {
-        grid-template-columns: 42px 1fr;
-
-        gap: 18px;
-
-        padding: 28px 0;
-    }
-
-
-    .vector-question {
-        grid-column: 2;
-    }
-
-
-    .vector-description {
-        grid-column: 2;
-    }
-
-
-    .exposure-opening,
-    .exposure-vectors,
-    .perspective-section,
-    .scenarios-section,
-    .field-notes {
-        padding-top: 72px;
-        padding-bottom: 72px;
-    }
-
-
-    .exposure-cta {
-        padding-bottom: 80px;
-    }
-
-
-    .exposure-cta-box {
-        padding: 42px 28px;
-    }
-
-}
-
-
-@media (max-width: 480px) {
-
-    .exposure-hero-actions {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 8px;
-    }
-
-
-    .exposure-visual {
-        min-height: 320px;
-    }
-
-
-    .exposure-visual-inner {
-        width: 82%;
-    }
-
-
-    .exposure-vector:hover {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
-}
-
-</style>
-
 </head>
 
 
@@ -929,35 +140,31 @@
      HERO
 ===================================================== -->
 
-<section class="exposure-hero">
+<section class="home-section">
 
-    <div class="container exposure-hero-layout">
+    <div class="container">
 
-
-        <div class="exposure-hero-content">
+        <div class="home-intro">
 
             <span class="eyebrow">
                 TRANSFORMATION · CHANGE INTELLIGENCE
             </span>
 
-
             <h1>
-                Transformation risks are often invisible from the top.
+                The most dangerous transformation risks are often invisible from the top.
             </h1>
 
-
-            <p class="exposure-hero-lead">
-                We make them visible.
-
+            <p>
+                Executives see the strategy, the milestones, the dashboards,
+                and the reported progress. The organization experiences
+                something else.
             </p>
 
-
-            <p class="exposure-hero-question">
+            <p class="home-question">
                 What are you exposed to that you cannot see?
             </p>
 
-
-            <div class="exposure-hero-actions">
+            <div class="home-actions">
 
                 <a
                     class="button"
@@ -966,73 +173,39 @@
                     Explore Exposure
                 </a>
 
-
                 <a
-                    class="exposure-text-link"
+                    class="text-link"
                     href="pages/field-notes.html"
                 >
-                    Read the Field Notes
-                    <span>→</span>
+                    Read the Field Notes →
                 </a>
 
             </div>
 
         </div>
 
-
-        <div class="exposure-visual">
-
-            <div class="exposure-visual-inner">
-
-                <span class="exposure-visual-label">
-                    A DIFFERENT VIEW OF TRANSFORMATION
-                </span>
-
-
-                <div class="exposure-visual-statement">
-                    Your dashboard tells you what happened.
-                    Exposure tells you what might happen next.
-                </div>
-
-
-                <div class="exposure-visual-line"></div>
-
-
-                <p class="exposure-visual-note">
-                    Six vectors. Thirty questions. One purpose:
-                    make hidden organizational exposure visible.
-                </p>
-
-            </div>
-
-        </div>
-
-
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
      OPENING
 ===================================================== -->
 
-<section class="exposure-opening">
+<section class="home-section home-section-light">
 
     <div class="container">
 
-        <div class="exposure-opening-content">
+        <div class="home-copy">
 
             <span class="eyebrow">
                 THE PROBLEM
             </span>
 
-
             <h2>
                 A transformation can look healthy while the organization underneath it is becoming unstable.
             </h2>
-
 
             <p>
                 The numbers can be green. The steering committee can be aligned.
@@ -1049,26 +222,198 @@
 
 </section>
 
+
+<!-- =====================================================
+     EXPOSURE VECTORS
+===================================================== -->
+
+<section class="home-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="eyebrow">
+                SIX EXPOSURE VECTORS
+            </span>
+
+            <h2>
+                Look beneath the obvious.
+            </h2>
+
+            <p>
+                Stakeholders, adoption, execution, and sponsorship are visible
+                on an organizational chart. Their underlying conditions are not.
+                Exposure lives underneath the surface.
+            </p>
+
+        </div>
+
+
+        <div class="home-card-grid">
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
+                    Purpose
+                </h3>
+
+                <p class="card-question">
+                    If you asked five people why this transformation exists,
+                    would they give you the same answer?
+                </p>
+
+                <p>
+                    Shared meaning can erode long before the strategy changes.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
+                    Interests
+                </h3>
+
+                <p class="card-question">
+                    Who benefits if this succeeds — and who loses something
+                    they are not willing to give up?
+                </p>
+
+                <p>
+                    Power, incentives, influence, status, and control rarely
+                    appear in the project plan.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
+                    Adaptability
+                </h3>
+
+                <p class="card-question">
+                    When reality proves the original plan wrong, can this
+                    organization change course before the damage compounds?
+                </p>
+
+                <p>
+                    Transformation demands more than willingness. It demands
+                    the capacity to respond.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    04
+                </span>
+
+                <h3>
+                    Ambassadors
+                </h3>
+
+                <p class="card-question">
+                    How confident are you that the critical leaders beneath
+                    you are actually influencing implementation positively?
+                </p>
+
+                <p>
+                    Executive intent can become something very different as
+                    it travels down the organization.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    05
+                </span>
+
+                <h3>
+                    Adoption
+                </h3>
+
+                <p class="card-question">
+                    Are people changing because the organization changed —
+                    or are they simply complying while waiting to go back?
+                </p>
+
+                <p>
+                    Visible compliance is not the same thing as behavioural
+                    adoption.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    06
+                </span>
+
+                <h3>
+                    Execution
+                </h3>
+
+                <p class="card-question">
+                    Six months ago, what made you believe this would work —
+                    and what do you know now that you did not know then?
+                </p>
+
+                <p>
+                    Execution exposes the distance between the plan and the
+                    organization's actual ability to deliver it.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- =====================================================
      PERSPECTIVE
 ===================================================== -->
 
-<section class="perspective-section">
+<section class="home-section home-section-dark">
 
-    <div class="container perspective-layout">
+    <div class="container">
 
-
-        <div>
+        <div class="section-header">
 
             <span class="eyebrow">
                 THE EXECUTIVE BLIND SPOT
             </span>
 
-
             <h2>
-                You cannot see everything from your vantage point.
+                You cannot see everything from the top.
             </h2>
-
 
             <p>
                 The higher you sit in an organization, the more filtered the
@@ -1077,8 +422,7 @@
                 experiences the transformation in full resolution.
             </p>
 
-
-            <p style="margin-top:20px;">
+            <p>
                 The purpose of exposure analysis is not to create another
                 executive dashboard. It is to find what the dashboard cannot
                 tell you.
@@ -1087,7 +431,7 @@
         </div>
 
 
-        <div class="perspective-question">
+        <div class="home-statement">
 
             Your transformation may be going exactly as reported.
 
@@ -1097,11 +441,9 @@
 
         </div>
 
-
     </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1112,18 +454,15 @@
 
     <div class="container">
 
-
         <div class="scenarios-header">
 
             <span class="eyebrow">
                 FAILURE SCENARIOS
             </span>
 
-
             <h2>
                 The warning signs rarely arrive wearing the right label.
             </h2>
-
 
             <p>
                 A transformation problem may present itself as poor adoption,
@@ -1144,11 +483,9 @@
                     SCENARIO 01
                 </span>
 
-
                 <h3>
                     Everyone agrees.
                 </h3>
-
 
                 <p>
                     The executive team is aligned. The steering committee is
@@ -1161,18 +498,15 @@
             </article>
 
 
-
             <article class="scenario">
 
                 <span class="scenario-number">
                     SCENARIO 02
                 </span>
 
-
                 <h3>
                     People are not cooperating.
                 </h3>
-
 
                 <p>
                     The organization calls it an adoption problem. But the
@@ -1185,18 +519,15 @@
             </article>
 
 
-
             <article class="scenario">
 
                 <span class="scenario-number">
                     SCENARIO 03
                 </span>
 
-
                 <h3>
                     The plan made sense six months ago.
                 </h3>
-
 
                 <p>
                     Conditions have changed. The original assumptions have not.
@@ -1216,27 +547,23 @@
 </section>
 
 
-
 <!-- =====================================================
      FIELD NOTES
 ===================================================== -->
 
-<section class="field-notes">
+<section class="home-section home-section-light">
 
-    <div class="container field-notes-layout">
+    <div class="container">
 
-
-        <div class="field-notes-intro">
+        <div class="section-header">
 
             <span class="eyebrow">
                 FIELD NOTES
             </span>
 
-
             <h2>
                 No gatekeeping.
             </h2>
-
 
             <p>
                 Ideas, observations, questions, and uncomfortable truths from
@@ -1247,15 +574,15 @@
         </div>
 
 
-        <div class="field-note-list">
+        <div class="home-list">
 
 
             <a
                 href="pages/field-notes.html"
-                class="field-note"
+                class="home-list-item"
             >
 
-                <span class="field-note-meta">
+                <span>
                     TRANSFORMATION
                 </span>
 
@@ -1268,10 +595,10 @@
 
             <a
                 href="pages/field-notes.html"
-                class="field-note"
+                class="home-list-item"
             >
 
-                <span class="field-note-meta">
+                <span>
                     INTERESTS
                 </span>
 
@@ -1284,10 +611,10 @@
 
             <a
                 href="pages/field-notes.html"
-                class="field-note"
+                class="home-list-item"
             >
 
-                <span class="field-note-meta">
+                <span>
                     ADOPTION
                 </span>
 
@@ -1300,10 +627,10 @@
 
             <a
                 href="pages/field-notes.html"
-                class="field-note"
+                class="home-list-item"
             >
 
-                <span class="field-note-meta">
+                <span>
                     LEADERSHIP
                 </span>
 
@@ -1321,35 +648,30 @@
 </section>
 
 
-
 <!-- =====================================================
      FINAL CTA
 ===================================================== -->
 
-<section class="exposure-cta">
+<section class="home-section">
 
     <div class="container">
 
-
-        <div class="exposure-cta-box">
+        <div class="home-cta">
 
             <span class="eyebrow">
                 SEE DIFFERENTLY
             </span>
 
-
             <h2>
                 You do not need another status report.
             </h2>
-
 
             <p>
                 You need to know where the organization is exposed — before
                 the exposure becomes failure.
             </p>
 
-
-            <div class="exposure-cta-actions">
+            <div class="home-actions">
 
                 <a
                     class="button button-light"
@@ -1358,13 +680,11 @@
                     Explore the Exposure Index
                 </a>
 
-
                 <a
-                    class="exposure-cta-link"
+                    class="text-link text-link-light"
                     href="pages/contact.html"
                 >
-                    Start a conversation
-                    <span style="margin-left:8px;">→</span>
+                    Start a conversation →
                 </a>
 
             </div>
@@ -1377,7 +697,6 @@
 
 
 </main>
-
 
 
 <!-- =====================================================
@@ -1414,7 +733,6 @@
         </div>
 
 
-
         <div class="footer-links">
 
 
@@ -1424,21 +742,17 @@
                     Explore
                 </h4>
 
-
                 <a href="pages/exposure.html">
                     Exposure
                 </a>
-
 
                 <a href="pages/field-notes.html">
                     Field Notes
                 </a>
 
-
                 <a href="pages/framework.html">
                     Framework
                 </a>
-
 
                 <a href="pages/about.html">
                     About
@@ -1447,13 +761,11 @@
             </div>
 
 
-
             <div>
 
                 <h4>
                     Connect
                 </h4>
-
 
                 <a
                     href="https://www.linkedin.com/in/sayudi/"
@@ -1463,11 +775,9 @@
                     LinkedIn
                 </a>
 
-
                 <a href="mailto:contact@sayudi.com">
                     Email
                 </a>
-
 
                 <a href="pages/contact.html">
                     Start a Conversation
@@ -1476,18 +786,15 @@
             </div>
 
 
-
             <div>
 
                 <h4>
                     Legal
                 </h4>
 
-
                 <a href="pages/privacy.html">
                     Privacy Policy
                 </a>
-
 
                 <a href="pages/terms.html">
                     Terms of Use
@@ -1501,7 +808,6 @@
     </div>
 
 
-
     <div class="footer-bottom">
 
         <p>
@@ -1511,7 +817,6 @@
     </div>
 
 </footer>
-
 
 
 <!-- =====================================================
