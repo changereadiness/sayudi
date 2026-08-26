@@ -174,7 +174,7 @@ header {
 .navbar {
     width: min(var(--container), calc(100% - 64px));
 
-    min-height: 96px;
+    min-height: 112px;
 
     margin: 0 auto;
 
