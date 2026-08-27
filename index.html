@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -188,6 +187,7 @@
 
 </section>
 
+    
 <!-- =====================================================
      OPENING
 ===================================================== -->
@@ -226,7 +226,7 @@
      EXPOSURE VECTORS
 ===================================================== -->
 
-<section class="home-section" id="vectors">
+<section class="home-section">
 
     <div class="container">
 
@@ -249,104 +249,145 @@
         </div>
 
 
-        <div class="vector-field" id="vector-field">
+        <div class="home-card-grid">
 
-            <div class="vector-words" role="tablist" aria-label="Six exposure vectors">
 
-                <button
-                    type="button"
-                    class="vector-word"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="vector-detail"
-                    data-number="01"
-                    data-question="If you asked five people why this transformation exists, would they give you the same answer?"
-                    data-description="Shared meaning can erode long before the strategy changes."
-                >
+            <article class="home-card">
+
+                <span class="card-number">
+                    01
+                </span>
+
+                <h3>
                     Purpose
-                </button>
+                </h3>
 
-                <button
-                    type="button"
-                    class="vector-word"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="vector-detail"
-                    data-number="02"
-                    data-question="Who benefits if this succeeds — and who loses something they are not willing to give up?"
-                    data-description="Power, incentives, influence, status, and control rarely appear in the project plan."
-                >
+                <p class="card-question">
+                    If you asked five people why this transformation exists,
+                    would they give you the same answer?
+                </p>
+
+                <p>
+                    Shared meaning can erode long before the strategy changes.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    02
+                </span>
+
+                <h3>
                     Interests
-                </button>
+                </h3>
 
-                <button
-                    type="button"
-                    class="vector-word"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="vector-detail"
-                    data-number="03"
-                    data-question="When reality proves the original plan wrong, can this organization change course before the damage compounds?"
-                    data-description="Transformation demands more than willingness. It demands the capacity to respond."
-                >
+                <p class="card-question">
+                    Who benefits if this succeeds — and who loses something
+                    they are not willing to give up?
+                </p>
+
+                <p>
+                    Power, incentives, influence, status, and control rarely
+                    appear in the project plan.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    03
+                </span>
+
+                <h3>
                     Adaptability
-                </button>
+                </h3>
 
-                <button
-                    type="button"
-                    class="vector-word"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="vector-detail"
-                    data-number="04"
-                    data-question="How confident are you that the critical leaders beneath you are actually influencing implementation positively?"
-                    data-description="Executive intent can become something very different as it travels down the organization."
-                >
+                <p class="card-question">
+                    When reality proves the original plan wrong, can this
+                    organization change course before the damage compounds?
+                </p>
+
+                <p>
+                    Transformation demands more than willingness. It demands
+                    the capacity to respond.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    04
+                </span>
+
+                <h3>
                     Ambassadors
-                </button>
+                </h3>
 
-                <button
-                    type="button"
-                    class="vector-word"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="vector-detail"
-                    data-number="05"
-                    data-question="Are people changing because the organization changed — or are they simply complying while waiting to go back?"
-                    data-description="Visible compliance is not the same thing as behavioural adoption."
-                >
+                <p class="card-question">
+                    How confident are you that the critical leaders beneath
+                    you are actually influencing implementation positively?
+                </p>
+
+                <p>
+                    Executive intent can become something very different as
+                    it travels down the organization.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    05
+                </span>
+
+                <h3>
                     Adoption
-                </button>
+                </h3>
 
-                <button
-                    type="button"
-                    class="vector-word"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="vector-detail"
-                    data-number="06"
-                    data-question="Six months ago, what made you believe this would work — and what do you know now that you did not know then?"
-                    data-description="Execution exposes the distance between the plan and the organization's actual ability to deliver it."
-                >
+                <p class="card-question">
+                    Are people changing because the organization changed —
+                    or are they simply complying while waiting to go back?
+                </p>
+
+                <p>
+                    Visible compliance is not the same thing as behavioural
+                    adoption.
+                </p>
+
+            </article>
+
+
+            <article class="home-card">
+
+                <span class="card-number">
+                    06
+                </span>
+
+                <h3>
                     Execution
-                </button>
+                </h3>
 
-            </div>
+                <p class="card-question">
+                    Six months ago, what made you believe this would work —
+                    and what do you know now that you did not know then?
+                </p>
 
-            <div
-                class="vector-detail"
-                id="vector-detail"
-                role="tabpanel"
-                aria-live="polite"
-            >
+                <p>
+                    Execution exposes the distance between the plan and the
+                    organization's actual ability to deliver it.
+                </p>
 
-                <span class="vector-detail-number"></span>
+            </article>
 
-                <p class="vector-detail-question"></p>
-
-                <p class="vector-detail-description"></p>
-
-            </div>
 
         </div>
 
@@ -812,120 +853,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
-
-<!-- =====================================================
-     EXPOSURE VECTORS SCRIPT
-===================================================== -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const field = document.getElementById("vector-field");
-
-    if (!field) {
-        return;
-    }
-
-    const words = Array.from(field.querySelectorAll(".vector-word"));
-    const detail = document.getElementById("vector-detail");
-
-    const numberEl = detail.querySelector(".vector-detail-number");
-    const questionEl = detail.querySelector(".vector-detail-question");
-    const descriptionEl = detail.querySelector(".vector-detail-description");
-
-    let clearTimer = null;
-
-    function show(word) {
-
-        clearTimeout(clearTimer);
-
-        words.forEach(function (w) {
-            const isActive = w === word;
-            w.classList.toggle("is-active", isActive);
-            w.setAttribute("aria-selected", isActive ? "true" : "false");
-        });
-
-        field.classList.add("has-active");
-
-        numberEl.textContent = word.dataset.number;
-        questionEl.textContent = word.dataset.question;
-        descriptionEl.textContent = word.dataset.description;
-
-    }
-
-    function clear() {
-
-        // Small delay avoids flicker when the pointer moves between words.
-        clearTimer = setTimeout(function () {
-
-            const stillFocused = words.some(function (w) {
-                return w === document.activeElement;
-            });
-
-            if (stillFocused) {
-                return;
-            }
-
-            words.forEach(function (w) {
-                w.classList.remove("is-active");
-                w.setAttribute("aria-selected", "false");
-            });
-
-            field.classList.remove("has-active");
-
-        }, 60);
-
-    }
-
-    words.forEach(function (word, index) {
-
-        word.addEventListener("mouseenter", function () {
-            show(word);
-        });
-
-        word.addEventListener("focus", function () {
-            show(word);
-        });
-
-        word.addEventListener("click", function () {
-            const isActive = word.classList.contains("is-active");
-            if (isActive) {
-                word.blur();
-                clear();
-            } else {
-                show(word);
-            }
-        });
-
-        word.addEventListener("blur", clear);
-
-        word.addEventListener("keydown", function (event) {
-
-            let targetIndex = null;
-
-            if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-                targetIndex = (index + 1) % words.length;
-            } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-                targetIndex = (index - 1 + words.length) % words.length;
-            }
-
-            if (targetIndex !== null) {
-                event.preventDefault();
-                words[targetIndex].focus();
-            }
-
-        });
-
-    });
-
-    field.addEventListener("mouseleave", clear);
-
-});
-
-</script>
-
-
+<script src="script.js"></script>
 </body>
 
 </html>
