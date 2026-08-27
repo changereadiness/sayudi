@@ -21,6 +21,7 @@
 
     --accent: #476B8A;
     --accent-light: #7893A8;
+    --accent-exposure: #A6572F;
 
     --border: #D6D9DA;
     --border-dark: rgba(255,255,255,.14);
@@ -31,7 +32,7 @@
     --heading-font: "Manrope", sans-serif;
     --body-font: "Inter", sans-serif;
 
-    --container: 1180px;
+    --container: 1280px;
 }
 
 
@@ -443,20 +444,16 @@ header {
     overflow: hidden;
 }
 
-.home-section:first-child::after {
-    content: "";
+.home-hero-grid {
+    display: grid;
 
-    position: absolute;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 460px);
 
-    right: -140px;
-    bottom: -190px;
+    align-items: center;
 
-    width: 460px;
-    height: 460px;
-
-    border: 1px solid rgba(71,107,138,.12);
-
-    border-radius: 50%;
+    gap: 48px;
 }
 
 .home-intro {
@@ -537,6 +534,190 @@ header {
 
 
 /* =====================================================
+   09B. HERO ENTRANCE ANIMATION
+===================================================== */
+
+.hero-fade {
+    opacity: 0;
+    transform: translateY(14px);
+
+    animation: hero-fade-up .65s cubic-bezier(.2,.7,.3,1) forwards;
+}
+
+.hero-fade-1 { animation-delay: .05s; }
+.hero-fade-2 { animation-delay: .16s; }
+.hero-fade-3 { animation-delay: .3s; }
+.hero-fade-4 { animation-delay: .44s; }
+.hero-fade-5 { animation-delay: .56s; }
+
+@keyframes hero-fade-up {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   09C. HERO SIGNAL CHART
+   (signature element: the reported line vs. the actual
+   line, diverging from the same starting point)
+===================================================== */
+
+.home-signal {
+    position: relative;
+    z-index: 2;
+}
+
+.home-signal svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.signal-grid {
+    stroke: var(--border);
+    stroke-width: 1;
+
+    opacity: .55;
+}
+
+.signal-line {
+    fill: none;
+
+    stroke-width: 2.25;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+
+    animation: signal-draw 1.7s cubic-bezier(.65,0,.35,1) forwards;
+}
+
+.signal-line-reported {
+    stroke: var(--accent);
+
+    animation-delay: .35s;
+}
+
+.signal-line-actual {
+    stroke: var(--accent-exposure);
+
+    animation-delay: .6s;
+}
+
+@keyframes signal-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.signal-origin {
+    fill: var(--navy);
+}
+
+.signal-pulse {
+    fill: var(--accent-exposure);
+
+    opacity: .35;
+
+    animation: signal-pulse 2.6s ease-in-out infinite;
+}
+
+.signal-pulse-delay-1 { animation-delay: .7s; }
+.signal-pulse-delay-2 { animation-delay: 1.3s; }
+
+@keyframes signal-pulse {
+    0%, 100% { opacity: .32; }
+    50% { opacity: 1; }
+}
+
+.signal-label {
+    position: absolute;
+
+    opacity: 0;
+
+    color: var(--accent);
+
+    font-size: .66rem;
+    font-weight: 600;
+
+    letter-spacing: .13em;
+
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    animation: signal-label-in .5s ease forwards;
+}
+
+.signal-label-reported {
+    left: 97%;
+    top: 9%;
+
+    transform: translate(-100%, -160%);
+
+    animation-delay: 1.85s;
+}
+
+.signal-label-actual {
+    left: 97%;
+    top: 44%;
+
+    color: var(--accent-exposure);
+
+    transform: translate(-100%, 30%);
+
+    animation-delay: 2.05s;
+}
+
+@keyframes signal-label-in {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-fade,
+    .signal-line,
+    .signal-pulse,
+    .signal-label {
+        animation: none !important;
+
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .signal-line {
+        stroke-dashoffset: 0 !important;
+    }
+
+    .signal-label-reported {
+        transform: translate(-100%, -160%) !important;
+    }
+
+    .signal-label-actual {
+        transform: translate(-100%, 30%) !important;
+    }
+
+}
+
+@media (max-width: 900px) {
+
+    .home-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-signal {
+        display: none;
+    }
+
+}
+
+
+/* =====================================================
    10. PROBLEM / OPENING SECTION
 ===================================================== */
 
@@ -571,7 +752,8 @@ header {
 
 
 /* =====================================================
-   11. EXPOSURE VECTORS
+   11. EXPOSURE VECTORS (legacy card grid — retained
+       in case other pages still reference it)
 ===================================================== */
 
 .home-card-grid {
@@ -1279,11 +1461,6 @@ footer {
         padding-bottom: 76px;
     }
 
-    .home-section:first-child::after {
-        right: -240px;
-        bottom: -180px;
-    }
-
     .home-intro {
         padding-top: 10px;
         padding-bottom: 0;
@@ -1415,40 +1592,178 @@ footer {
     .footer-links {
         grid-template-columns: 1fr;
     }
-/* =========================================
-   EXPOSURE JAVASCRIPT TEST
-========================================= */
 
-.exposure-test {
-    position: relative;
-    min-height: 800px;
-    padding: 120px 40px;
-    overflow: hidden;
 }
 
-.exposure-mountain {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    height: 550px;
+
+/* =====================================================
+   21. EXPOSURE VECTOR FIELD
+   (interactive replacement for the six vector cards
+   on the homepage — hover/focus a word to bring it
+   forward and reveal its detail)
+===================================================== */
+
+.vector-field {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.vector-words {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: baseline;
+
+    column-gap: clamp(28px, 4vw, 60px);
+    row-gap: 16px;
+
+    max-width: 980px;
+
     margin: 0 auto;
+    padding: 12px 0;
 }
 
-/* LEADERSHIP */
+.vector-word {
+    padding: 6px 2px;
 
-.exposure-leader {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    background: none;
+    border: 0;
 
-    padding: 20px 35px;
+    color: var(--text-muted);
 
-    border: 1px solid #222;
+    font-family: var(--heading-font);
+    font-size: clamp(1.5rem, 3.4vw, 2.35rem);
+    font-weight: 700;
 
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+
+    cursor: pointer;
+
+    transition:
+        color .25s ease,
+        opacity .25s ease,
+        transform .25s ease;
 }
+
+.vector-word.is-active {
+    color: var(--navy);
+    transform: translateY(-3px) scale(1.12);
+}
+
+.vector-words:has(.is-active) .vector-word:not(.is-active) {
+    color: var(--text-muted);
+    opacity: .32;
+    transform: scale(.97);
+}
+
+/* Fallback for browsers without :has() support: JS toggles this
+   class on the parent, so the dimming still works everywhere. */
+.vector-field.has-active .vector-word:not(.is-active) {
+    color: var(--text-muted);
+    opacity: .32;
+    transform: scale(.97);
+}
+
+.vector-word:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 6px;
+}
+
+.vector-detail {
+    width: 100%;
+    max-width: 720px;
+
+    margin-top: 20px;
+
+    min-height: 128px;
+
+    padding: 22px 26px;
+
+    border-left: 2px solid var(--accent);
+
+    background: rgba(71,107,138,.045);
+
+    opacity: 0;
+    transform: translateY(6px);
+
+    transition:
+        opacity .22s ease,
+        transform .22s ease;
+
+    pointer-events: none;
+}
+
+.vector-field.has-active .vector-detail {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vector-detail-number {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--accent);
+
+    font-size: .68rem;
+    font-weight: 600;
+
+    letter-spacing: .15em;
+}
+
+.vector-detail-question {
+    margin-bottom: 8px;
+
+    color: var(--navy);
+
+    font-family: var(--heading-font);
+
+    font-size: 1.08rem;
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+.vector-detail-description {
+    margin-bottom: 0;
+
+    color: var(--text-muted);
+
+    font-size: .93rem;
+    line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .vector-word,
+    .vector-detail {
+        transition: none;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .vector-words {
+        column-gap: 22px;
+        row-gap: 14px;
+    }
+
+    .vector-word {
+        font-size: 1.4rem;
+    }
+
+    .vector-word.is-active {
+        transform: translateY(-2px) scale(1.08);
+    }
+
+    .vector-detail {
+        margin-top: 16px;
+        padding: 18px 20px;
+    }
 
 }
