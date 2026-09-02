@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+<title>Ali Saïd | Sayudi</title>
+
+<meta
+    name="description"
+    content="Ali Saïd — Founder & Director, Sayudi Inc. Technology · Transformation · AI."
+>
+
+<meta
+    name="author"
+    content="Sayudi Inc."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: #202321;
+    color: #f5f3ef;
+    font-family: "Inter", sans-serif;
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
+
+.card-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    padding: 38px 30px 30px;
+    border: 1px solid #3c403d;
+    background: #202321;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand {
+    margin-bottom: 72px;
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+
+/* =====================================================
+   IDENTITY
+===================================================== */
+
+.identity {
+    margin-bottom: 38px;
+}
+
+.name {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(38px, 10vw, 48px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+.role {
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: #aeb5b0;
+}
+
+
+/* =====================================================
+   POSITIONING
+===================================================== */
+
+.positioning {
+    padding-top: 22px;
+    border-top: 1px solid #3c403d;
+}
+
+.positioning p {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+    display: grid;
+    margin-top: 42px;
+    border-top: 1px solid #3c403d;
+}
+
+.contact a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    border-bottom: 1px solid #3c403d;
+    font-size: 13px;
+    font-weight: 500;
+    color: #f5f3ef;
+    transition:
+        background 0.2s ease,
+        padding 0.2s ease;
+}
+
+.contact a:hover {
+    padding-left: 5px;
+    background: #282b29;
+}
+
+.contact-label {
+    color: #8f9791;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-value {
+    text-align: right;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    color: #737b75;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+}
+
+.card-footer a {
+    color: #9da49f;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .card-page {
+        padding: 16px;
+    }
+
+    .card {
+        min-height: calc(100vh - 32px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 34px 26px 26px;
+    }
+
+    .brand {
+        position: absolute;
+        top: 34px;
+    }
+
+    .identity {
+        margin-top: 70px;
+    }
+
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 481px) {
+
+    body {
+        background: #f5f3ef;
+    }
+
+    .card {
+        box-shadow: 0 20px 70px rgba(0, 0, 0, 0.12);
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<main class="card-page">
+
+    <section class="card">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+            SAYUDI
+        </div>
+
+
+        <!-- IDENTITY -->
+
+        <div class="identity">
+
+            <h1 class="name">
+                Ali Saïd
+            </h1>
+
+            <p class="role">
+                Founder &amp; Director · Sayudi Inc.
+            </p>
+
+        </div>
+
+
+        <!-- POSITIONING -->
+
+        <div class="positioning">
+
+            <p>
+                Technology · Transformation · AI
+            </p>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="contact">
+
+
+            <a
+                href="tel:+14389699697"
+            >
+
+                <span class="contact-label">
+                    Phone
+                </span>
+
+                <span class="contact-value">
+                    +1 438 969 9697
+                </span>
+
+            </a>
+
+
+            <a
+                href="mailto:ali@sayudi.com"
+            >
+
+                <span class="contact-label">
+                    Email
+                </span>
+
+                <span class="contact-value">
+                    ali@sayudi.com
+                </span>
+
+            </a>
+
+
+            <a
+                href="https://www.linkedin.com/in/sayudi/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <span class="contact-label">
+                    LinkedIn
+                </span>
+
+                <span class="contact-value">
+                    /sayudi
+                </span>
+
+            </a>
+
+
+            <a
+                href="../index.html"
+            >
+
+                <span class="contact-label">
+                    Web
+                </span>
+
+                <span class="contact-value">
+                    sayudi.com
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="card-footer">
+
+            <span>
+                Sayudi Inc.
+            </span>
+
+            <a href="mailto:ali@sayudi.com">
+                Save my contact →
+            </a>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+</body>
+
+</html>
