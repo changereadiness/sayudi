@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+<title>Ali Saïd | Sayudi | Trade Show Connection</title>
+
+<meta
+    name="description"
+    content="Connect with Ali Saïd — technology, transformation and AI."
+>
+
+<meta
+    name="author"
+    content="Sayudi Inc."
+>
+
+<meta
+    property="og:title"
+    content="Ali Saïd | Sayudi"
+>
+
+<meta
+    property="og:description"
+    content="Technology · Transformation · AI"
+>
+
+<meta
+    property="og:type"
+    content="website"
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #f5f3ef;
+    color: #202321;
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.connect-page {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.connect-header {
+    background: #202321;
+    color: #f5f3ef;
+    padding: 28px 24px 34px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 52px;
+}
+
+.logo {
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.header-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.55;
+}
+
+.header-eyebrow {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #aeb8b1;
+}
+
+.connect-header h1 {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(36px, 9vw, 52px);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+}
+
+.header-role {
+    margin: 18px 0 0;
+    font-size: 16px;
+    color: #c9ccc9;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.connect-section {
+    padding: 42px 24px;
+}
+
+.connect-section-light {
+    background: #f5f3ef;
+}
+
+.connect-section-white {
+    background: #ffffff;
+}
+
+.connect-section-dark {
+    background: #202321;
+    color: #f5f3ef;
+}
+
+.section-eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #68716b;
+}
+
+.dark-eyebrow {
+    color: #aeb8b1;
+}
+
+.connect-section h2 {
+    margin: 0 0 16px;
+    font-family: "Manrope", sans-serif;
+    font-size: 27px;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+}
+
+.connect-section p {
+    margin: 0;
+    font-size: 15px;
+    color: #59605b;
+}
+
+.connect-section-dark p {
+    color: #c4c8c5;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro-lead {
+    margin-bottom: 18px !important;
+    font-size: 18px !important;
+    line-height: 1.5;
+    color: #202321 !important;
+}
+
+.intro-question {
+    margin-top: 22px !important;
+    font-family: "Manrope", sans-serif;
+    font-size: 20px !important;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #202321 !important;
+}
+
+
+/* =====================================================
+   CAPABILITIES
+===================================================== */
+
+.capability-list {
+    margin-top: 28px;
+    border-top: 1px solid #d9d6d0;
+}
+
+.capability {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+    padding: 22px 0;
+    border-bottom: 1px solid #d9d6d0;
+}
+
+.capability-number {
+    font-size: 11px;
+    font-weight: 600;
+    color: #7a827c;
+    padding-top: 3px;
+}
+
+.capability h3 {
+    margin: 0 0 5px;
+    font-family: "Manrope", sans-serif;
+    font-size: 17px;
+    line-height: 1.2;
+}
+
+.capability p {
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+
+/* =====================================================
+   CONNECTION PATHS
+===================================================== */
+
+.path-grid {
+    display: grid;
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.path {
+    display: block;
+    padding: 19px 18px;
+    border: 1px solid #d9d6d0;
+    background: #ffffff;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.path:hover {
+    transform: translateY(-2px);
+    border-color: #8c968f;
+}
+
+.path strong {
+    display: block;
+    margin-bottom: 4px;
+    font-family: "Manrope", sans-serif;
+    font-size: 15px;
+}
+
+.path span {
+    display: block;
+    font-size: 13px;
+    color: #69706b;
+}
+
+
+/* =====================================================
+   DIRECT CONNECTION
+===================================================== */
+
+.direct-card {
+    padding: 26px 22px;
+    border: 1px solid #3a3e3b;
+}
+
+.direct-name {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.direct-role {
+    margin: 4px 0 22px !important;
+    font-size: 13px !important;
+    color: #aeb8b1 !important;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #555b57;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.action:hover {
+    background: #303431;
+    border-color: #89928b;
+}
+
+
+/* =====================================================
+   WEBSITE CTA
+===================================================== */
+
+.website-card {
+    margin-top: 12px;
+    padding: 24px 22px;
+    background: #ffffff;
+    border: 1px solid #d9d6d0;
+}
+
+.website-card h3 {
+    margin: 0 0 7px;
+    font-family: "Manrope", sans-serif;
+    font-size: 18px;
+}
+
+.website-card p {
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.website-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    background: #202321;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.website-button:hover {
+    opacity: 0.82;
+}
+
+
+/* =====================================================
+   FINAL STATEMENT
+===================================================== */
+
+.final-statement {
+    padding: 48px 24px 52px;
+    text-align: center;
+}
+
+.final-statement h2 {
+    max-width: 430px;
+    margin: 0 auto 14px;
+    font-size: 28px;
+}
+
+.final-statement p {
+    max-width: 390px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.connect-footer {
+    padding: 28px 24px 34px;
+    background: #202321;
+    color: #9ea49f;
+    text-align: center;
+}
+
+.connect-footer .footer-brand {
+    margin-bottom: 12px;
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #d4d7d4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.connect-footer p {
+    margin: 4px 0;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.connect-footer a {
+    color: #d4d7d4;
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width: 700px) {
+
+    body {
+        padding: 28px 0;
+    }
+
+    .connect-page {
+        box-shadow: 0 12px 50px rgba(0, 0, 0, 0.08);
+    }
+
+    .connect-header {
+        padding: 32px 32px 42px;
+    }
+
+    .connect-section {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .final-statement {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .connect-footer {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="connect-page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="connect-header">
+
+    <div class="header-top">
+
+        <a
+            href="../index.html"
+            class="logo"
+            aria-label="Sayudi Home"
+        >
+            SAYUDI
+        </a>
+
+        <span class="header-label">
+            Trade Show Connection
+        </span>
+
+    </div>
+
+
+    <div>
+
+        <span class="header-eyebrow">
+            Technology · Transformation · AI
+        </span>
+
+        <h1>
+            Ali Saïd
+        </h1>
+
+        <p class="header-role">
+            Founder &amp; Director · Sayudi Inc.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="connect-section connect-section-light">
+
+    <span class="section-eyebrow">
+        A QUICK INTRODUCTION
+    </span>
+
+    <p class="intro-lead">
+        I work across technology, transformation and AI —
+        helping organizations navigate complex change,
+        identify what matters, and turn ideas into action.
+    </p>
+
+    <p>
+        My work sits at the intersection of business,
+        technology, people and execution.
+    </p>
+
+    <p class="intro-question">
+        If there is something you're trying to figure out,
+        build, change or improve, there is probably a useful
+        conversation to have.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     CAPABILITIES
+===================================================== -->
+
+<section class="connect-section connect-section-white">
+
+    <span class="section-eyebrow">
+        AREAS OF WORK
+    </span>
+
+    <h2>
+        Broad capabilities. One conversation.
+    </h2>
+
+    <div class="capability-list">
+
+
+        <article class="capability">
+
+            <span class="capability-number">
+                01
+            </span>
+
+            <div>
+
+                <h3>
+                    Technology
+                </h3>
+
+                <p>
+                    Technology strategy, digital initiatives,
+                    emerging technologies and the practical
+                    business problems behind them.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="capability">
+
+            <span class="capability-number">
+                02
+            </span>
+
+            <div>
+
+                <h3>
+                    Artificial Intelligence
+                </h3>
+
+                <p>
+                    Exploring where AI can create meaningful
+                    business value — and where it should not.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="capability">
+
+            <span class="capability-number">
+                03
+            </span>
+
+            <div>
+
+                <h3>
+                    Transformation
+                </h3>
+
+                <p>
+                    Helping organizations navigate complex
+                    digital, operational and organizational
+                    transformation.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="capability">
+
+            <span class="capability-number">
+                04
+            </span>
+
+            <div>
+
+                <h3>
+                    Change
+                </h3>
+
+                <p>
+                    Understanding the human and organizational
+                    conditions that determine whether change
+                    actually takes hold.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="capability">
+
+            <span class="capability-number">
+                05
+            </span>
+
+            <div>
+
+                <h3>
+                    Strategy &amp; Execution
+                </h3>
+
+                <p>
+                    Connecting ideas to decisions, priorities
+                    and the realities of implementation.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONNECTION PATHS
+===================================================== -->
+
+<section class="connect-section connect-section-light">
+
+    <span class="section-eyebrow">
+        WHERE DO WE GO FROM HERE?
+    </span>
+
+    <h2>
+        Start wherever makes sense.
+    </h2>
+
+    <div class="path-grid">
+
+
+        <a
+            href="mailto:contact@sayudi.com?subject=Technology%20Conversation"
+            class="path"
+        >
+
+            <strong>
+                I have a technology challenge →
+            </strong>
+
+            <span>
+                Let's explore the problem and what might be possible.
+            </span>
+
+        </a>
+
+
+        <a
+            href="mailto:contact@sayudi.com?subject=AI%20Conversation"
+            class="path"
+        >
+
+            <strong>
+                I'm exploring AI →
+            </strong>
+
+            <span>
+                An idea, opportunity, use case or strategic question.
+            </span>
+
+        </a>
+
+
+        <a
+            href="mailto:contact@sayudi.com?subject=Transformation%20Conversation"
+            class="path"
+        >
+
+            <strong>
+                We're going through transformation →
+            </strong>
+
+            <span>
+                Digital, organizational, operational or something harder to name.
+            </span>
+
+        </a>
+
+
+        <a
+            href="mailto:contact@sayudi.com?subject=Partnership%20Conversation"
+            class="path"
+        >
+
+            <strong>
+                I'm looking for a partner →
+            </strong>
+
+            <span>
+                Collaboration, expertise, business development or something new.
+            </span>
+
+        </a>
+
+
+        <a
+            href="mailto:contact@sayudi.com?subject=Conversation"
+            class="path"
+        >
+
+            <strong>
+                I'm not sure where this fits →
+            </strong>
+
+            <span>
+                That's fine. Let's just talk.
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DIRECT CONNECTION
+===================================================== -->
+
+<section class="connect-section connect-section-dark">
+
+    <span class="section-eyebrow dark-eyebrow">
+        DIRECT CONNECTION
+    </span>
+
+    <div class="direct-card">
+
+        <h2 class="direct-name">
+            Ali Saïd
+        </h2>
+
+        <p class="direct-role">
+            Founder &amp; Director · Sayudi Inc.
+        </p>
+
+
+        <div class="action-grid">
+
+            <a
+                href="https://www.linkedin.com/in/sayudi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="action"
+            >
+                LinkedIn
+            </a>
+
+
+            <a
+                href="mailto:ali@sayudi.com"
+                class="action"
+            >
+                Email
+            </a>
+
+
+            <a
+                href="tel:+14389699697"
+                class="action"
+            >
+                Call
+            </a>
+
+
+            <a
+                href="mailto:ali@sayudi.com?subject=Let's%20Connect"
+                class="action"
+            >
+                Let's Talk
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WEBSITE
+===================================================== -->
+
+<section class="connect-section connect-section-white">
+
+    <div class="website-card">
+
+        <h3>
+            Want the bigger picture?
+        </h3>
+
+        <p>
+            Explore Sayudi's thinking on transformation,
+            change intelligence and organizational exposure.
+        </p>
+
+        <a
+            href="../index.html"
+            class="website-button"
+        >
+            Visit Sayudi →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL STATEMENT
+===================================================== -->
+
+<section class="connect-section connect-section-light final-statement">
+
+    <h2>
+        The best conversations usually start before the problem is fully defined.
+    </h2>
+
+    <p>
+        If we met at a trade show, this page is simply a place
+        to pick up the conversation.
+    </p>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="connect-footer">
+
+    <div class="footer-brand">
+        Sayudi
+    </div>
+
+    <p>
+        Technology · Transformation · AI
+    </p>
+
+    <p>
+        Sayudi Inc. · Canada
+    </p>
+
+    <p>
+        <a href="mailto:contact@sayudi.com">
+            contact@sayudi.com
+        </a>
+    </p>
+
+    <p>
+        © 2026 Sayudi Inc. All rights reserved.
+    </p>
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
