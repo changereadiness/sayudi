@@ -298,6 +298,59 @@
         });
     }
 
+
+    function initHeroVantage() {
+        const hero = document.querySelector('[data-hero-vantage]');
+        if (!hero) return;
+
+        const panelTitle = hero.querySelector('.hero-risk-panel-title');
+        const panelBody = hero.querySelector('.hero-risk-panel-body');
+        const buttons = Array.from(hero.querySelectorAll('.hero-risk-button'));
+
+        const setRisk = (button) => {
+            if (!button || !panelTitle || !panelBody) return;
+            buttons.forEach((item) => item.classList.toggle('is-active', item === button));
+            panelTitle.textContent = button.dataset.riskTitle || button.querySelector('strong')?.textContent || '';
+            panelBody.textContent = button.dataset.riskBody || button.querySelector('span:last-child')?.textContent || '';
+        };
+
+        const active = hero.querySelector('.hero-risk-button.is-active') || buttons[0];
+        setRisk(active);
+
+        buttons.forEach((button) => {
+            button.addEventListener('mouseenter', () => setRisk(button));
+            button.addEventListener('focus', () => setRisk(button));
+            button.addEventListener('click', () => setRisk(button));
+        });
+
+        if (finePointer && !prefersReducedMotion) {
+            const parallaxTargets = [
+                hero.querySelector('.hero-rings'),
+                hero.querySelector('.hero-gridlines'),
+                hero.querySelector('.hero-risk-panel')
+            ].filter(Boolean);
+
+            hero.addEventListener('pointermove', (event) => {
+                const rect = hero.getBoundingClientRect();
+                const offsetX = ((event.clientX - rect.left) / rect.width) - 0.5;
+                const offsetY = ((event.clientY - rect.top) / rect.height) - 0.5;
+
+                parallaxTargets.forEach((target, index) => {
+                    const strength = index === 2 ? 7 : 13 - (index * 3);
+                    const x = offsetX * strength;
+                    const y = offsetY * strength;
+                    target.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+                });
+            });
+
+            hero.addEventListener('pointerleave', () => {
+                parallaxTargets.forEach((target) => {
+                    target.style.transform = '';
+                });
+            });
+        }
+    }
+
     function initCardEntry() {
         const card = document.querySelector(".card");
         if (!card || prefersReducedMotion) return;
@@ -311,6 +364,7 @@
         initSurfaceResponse();
         initFrameworkInteraction();
         initContactForm();
+        initHeroVantage();
         initCardEntry();
     });
 })();
