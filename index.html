@@ -142,41 +142,40 @@
      HERO
 ===================================================== -->
 
-<section class="home-section home-hero-section">
+<section class="home-hero" data-vantage-hero>
 
-    <div class="container hero-grid">
+    <div class="home-hero-bg" aria-hidden="true"></div>
+    <canvas class="hero-network-canvas" aria-hidden="true"></canvas>
+    <div class="home-hero-shade" aria-hidden="true"></div>
 
-        <div class="home-intro hero-copy">
+    <div class="container home-hero-layout">
+
+        <div class="home-hero-copy">
 
             <span class="eyebrow">
                 TRANSFORMATION · CHANGE INTELLIGENCE
             </span>
 
             <h1>
-                Change is a system<span class="hero-dot">.</span>
+                Change is a system<span>.</span>
             </h1>
 
-            <p>
-                We help leaders see what others miss, so they can move
-                with clarity in times that matter.
-            </p>
-
-            <p class="home-question">
-                Exposure rarely announces itself. It accumulates beneath
-                purpose, interests, adaptability, adoption and execution.
+            <p class="home-hero-lead">
+                We help leaders see what others miss, so they can move with
+                clarity in times that matter.
             </p>
 
             <div class="home-actions">
 
                 <a
-                    class="button"
+                    class="button hero-button"
                     href="pages/exposure.html"
                 >
                     Explore Exposure
                 </a>
 
                 <a
-                    class="text-link"
+                    class="text-link hero-text-link"
                     href="pages/field-notes.html"
                 >
                     Read the Field Notes →
@@ -187,176 +186,110 @@
         </div>
 
 
-        <div class="hero-visual" data-hero-vantage>
+        <aside class="hero-vantage-card">
+            <span>Vantage Point</span>
+            <p>
+                Clarity enables better decisions and responsible leadership.
+            </p>
+        </aside>
 
-            <div class="hero-rings" aria-hidden="true"></div>
-            <div class="hero-gridlines" aria-hidden="true"></div>
 
-            <div class="hero-vantage-note">
-                <span>Vantage Point</span>
-                <p>
-                    Clarity enables better decisions and responsible leadership.
-                </p>
-            </div>
+        <div class="hero-network-copy">
 
-            <div class="hero-side-note" aria-hidden="true">
-                A clearer tomorrow starts here.
-            </div>
+            <span class="hero-network-eyebrow">
+                Invisible Exposure
+            </span>
 
-            <div class="hero-scene" aria-hidden="true">
-                <svg class="hero-scene-svg" viewBox="0 0 980 880" role="presentation" focusable="false">
-                    <defs>
-                        <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#fbf9f4" />
-                            <stop offset="52%" stop-color="#ede8df" />
-                            <stop offset="100%" stop-color="#d8d8d3" />
-                        </linearGradient>
-                        <linearGradient id="heroPeak" x1="0.3" y1="0" x2="0.7" y2="1">
-                            <stop offset="0%" stop-color="#51667d" />
-                            <stop offset="45%" stop-color="#1a2f48" />
-                            <stop offset="100%" stop-color="#091628" />
-                        </linearGradient>
-                        <linearGradient id="heroShadow" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#70839a" stop-opacity="0.35" />
-                            <stop offset="100%" stop-color="#0a1627" stop-opacity="0.95" />
-                        </linearGradient>
-                        <linearGradient id="heroSnow" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95" />
-                            <stop offset="100%" stop-color="#d9e3eb" stop-opacity="0.25" />
-                        </linearGradient>
-                        <linearGradient id="heroHaze" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
-                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
-                        </linearGradient>
-                        <radialGradient id="heroGlow" cx="50%" cy="58%" r="55%">
-                            <stop offset="0%" stop-color="#0f273f" stop-opacity="0" />
-                            <stop offset="100%" stop-color="#071522" stop-opacity="1" />
-                        </radialGradient>
-                    </defs>
+            <p>
+                What you do not see can still shape the outcome.
+            </p>
 
-                    <rect width="980" height="880" fill="url(#heroSky)" />
+        </div>
 
-                    <g opacity="0.38">
-                        <path d="M40 490 L220 380 L390 470 L550 335 L700 430 L940 330 L940 560 L40 560 Z" fill="#ced4d7" />
-                        <path d="M0 570 C150 500, 285 520, 400 470 C500 425, 620 455, 760 400 C860 360, 920 372, 980 332 L980 675 L0 675 Z" fill="#d8dad7" opacity="0.55" />
-                    </g>
 
-                    <g>
-                        <path d="M345 660 L530 205 L730 660 Z" fill="url(#heroPeak)" />
-                        <path d="M345 660 L530 205 L470 660 Z" fill="#203752" opacity="0.58" />
-                        <path d="M530 205 L590 420 L730 660 L570 660 L490 435 Z" fill="url(#heroShadow)" />
-                        <path d="M512 245 L558 315 L535 390 L580 440 L545 520 L592 590 L555 660 L480 660 L455 565 L478 490 L445 428 L485 332 L462 285 Z" fill="url(#heroSnow)" opacity="0.78" />
-                        <path d="M585 276 L620 360 L606 405 L658 470 L617 555 L648 620 L610 660 L560 660 L592 598 L565 544 L606 458 L575 400 L594 336 Z" fill="url(#heroSnow)" opacity="0.58" />
-                    </g>
+        <div class="hero-vector-layer" role="list" aria-label="Transformation exposure vectors">
 
-                    <g opacity="0.75">
-                        <path d="M0 602 C130 554, 255 565, 350 530 C435 500, 530 530, 610 505 C715 472, 815 505, 980 455 L980 720 L0 720 Z" fill="#f5f2eb" opacity="0.9" />
-                        <path d="M0 650 C170 595, 300 626, 422 590 C520 560, 645 588, 800 540 C884 512, 932 520, 980 500 L980 748 L0 748 Z" fill="#ebe6de" opacity="0.85" />
-                        <path d="M0 710 C135 676, 310 692, 450 660 C560 635, 680 650, 850 610 C920 594, 948 600, 980 590 L980 790 L0 790 Z" fill="#e2ddd5" opacity="0.72" />
-                    </g>
+            <button
+                class="hero-vector"
+                type="button"
+                data-vector="Purpose"
+                data-copy="When the reason for change becomes fragmented, alignment can remain visible while meaning disappears."
+                style="--x: 13%; --y: 82%;"
+            >
+                <span class="hero-vector-dot"></span>
+                <strong>Purpose</strong>
+            </button>
 
-                    <g>
-                        <path d="M0 688 L110 650 L190 673 L285 626 L372 653 L460 612 L548 651 L645 602 L742 644 L845 603 L980 635 L980 880 L0 880 Z" fill="#06111f" />
-                        <rect x="0" y="650" width="980" height="230" fill="url(#heroGlow)" opacity="0.92" />
-                    </g>
+            <button
+                class="hero-vector"
+                type="button"
+                data-vector="Interests"
+                data-copy="Stakeholders can support the same program while pursuing very different outcomes underneath it."
+                style="--x: 29%; --y: 76%;"
+            >
+                <span class="hero-vector-dot"></span>
+                <strong>Interests</strong>
+            </button>
 
-                    <g opacity="0.17" stroke="#b9d8d3" stroke-width="1.4" fill="none">
-                        <path d="M20 798 L120 705 L210 760 L325 690 L425 750 L548 680 L675 752 L786 695 L915 770" />
-                        <path d="M80 835 L175 745 L290 812 L400 725 L535 803 L655 735 L770 808 L892 748" />
-                        <path d="M0 860 L130 780 L245 842 L364 772 L492 842 L615 770 L742 844 L864 780 L980 836" />
-                        <path d="M120 705 L175 745 L210 760 L290 812 L325 690 L400 725 L425 750 L535 803 L548 680 L655 735 L675 752 L786 695 L892 748 L915 770" />
-                    </g>
+            <button
+                class="hero-vector is-active"
+                type="button"
+                data-vector="Adaptability"
+                data-copy="A transformation can move faster than the organization can absorb, interpret and respond to it."
+                style="--x: 46%; --y: 84%;"
+            >
+                <span class="hero-vector-dot"></span>
+                <strong>Adaptability</strong>
+            </button>
 
-                    <g opacity="0.58" fill="#a4fff1">
-                        <circle cx="120" cy="705" r="3" />
-                        <circle cx="210" cy="760" r="3" />
-                        <circle cx="325" cy="690" r="3" />
-                        <circle cx="425" cy="750" r="3" />
-                        <circle cx="548" cy="680" r="3.2" />
-                        <circle cx="675" cy="752" r="3" />
-                        <circle cx="786" cy="695" r="3" />
-                        <circle cx="915" cy="770" r="3.2" />
-                    </g>
-                </svg>
-                <div class="hero-figure"></div>
-            </div>
+            <button
+                class="hero-vector"
+                type="button"
+                data-vector="Ambassadors"
+                data-copy="Formal sponsorship matters, but transformation also depends on the people who translate it into everyday behaviour."
+                style="--x: 63%; --y: 75%;"
+            >
+                <span class="hero-vector-dot"></span>
+                <strong>Ambassadors</strong>
+            </button>
 
-            <div class="hero-risk-panel" aria-live="polite">
-                <div class="hero-risk-panel-kicker">Highlighted exposure</div>
-                <h3 class="hero-risk-panel-title">Talent Risk</h3>
-                <p class="hero-risk-panel-body">
-                    Critical capabilities become scarce when the moment demands more than the organization can supply.
-                </p>
-            </div>
+            <button
+                class="hero-vector"
+                type="button"
+                data-vector="Adoption"
+                data-copy="Usage can look healthy while people quietly recreate old ways of working around the new system."
+                style="--x: 78%; --y: 83%;"
+            >
+                <span class="hero-vector-dot"></span>
+                <strong>Adoption</strong>
+            </button>
 
-            <div class="hero-risk-meta">
-                <div class="hero-risk-meta-title">Invisible Risks</div>
-                <p>What you don't see can shape your future.</p>
-            </div>
+            <button
+                class="hero-vector"
+                type="button"
+                data-vector="Execution"
+                data-copy="Plans become exposed when decision speed, capacity and local reality collide with delivery."
+                style="--x: 91%; --y: 76%;"
+            >
+                <span class="hero-vector-dot"></span>
+                <strong>Execution</strong>
+            </button>
 
-            <div class="hero-risk-row" role="list" aria-label="Illustrative invisible risks">
+        </div>
 
-                <button
-                    class="hero-risk-button"
-                    type="button"
-                    data-risk-title="Strategic Drift"
-                    data-risk-body="Misalignment between today's decisions and tomorrow's reality."
-                >
-                    <span class="hero-risk-icon">↗</span>
-                    <strong>Strategic Drift</strong>
-                    <span>Misalignment between today's decisions and tomorrow's reality.</span>
-                </button>
 
-                <button
-                    class="hero-risk-button"
-                    type="button"
-                    data-risk-title="Culture Friction"
-                    data-risk-body="Hidden tensions erode trust and performance long before the dashboard reflects them."
-                >
-                    <span class="hero-risk-icon">◎</span>
-                    <strong>Culture Friction</strong>
-                    <span>Hidden tensions that erode trust and performance.</span>
-                </button>
+        <div class="hero-vector-card" aria-live="polite">
+            <span class="hero-vector-card-label">Exposure vector</span>
+            <h2>Adaptability</h2>
+            <p>
+                A transformation can move faster than the organization can absorb,
+                interpret and respond to it.
+            </p>
+        </div>
 
-                <button
-                    class="hero-risk-button is-active"
-                    type="button"
-                    data-risk-title="Talent Risk"
-                    data-risk-body="Critical capabilities become scarce when the moment demands more than the organization can supply."
-                >
-                    <span class="hero-risk-icon">◉</span>
-                    <strong>Talent Risk</strong>
-                    <span>Critical capabilities become scarce when you need them most.</span>
-                </button>
 
-                <button
-                    class="hero-risk-button"
-                    type="button"
-                    data-risk-title="Execution Gap"
-                    data-risk-body="Strategies that look sound on paper can break down in the conditions of real delivery."
-                >
-                    <span class="hero-risk-icon">▥</span>
-                    <strong>Execution Gap</strong>
-                    <span>Strategies that look good on paper don't always work in practice.</span>
-                </button>
-
-                <button
-                    class="hero-risk-button"
-                    type="button"
-                    data-risk-title="Change Fatigue"
-                    data-risk-body="Transformation overload creates resistance, fragmented attention and stalled momentum."
-                >
-                    <span class="hero-risk-icon">△</span>
-                    <strong>Change Fatigue</strong>
-                    <span>Transformation overload creates resistance and stalls momentum.</span>
-                </button>
-
-            </div>
-
-            <div class="hero-tagline">
-                If you don't see it, it will see you.
-            </div>
-
+        <div class="hero-bottom-line">
+            If you do not see it, it will see you.
         </div>
 
     </div>

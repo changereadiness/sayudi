@@ -121,6 +121,7 @@
     function initRevealSystem() {
         const heroContainers = [
             ".home-intro",
+            ".home-hero-copy",
             ".about-intro",
             ".exposure-intro",
             ".framework-intro",
@@ -299,55 +300,233 @@
     }
 
 
-    function initHeroVantage() {
-        const hero = document.querySelector('[data-hero-vantage]');
+    function initVantageHero() {
+        const hero = document.querySelector("[data-vantage-hero]");
         if (!hero) return;
 
-        const panelTitle = hero.querySelector('.hero-risk-panel-title');
-        const panelBody = hero.querySelector('.hero-risk-panel-body');
-        const buttons = Array.from(hero.querySelectorAll('.hero-risk-button'));
+        const canvas = hero.querySelector(".hero-network-canvas");
+        const context = canvas ? canvas.getContext("2d") : null;
+        const vectors = Array.from(hero.querySelectorAll(".hero-vector"));
+        const card = hero.querySelector(".hero-vector-card");
+        const cardTitle = card ? card.querySelector("h2") : null;
+        const cardCopy = card ? card.querySelector("p") : null;
+        const background = hero.querySelector(".home-hero-bg");
 
-        const setRisk = (button) => {
-            if (!button || !panelTitle || !panelBody) return;
-            buttons.forEach((item) => item.classList.toggle('is-active', item === button));
-            panelTitle.textContent = button.dataset.riskTitle || button.querySelector('strong')?.textContent || '';
-            panelBody.textContent = button.dataset.riskBody || button.querySelector('span:last-child')?.textContent || '';
+        if (!canvas || !context || !vectors.length) return;
+
+        let activeVector = hero.querySelector(".hero-vector.is-active") || vectors[0];
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+        let particles = [];
+        let frame = 0;
+        let pointer = { x: -9999, y: -9999, active: false };
+        let lastTime = performance.now();
+
+        const colour = {
+            line: [157, 225, 216],
+            dot: [224, 250, 246],
+            active: [129, 236, 221]
         };
 
-        const active = hero.querySelector('.hero-risk-button.is-active') || buttons[0];
-        setRisk(active);
+        const setActiveVector = (vector) => {
+            if (!vector) return;
+            activeVector = vector;
+            vectors.forEach((item) => item.classList.toggle("is-active", item === vector));
 
-        buttons.forEach((button) => {
-            button.addEventListener('mouseenter', () => setRisk(button));
-            button.addEventListener('focus', () => setRisk(button));
-            button.addEventListener('click', () => setRisk(button));
+            if (cardTitle) cardTitle.textContent = vector.dataset.vector || "";
+            if (cardCopy) cardCopy.textContent = vector.dataset.copy || "";
+        };
+
+        vectors.forEach((vector) => {
+            vector.addEventListener("mouseenter", () => setActiveVector(vector));
+            vector.addEventListener("focus", () => setActiveVector(vector));
+            vector.addEventListener("click", () => setActiveVector(vector));
         });
 
+        setActiveVector(activeVector);
+
+        const randomParticle = (index) => {
+            const seed = (index + 1) * 104729;
+            const pseudo = (offset) => {
+                const value = Math.sin(seed * (offset + 1) * 0.00013) * 43758.5453;
+                return value - Math.floor(value);
+            };
+
+            return {
+                x: width * (0.06 + pseudo(1) * 0.9),
+                y: height * (0.48 + pseudo(2) * 0.47),
+                baseX: 0,
+                baseY: 0,
+                vx: (pseudo(3) - 0.5) * 0.035,
+                vy: (pseudo(4) - 0.5) * 0.026,
+                radius: 0.7 + pseudo(5) * 1.45,
+                phase: pseudo(6) * Math.PI * 2
+            };
+        };
+
+        const rebuildParticles = () => {
+            const count = width < 700 ? 18 : width < 1100 ? 26 : 38;
+            particles = Array.from({ length: count }, (_, index) => {
+                const particle = randomParticle(index);
+                particle.baseX = particle.x;
+                particle.baseY = particle.y;
+                return particle;
+            });
+        };
+
+        const resize = () => {
+            const rect = hero.getBoundingClientRect();
+            width = Math.max(1, rect.width);
+            height = Math.max(1, rect.height);
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            rebuildParticles();
+            draw(performance.now(), true);
+        };
+
+        const vectorPoints = () => {
+            const heroRect = hero.getBoundingClientRect();
+            return vectors.map((vector) => {
+                const dot = vector.querySelector(".hero-vector-dot");
+                const rect = (dot || vector).getBoundingClientRect();
+                return {
+                    x: rect.left + rect.width / 2 - heroRect.left,
+                    y: rect.top + rect.height / 2 - heroRect.top,
+                    active: vector === activeVector
+                };
+            });
+        };
+
+        const line = (a, b, alpha, active = false) => {
+            context.beginPath();
+            context.moveTo(a.x, a.y);
+            context.lineTo(b.x, b.y);
+            const rgb = active ? colour.active : colour.line;
+            context.strokeStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
+            context.lineWidth = active ? 1.05 : 0.72;
+            context.stroke();
+        };
+
+        const dot = (point, alpha, radius, active = false) => {
+            const rgb = active ? colour.active : colour.dot;
+            context.beginPath();
+            context.arc(point.x, point.y, radius, 0, Math.PI * 2);
+            context.fillStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${alpha})`;
+            context.fill();
+        };
+
+        const draw = (time, forceStatic = false) => {
+            context.clearRect(0, 0, width, height);
+            const delta = Math.min((time - lastTime) / 16.67, 2.2);
+            lastTime = time;
+
+            const mobile = width < 700;
+            const connectionDistance = mobile ? 110 : 150;
+            const startY = height * (mobile ? 0.43 : 0.46);
+
+            particles.forEach((particle, index) => {
+                if (!prefersReducedMotion && !forceStatic) {
+                    particle.baseX += particle.vx * delta;
+                    particle.baseY += particle.vy * delta;
+
+                    if (particle.baseX < width * 0.03 || particle.baseX > width * 0.97) particle.vx *= -1;
+                    if (particle.baseY < startY || particle.baseY > height * 0.97) particle.vy *= -1;
+
+                    const pulse = Math.sin(time * 0.00065 + particle.phase) * 1.4;
+                    particle.x = particle.baseX + pulse;
+                    particle.y = particle.baseY + Math.cos(time * 0.00055 + particle.phase) * 1.1;
+                }
+
+                if (pointer.active && finePointer && !prefersReducedMotion) {
+                    const dx = pointer.x - particle.x;
+                    const dy = pointer.y - particle.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < 135 && dist > 0) {
+                        const pull = (1 - dist / 135) * 1.7;
+                        particle.x += (dx / dist) * pull;
+                        particle.y += (dy / dist) * pull;
+                    }
+                }
+
+                dot(particle, 0.22 + 0.12 * Math.sin(time * 0.0007 + particle.phase), particle.radius);
+
+                for (let j = index + 1; j < particles.length; j += 1) {
+                    const other = particles[j];
+                    const distance = Math.hypot(particle.x - other.x, particle.y - other.y);
+                    if (distance < connectionDistance) {
+                        const alpha = (1 - distance / connectionDistance) * 0.115;
+                        line(particle, other, alpha);
+                    }
+                }
+            });
+
+            const anchors = vectorPoints();
+            anchors.forEach((anchor, index) => {
+                let nearest = particles
+                    .map((particle) => ({ particle, distance: Math.hypot(anchor.x - particle.x, anchor.y - particle.y) }))
+                    .sort((a, b) => a.distance - b.distance)
+                    .slice(0, anchor.active ? 5 : 3);
+
+                nearest.forEach(({ particle, distance }) => {
+                    const max = anchor.active ? 280 : 215;
+                    if (distance > max) return;
+                    const alpha = anchor.active ? 0.34 * (1 - distance / max) : 0.12 * (1 - distance / max);
+                    line(anchor, particle, alpha, anchor.active);
+                });
+
+                if (index < anchors.length - 1) {
+                    line(anchor, anchors[index + 1], anchor.active || anchors[index + 1].active ? 0.24 : 0.085, anchor.active || anchors[index + 1].active);
+                }
+            });
+
+            if (pointer.active && finePointer && !prefersReducedMotion && pointer.y > startY) {
+                particles.forEach((particle) => {
+                    const distance = Math.hypot(pointer.x - particle.x, pointer.y - particle.y);
+                    if (distance < 125) {
+                        line(pointer, particle, (1 - distance / 125) * 0.11);
+                    }
+                });
+            }
+
+            if (!prefersReducedMotion && !forceStatic) frame = requestAnimationFrame(draw);
+        };
+
         if (finePointer && !prefersReducedMotion) {
-            const parallaxTargets = [
-                hero.querySelector('.hero-rings'),
-                hero.querySelector('.hero-gridlines'),
-                hero.querySelector('.hero-risk-panel')
-            ].filter(Boolean);
-
-            hero.addEventListener('pointermove', (event) => {
+            hero.addEventListener("pointermove", (event) => {
                 const rect = hero.getBoundingClientRect();
-                const offsetX = ((event.clientX - rect.left) / rect.width) - 0.5;
-                const offsetY = ((event.clientY - rect.top) / rect.height) - 0.5;
+                pointer.x = event.clientX - rect.left;
+                pointer.y = event.clientY - rect.top;
+                pointer.active = true;
 
-                parallaxTargets.forEach((target, index) => {
-                    const strength = index === 2 ? 7 : 13 - (index * 3);
-                    const x = offsetX * strength;
-                    const y = offsetY * strength;
-                    target.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-                });
+                if (background) {
+                    const px = ((event.clientX - rect.left) / rect.width - 0.5) * 5;
+                    const py = ((event.clientY - rect.top) / rect.height - 0.5) * 3;
+                    background.style.transform = `scale(1.012) translate3d(${px}px, ${py}px, 0)`;
+                }
             });
 
-            hero.addEventListener('pointerleave', () => {
-                parallaxTargets.forEach((target) => {
-                    target.style.transform = '';
-                });
+            hero.addEventListener("pointerleave", () => {
+                pointer.active = false;
+                if (background) background.style.transform = "scale(1.012)";
             });
+        }
+
+        resize();
+        window.addEventListener("resize", resize);
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(resize).catch(() => {});
+        }
+
+        if (!prefersReducedMotion) {
+            cancelAnimationFrame(frame);
+            frame = requestAnimationFrame(draw);
         }
     }
 
@@ -364,7 +543,7 @@
         initSurfaceResponse();
         initFrameworkInteraction();
         initContactForm();
-        initHeroVantage();
+        initVantageHero();
         initCardEntry();
     });
 })();
