@@ -52,6 +52,9 @@
     href="assets/css/style.css"
 >
 
+
+<link rel="stylesheet" href="assets/css/interactions.css">
+
 </head>
 
 
@@ -816,43 +819,8 @@
 
 </footer>
 
+<script src="assets/js/site.js"></script>
 
-<!-- =====================================================
-     NAVIGATION SCRIPT
-===================================================== -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".nav-links");
-
-    if (!toggle || !nav) {
-        return;
-    }
-
-    toggle.addEventListener("click", function () {
-
-        const isOpen = nav.classList.toggle("is-open");
-
-        toggle.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-        );
-
-        toggle.setAttribute(
-            "aria-label",
-            isOpen ? "Close navigation" : "Open navigation"
-        );
-
-    });
-
-});
-
-</script>
-
-<script src="script.js"></script>
 </body>
 
 </html>

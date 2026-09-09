@@ -1,0 +1,319 @@
+/* =====================================================
+   SAYUDI — INTERACTION LAYER
+   Shared motion and behavioural polish.
+   Content and core layout remain controlled by style.css
+   and page-specific styles.
+===================================================== */
+
+:root {
+    --motion-ease: cubic-bezier(.2,.75,.25,1);
+    --motion-fast: 220ms;
+    --motion-medium: 620ms;
+}
+
+/* -----------------------------------------------------
+   Scroll progress
+----------------------------------------------------- */
+
+.site-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 2px;
+    background: #476B8A;
+    transform: scaleX(0);
+    transform-origin: left center;
+    opacity: 0;
+    transition: opacity var(--motion-fast) ease;
+    pointer-events: none;
+}
+
+.site-progress.is-active {
+    opacity: .85;
+}
+
+/* -----------------------------------------------------
+   Navigation refinement
+----------------------------------------------------- */
+
+.sayudi-js .site-header .navbar {
+    transition:
+        min-height 280ms var(--motion-ease),
+        background-color 280ms ease;
+}
+
+.sayudi-js .site-header {
+    position: sticky;
+    top: 0;
+    transition:
+        background-color 280ms ease,
+        box-shadow 280ms ease,
+        backdrop-filter 280ms ease;
+}
+
+.sayudi-js .site-header.is-scrolled {
+    background: rgba(244, 243, 239, .92);
+    box-shadow: 0 1px 0 rgba(11, 31, 51, .08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.sayudi-js .site-header.is-scrolled .navbar {
+    min-height: 82px;
+}
+
+.sayudi-js .nav-links a[aria-current="page"] {
+    color: var(--accent, #476B8A);
+}
+
+.sayudi-js .nav-links a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+.sayudi-js .nav-toggle span {
+    transform-origin: center;
+    transition:
+        transform 220ms ease,
+        opacity 180ms ease;
+}
+
+.sayudi-js .nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.sayudi-js .nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.sayudi-js .nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* -----------------------------------------------------
+   Reveal motion
+----------------------------------------------------- */
+
+.sayudi-js .motion-item {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity var(--motion-medium) var(--motion-ease),
+        transform var(--motion-medium) var(--motion-ease);
+    transition-delay: var(--motion-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.sayudi-js .motion-item.motion-hero {
+    transform: translateY(16px);
+}
+
+.sayudi-js .motion-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+}
+
+/* -----------------------------------------------------
+   Responsive surfaces
+----------------------------------------------------- */
+
+.sayudi-js .interactive-surface {
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    position: relative;
+    isolation: isolate;
+    transition:
+        transform 260ms var(--motion-ease),
+        border-color 260ms ease,
+        box-shadow 260ms ease,
+        opacity 260ms ease;
+}
+
+.sayudi-js .interactive-surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at var(--pointer-x) var(--pointer-y),
+        rgba(71, 107, 138, .11),
+        transparent 42%
+    );
+    transition: opacity 260ms ease;
+}
+
+.sayudi-js .interactive-surface.is-pointer-active::after {
+    opacity: 1;
+}
+
+.sayudi-js .home-card.is-pointer-active,
+.sayudi-js .scenario.is-pointer-active,
+.sayudi-js .exposure-question-card.is-pointer-active,
+.sayudi-js .about-experience-card.is-pointer-active,
+.sayudi-js .framework-layer.is-pointer-active,
+.sayudi-js .framework-process-card.is-pointer-active,
+.sayudi-js .service-card.is-pointer-active,
+.sayudi-js .readiness-card.is-pointer-active,
+.sayudi-js .website-card.is-pointer-active {
+    transform: translateY(-4px);
+}
+
+/* -----------------------------------------------------
+   Framework / exposure focus hierarchy
+----------------------------------------------------- */
+
+.sayudi-js .framework-vector-list.has-focus > *,
+.sayudi-js .framework-layer-grid.has-focus > *,
+.sayudi-js .exposure-index.has-focus > *,
+.sayudi-js .exposure-question-grid.has-focus > * {
+    opacity: .62;
+}
+
+.sayudi-js .framework-vector-list.has-focus > .is-focused,
+.sayudi-js .framework-layer-grid.has-focus > .is-focused,
+.sayudi-js .exposure-index.has-focus > .is-focused,
+.sayudi-js .exposure-question-grid.has-focus > .is-focused {
+    opacity: 1;
+}
+
+/* -----------------------------------------------------
+   Form state
+----------------------------------------------------- */
+
+.sayudi-js .contact-box input,
+.sayudi-js .contact-box select,
+.sayudi-js .contact-box textarea {
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.sayudi-js .contact-box input:focus,
+.sayudi-js .contact-box select:focus,
+.sayudi-js .contact-box textarea:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(11, 31, 51, .06);
+}
+
+.sayudi-js .is-submitting {
+    opacity: .72;
+    pointer-events: none;
+}
+
+/* -----------------------------------------------------
+   Standalone /connect page
+----------------------------------------------------- */
+
+.sayudi-js .connect-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.sayudi-js .connect-header::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    right: -180px;
+    bottom: -180px;
+    border: 1px solid rgba(245, 243, 239, .12);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sayudi-js .action,
+.sayudi-js .website-button {
+    transition:
+        transform 220ms var(--motion-ease),
+        background-color 220ms ease,
+        border-color 220ms ease,
+        color 220ms ease;
+}
+
+.sayudi-js .action:hover,
+.sayudi-js .website-button:hover {
+    transform: translateY(-2px);
+}
+
+/* -----------------------------------------------------
+   Standalone /card page
+----------------------------------------------------- */
+
+.sayudi-js .card-page .card {
+    opacity: 0;
+    transform: translateY(12px) scale(.992);
+    transition:
+        opacity 520ms var(--motion-ease),
+        transform 520ms var(--motion-ease),
+        box-shadow 300ms ease,
+        border-color 300ms ease;
+}
+
+.sayudi-js .card-page .card.is-ready {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.sayudi-js .card-page .card:hover {
+    border-color: #555d57;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, .18);
+}
+
+.sayudi-js .card-page .contact a {
+    transition:
+        padding-left 220ms var(--motion-ease),
+        background-color 220ms ease,
+        border-color 220ms ease;
+}
+
+.sayudi-js .card-page .contact a:hover {
+    padding-left: 8px;
+}
+
+/* -----------------------------------------------------
+   Reduced motion
+----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .sayudi-js *,
+    .sayudi-js *::before,
+    .sayudi-js *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+    .sayudi-js .motion-item,
+    .sayudi-js .card-page .card {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* -----------------------------------------------------
+   Mobile navigation safety
+----------------------------------------------------- */
+
+@media (max-width: 700px) {
+    .sayudi-js body.nav-open {
+        overflow: hidden;
+    }
+
+    .sayudi-js .site-header.is-scrolled .navbar {
+        min-height: 76px;
+    }
+
+    .sayudi-js .framework-vector-list.has-focus > *,
+    .sayudi-js .framework-layer-grid.has-focus > *,
+    .sayudi-js .exposure-index.has-focus > *,
+    .sayudi-js .exposure-question-grid.has-focus > * {
+        opacity: 1;
+    }
+}
