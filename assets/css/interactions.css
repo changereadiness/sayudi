@@ -317,3 +317,9 @@
         opacity: 1;
     }
 }
+
+@media (min-width: 701px) and (max-width: 860px) {
+    .sayudi-js body.nav-open {
+        overflow: hidden;
+    }
+}

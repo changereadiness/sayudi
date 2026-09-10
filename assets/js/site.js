@@ -85,7 +85,7 @@
         });
 
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 700) closeNavigation();
+            if (window.innerWidth > 860) closeNavigation();
         });
     }
 
@@ -122,6 +122,7 @@
         const heroContainers = [
             ".home-intro",
             ".home-hero-copy",
+            ".isi-hero-copy",
             ".about-intro",
             ".exposure-intro",
             ".framework-intro",
@@ -530,6 +531,198 @@
         }
     }
 
+
+    function initIsiHero() {
+        const hero = document.querySelector("[data-isi-hero]");
+        if (!hero) return;
+
+        const signals = Array.from(hero.querySelectorAll("[data-isi-signal]"));
+        const reading = hero.querySelector(".isi-instrument-reading");
+        const readingLabel = hero.querySelector("[data-isi-label]");
+        const readingCopy = hero.querySelector("[data-isi-copy]");
+        const stateLabel = hero.querySelector("[data-isi-state]");
+        const canvas = hero.querySelector(".isi-hero-canvas");
+        const context = canvas ? canvas.getContext("2d") : null;
+
+        if (!signals.length) return;
+
+        let activeIndex = Math.max(0, signals.findIndex((signal) => signal.classList.contains("is-active")));
+        let autoTimer = null;
+        let transitionTimer = null;
+        let frame = 0;
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+        let nodes = [];
+        let heroVisible = true;
+        let lastTime = performance.now();
+
+        const updateSignal = (index, userInitiated = false) => {
+            const signal = signals[index];
+            if (!signal) return;
+            activeIndex = index;
+            signals.forEach((item, itemIndex) => {
+                const active = itemIndex === index;
+                item.classList.toggle("is-active", active);
+                item.setAttribute("aria-pressed", String(active));
+            });
+
+            if (reading) reading.classList.add("is-changing");
+            if (stateLabel) stateLabel.classList.add("is-changing");
+            window.clearTimeout(transitionTimer);
+            transitionTimer = window.setTimeout(() => {
+                if (readingLabel) readingLabel.textContent = signal.dataset.label || "";
+                if (readingCopy) readingCopy.textContent = signal.dataset.copy || "";
+                if (stateLabel) stateLabel.textContent = signal.dataset.state || "";
+                if (reading) reading.classList.remove("is-changing");
+                if (stateLabel) stateLabel.classList.remove("is-changing");
+            }, prefersReducedMotion ? 0 : 150);
+
+            if (userInitiated) restartAutoCycle();
+        };
+
+        const restartAutoCycle = () => {
+            window.clearInterval(autoTimer);
+            if (prefersReducedMotion) return;
+            autoTimer = window.setInterval(() => {
+                if (!heroVisible || document.hidden) return;
+                updateSignal((activeIndex + 1) % signals.length, false);
+            }, 4300);
+        };
+
+        signals.forEach((signal, index) => {
+            signal.addEventListener("click", () => updateSignal(index, true));
+            signal.addEventListener("focus", () => updateSignal(index, true));
+            if (finePointer) signal.addEventListener("mouseenter", () => updateSignal(index, true));
+        });
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.target === hero) heroVisible = entry.isIntersecting;
+                });
+            }, { threshold: 0.05 });
+            observer.observe(hero);
+        }
+
+        if (canvas && context) {
+            const buildNodes = () => {
+                const count = width < 700 ? 13 : width < 1100 ? 18 : 24;
+                nodes = Array.from({ length: count }, (_, index) => {
+                    const phase = (index * 2.399963229728653) % (Math.PI * 2);
+                    const lane = index % 5;
+                    return {
+                        x: width * (0.48 + ((index * 37) % 49) / 100),
+                        y: height * (0.08 + ((index * 61) % 84) / 100),
+                        baseX: 0,
+                        baseY: 0,
+                        phase,
+                        lane,
+                        radius: index % 4 === 0 ? 1.5 : 1
+                    };
+                });
+                nodes.forEach((node) => {
+                    node.baseX = node.x;
+                    node.baseY = node.y;
+                });
+            };
+
+            const resize = () => {
+                const rect = hero.getBoundingClientRect();
+                width = Math.max(1, rect.width);
+                height = Math.max(1, rect.height);
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = Math.round(width * dpr);
+                canvas.height = Math.round(height * dpr);
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+                context.setTransform(dpr, 0, 0, dpr, 0, 0);
+                buildNodes();
+            };
+
+            const drawLine = (a, b, alpha, active = false) => {
+                context.beginPath();
+                context.moveTo(a.x, a.y);
+                context.lineTo(b.x, b.y);
+                context.strokeStyle = active
+                    ? `rgba(167,215,232,${alpha})`
+                    : `rgba(113,163,188,${alpha})`;
+                context.lineWidth = active ? 1 : .65;
+                context.stroke();
+            };
+
+            const drawDot = (point, alpha, active = false) => {
+                context.beginPath();
+                context.arc(point.x, point.y, active ? 2.2 : point.radius, 0, Math.PI * 2);
+                context.fillStyle = active
+                    ? `rgba(202,236,247,${alpha})`
+                    : `rgba(153,198,219,${alpha})`;
+                context.fill();
+            };
+
+            const activeAnchor = () => {
+                const signal = signals[activeIndex];
+                if (!signal) return null;
+                const bar = signal.querySelector("i");
+                if (!bar) return null;
+                const heroRect = hero.getBoundingClientRect();
+                const rect = bar.getBoundingClientRect();
+                const percent = parseFloat(getComputedStyle(signal).getPropertyValue("--signal")) || 50;
+                return {
+                    x: rect.left - heroRect.left + rect.width * (percent / 100),
+                    y: rect.top - heroRect.top + rect.height / 2
+                };
+            };
+
+            const draw = (time, staticFrame = false) => {
+                context.clearRect(0, 0, width, height);
+                const delta = Math.min((time - lastTime) / 16.67, 2);
+                lastTime = time;
+
+                nodes.forEach((node, index) => {
+                    if (!prefersReducedMotion && !staticFrame) {
+                        node.x = node.baseX + Math.sin(time * .00022 + node.phase) * (4 + node.lane * .7);
+                        node.y = node.baseY + Math.cos(time * .00018 + node.phase) * (3 + node.lane * .45);
+                    }
+                    drawDot(node, .16 + .06 * Math.sin(time * .0006 + node.phase));
+                    for (let j = index + 1; j < nodes.length; j += 1) {
+                        const other = nodes[j];
+                        const distance = Math.hypot(node.x - other.x, node.y - other.y);
+                        const limit = width < 700 ? 115 : 165;
+                        if (distance < limit) drawLine(node, other, (1 - distance / limit) * .075);
+                    }
+                });
+
+                const anchor = activeAnchor();
+                if (anchor) {
+                    const nearest = nodes
+                        .map((node) => ({ node, distance: Math.hypot(anchor.x - node.x, anchor.y - node.y) }))
+                        .sort((a, b) => a.distance - b.distance)
+                        .slice(0, 4);
+                    nearest.forEach(({ node, distance }) => {
+                        const max = width < 700 ? 210 : 300;
+                        if (distance < max) drawLine(anchor, node, .22 * (1 - distance / max), true);
+                    });
+                    drawDot({ ...anchor, radius: 2.2 }, .72, true);
+                }
+
+                if (!prefersReducedMotion && !staticFrame) frame = window.requestAnimationFrame(draw);
+            };
+
+            resize();
+            window.addEventListener("resize", resize);
+            if (prefersReducedMotion) {
+                draw(performance.now(), true);
+            } else {
+                cancelAnimationFrame(frame);
+                frame = window.requestAnimationFrame(draw);
+            }
+        }
+
+        updateSignal(activeIndex, false);
+        restartAutoCycle();
+    }
+
     function initCardEntry() {
         const card = document.querySelector(".card");
         if (!card || prefersReducedMotion) return;
@@ -544,6 +737,7 @@
         initFrameworkInteraction();
         initContactForm();
         initVantageHero();
+        initIsiHero();
         initCardEntry();
     });
 })();
