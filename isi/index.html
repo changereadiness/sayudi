@@ -1,21 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-  <meta name="description" content="The Initiative Stability Index is a free, private-by-design diagnostic instrument from Sayudi for examining stability, volatility, visibility and perspective across active initiatives.">
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Initiative Stability Index | Sayudi">
-  <meta property="og:description" content="Initiatives rarely fail all at once. They become unstable first. Run the free, private-by-design Initiative Stability Index.">
-  <meta property="og:type" content="website">
-  <title>Initiative Stability Index | Sayudi</title>
-  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-  <link rel="stylesheet" href="./isi.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'none'">
+
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+
+<title>Initiative Stability Index | Sayudi</title>
+<meta name="description" content="Run Sayudi's free Initiative Stability Index: six questions examining the structural stability of an active initiative.">
+<meta name="author" content="Sayudi Inc.">
+<meta property="og:title" content="Initiative Stability Index | Sayudi">
+<meta property="og:description" content="Instability starts before failure becomes visible. Six questions. One structural reading.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/interactions.css">
+<link rel="stylesheet" href="./isi.css">
 </head>
 <body>
-  <div id="app"></div>
-  <script type="module" src="./app.js"></script>
+
+<header>
+    <nav class="navbar">
+        <a href="../index.html" class="logo" aria-label="Sayudi Home">SAYUDI</a>
+
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="primary-navigation">
+            <li><a href="../pages/exposure.html">Exposure</a></li>
+            <li><a href="../pages/field-notes.html">Field Notes</a></li>
+            <li><a href="./">ISI</a></li>
+            <li><a href="../pages/framework.html">Framework</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/contact.html">Start a Conversation</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="app"></main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>Sayudi</h3>
+            <p class="footer-tagline">Transformation exposure. Change intelligence.</p>
+            <p class="footer-description">
+                Helping leaders see the organizational conditions that
+                determine whether transformation survives contact with reality.
+            </p>
+            <p class="footer-credential">Prosci® Certified Change Management Practitioner</p>
+        </div>
+
+        <div class="footer-links">
+            <div>
+                <h4>Explore</h4>
+                <a href="../pages/exposure.html">Exposure</a>
+                <a href="../pages/field-notes.html">Field Notes</a>
+                <a href="./">Initiative Stability Index</a>
+                <a href="../pages/framework.html">Framework</a>
+                <a href="../pages/about.html">About</a>
+            </div>
+
+            <div>
+                <h4>Connect</h4>
+                <a href="https://www.linkedin.com/in/sayudi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:contact@sayudi.com">Email</a>
+                <a href="../pages/contact.html">Start a Conversation</a>
+            </div>
+
+            <div>
+                <h4>Legal</h4>
+                <a href="../pages/privacy.html">Privacy Policy</a>
+                <a href="../pages/terms.html">Terms of Use</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Sayudi Inc. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="../assets/js/site.js"></script>
+<script type="module" src="./app.js"></script>
 </body>
 </html>
