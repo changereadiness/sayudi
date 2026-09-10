@@ -85,7 +85,7 @@
         });
 
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 860) closeNavigation();
+            if (window.innerWidth > 700) closeNavigation();
         });
     }
 
@@ -530,34 +530,6 @@
         }
     }
 
-
-    function initIsiHero() {
-        const hero = document.querySelector("[data-isi-hero]");
-        if (!hero) return;
-
-        const points = Array.from(hero.querySelectorAll("[data-isi-point]"));
-        if (!points.length) return;
-
-        let activeIndex = Math.max(0, points.findIndex((point) => point.classList.contains("is-active")));
-
-        const activate = (index) => {
-            activeIndex = index % points.length;
-            points.forEach((point, pointIndex) => {
-                point.classList.toggle("is-active", pointIndex === activeIndex);
-            });
-        };
-
-        activate(activeIndex);
-
-        if (prefersReducedMotion) return;
-
-        window.setInterval(() => {
-            if (document.hidden) return;
-            activate(activeIndex + 1);
-        }, 2400);
-    }
-
-
     function initCardEntry() {
         const card = document.querySelector(".card");
         if (!card || prefersReducedMotion) return;
@@ -572,7 +544,6 @@
         initFrameworkInteraction();
         initContactForm();
         initVantageHero();
-        initIsiHero();
         initCardEntry();
     });
 })();
