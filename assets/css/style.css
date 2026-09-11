@@ -2125,17 +2125,6 @@ footer {
     border-bottom: 1px solid var(--border);
 }
 
-.teaser-hero::before {
-    content: "";
-    position: absolute;
-    top: 8%;
-    right: 4%;
-    width: clamp(280px, 34vw, 520px);
-    aspect-ratio: 1;
-    border: 1px solid rgba(11, 31, 51, .055);
-    border-radius: 50%;
-    pointer-events: none;
-}
 
 .teaser-hero::after {
     content: "";
@@ -2314,37 +2303,6 @@ footer {
     justify-content: center;
 }
 
-.teaser-gauge-orbit {
-    position: absolute;
-    inset: 2% 4% auto auto;
-    width: 88%;
-    aspect-ratio: 1;
-    border: 1px solid rgba(11, 31, 51, .07);
-    border-radius: 50%;
-    animation: teaser-orbit-drift 16s linear infinite;
-}
-
-.teaser-gauge-orbit::before,
-.teaser-gauge-orbit::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-}
-
-.teaser-gauge-orbit::before {
-    inset: 13%;
-    border: 1px solid rgba(43, 148, 136, .08);
-}
-
-.teaser-gauge-orbit::after {
-    top: 8%;
-    left: 49%;
-    width: 7px;
-    height: 7px;
-    background: #2b9488;
-    box-shadow: 0 0 0 7px rgba(43, 148, 136, .07);
-}
-
 .teaser-gauge {
     position: relative;
     z-index: 2;
@@ -2499,11 +2457,6 @@ footer {
     stroke-dasharray: 6 8;
 }
 
-@keyframes teaser-orbit-drift {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
 @media (max-width: 980px) {
     .teaser-hero-layout {
         grid-template-columns: 1fr;
@@ -2526,11 +2479,6 @@ footer {
         padding: 48px 0 74px;
     }
 
-    .teaser-hero::before {
-        top: 43%;
-        right: -38%;
-        width: 130vw;
-    }
 
     .teaser-hero::after {
         display: none;
@@ -2600,9 +2548,6 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .teaser-gauge-orbit {
-        animation: none;
-    }
 
     .teaser-gauge-needle,
     .teaser-question,
