@@ -530,6 +530,223 @@
         }
     }
 
+    function initTeaserHero() {
+        const hero = document.querySelector("[data-teaser-hero]");
+        if (!hero) return;
+
+        const questions = [
+            {
+                text: "Are leaders still making decisions that reinforce the original transformation objective?",
+                answers: [
+                    ["Consistently", 0],
+                    ["Mostly", 1],
+                    ["Sometimes", 2],
+                    ["Rarely", 3],
+                    ["Not sure", "unknown"]
+                ]
+            },
+            {
+                text: "Is the organization absorbing the change without relying on extraordinary effort from key people?",
+                answers: [
+                    ["Yes", 0],
+                    ["Mostly", 1],
+                    ["It is strained", 2],
+                    ["No", 3],
+                    ["Not sure", "unknown"]
+                ]
+            },
+            {
+                text: "Are influential stakeholders aligned with the change — not just publicly, but in their actual behaviour?",
+                answers: [
+                    ["Strongly", 0],
+                    ["Mostly", 1],
+                    ["Mixed", 2],
+                    ["Friction is visible", 3],
+                    ["Not sure", "unknown"]
+                ]
+            },
+            {
+                text: "Are people actually changing how they work, rather than complying temporarily or working around the change?",
+                answers: [
+                    ["Clearly", 0],
+                    ["Mostly", 1],
+                    ["Mixed", 2],
+                    ["Not really", 3],
+                    ["Not sure", "unknown"]
+                ]
+            }
+        ];
+
+        let question = hero.querySelector("[data-teaser-question]");
+        let answers = hero.querySelector("[data-teaser-answers]");
+        let step = hero.querySelector("[data-teaser-step]");
+        const needle = hero.querySelector("[data-teaser-needle]");
+        const reading = hero.querySelector("[data-teaser-reading]");
+        const readingCopy = hero.querySelector("[data-teaser-reading-copy]");
+        const gaugeWrap = hero.querySelector(".teaser-gauge-wrap");
+        const points = Array.from(hero.querySelectorAll(".teaser-gauge-points i"));
+        const diagnostic = hero.querySelector(".teaser-diagnostic");
+
+        if (!question || !answers || !step || !needle || !reading || !readingCopy || !diagnostic) return;
+
+        let index = 0;
+        let responses = [];
+
+        const knownResponses = () => responses.filter((value) => value !== "unknown");
+        const unknownCount = () => responses.filter((value) => value === "unknown").length;
+
+        const signal = (final = false) => {
+            const known = knownResponses();
+            const unknowns = unknownCount();
+
+            if ((final && unknowns >= 2) || (!final && responses.length >= 2 && unknowns === responses.length)) {
+                return {
+                    key: "limited",
+                    label: "LIMITED VISIBILITY",
+                    copy: "The strongest signal may be what you cannot currently see.",
+                    angle: 0
+                };
+            }
+
+            if (!known.length) {
+                return {
+                    key: "empty",
+                    label: "NO SIGNAL YET",
+                    copy: "Four answers will reveal what may be happening underneath the visible progress.",
+                    angle: 0
+                };
+            }
+
+            const average = known.reduce((sum, value) => sum + Number(value), 0) / known.length;
+            const angle = -62 + (average / 3) * 124;
+
+            if (average < .75) {
+                return {
+                    key: "clear",
+                    label: final ? "LOW VISIBLE TENSION" : "LOOKING CLEAR",
+                    copy: final
+                        ? "No major instability is apparent from these signals. That does not mean nothing is happening beneath the surface."
+                        : "So far, the visible signals are holding.",
+                    angle
+                };
+            }
+
+            if (average < 1.65) {
+                return {
+                    key: "tension",
+                    label: "EMERGING TENSION",
+                    copy: final
+                        ? "Some of the conditions supporting the transformation may be beginning to weaken."
+                        : "Some underlying tension is beginning to appear.",
+                    angle
+                };
+            }
+
+            return {
+                key: "pressure",
+                label: "STRUCTURAL PRESSURE",
+                copy: final
+                    ? "Progress may still be visible, but several underlying conditions appear to be under strain."
+                    : "The underlying system is showing signs of pressure.",
+                angle
+            };
+        };
+
+        const updateGauge = (final = false) => {
+            const current = signal(final);
+            needle.setAttribute("transform", `rotate(${current.angle.toFixed(1)} 180 180)`);
+            reading.textContent = current.label;
+            readingCopy.textContent = current.copy;
+            if (gaugeWrap) gaugeWrap.classList.toggle("is-limited", current.key === "limited");
+            points.forEach((point, pointIndex) => point.classList.toggle("is-active", pointIndex < responses.length));
+            return current;
+        };
+
+        const renderQuestion = () => {
+            const current = questions[index];
+            step.textContent = `${String(index + 1).padStart(2, "0")} / 04`;
+            question.textContent = current.text;
+            answers.innerHTML = current.answers.map(([label, value]) =>
+                `<button type="button" data-value="${value}">${label}</button>`
+            ).join("");
+        };
+
+        const scrollBelow = () => {
+            const nextSection = hero.nextElementSibling;
+            if (nextSection) nextSection.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+        };
+
+        const showResult = () => {
+            const current = updateGauge(true);
+            diagnostic.innerHTML = `
+                <div class="teaser-result">
+                    <span class="teaser-result-label">QUICK SIGNAL</span>
+                    <h2>${current.label}</h2>
+                    <p>${current.copy}</p>
+                    <div class="teaser-result-actions">
+                        <button type="button" data-teaser-below>Look beneath the surface ↓</button>
+                        <button type="button" data-teaser-reset>Start again</button>
+                    </div>
+                    <p class="teaser-privacy">No signup. Your answers are not stored.</p>
+                </div>`;
+
+            const below = diagnostic.querySelector("[data-teaser-below]");
+            const reset = diagnostic.querySelector("[data-teaser-reset]");
+            if (below) below.addEventListener("click", scrollBelow);
+            if (reset) reset.addEventListener("click", resetHero);
+        };
+
+        const resetHero = () => {
+            index = 0;
+            responses = [];
+            diagnostic.innerHTML = `
+                <div class="teaser-progress">
+                    <span data-teaser-step>01 / 04</span>
+                    <span>QUICK SIGNAL</span>
+                </div>
+                <p class="teaser-question" data-teaser-question></p>
+                <div class="teaser-answers" data-teaser-answers></div>
+                <p class="teaser-privacy">No signup. Your answers are not stored.</p>`;
+
+            question = diagnostic.querySelector("[data-teaser-question]");
+            answers = diagnostic.querySelector("[data-teaser-answers]");
+            step = diagnostic.querySelector("[data-teaser-step]");
+            renderQuestion();
+            updateGauge(false);
+        };
+
+        const handleAnswer = (button) => {
+            const raw = button.dataset.value;
+            responses.push(raw === "unknown" ? "unknown" : Number(raw));
+            updateGauge(false);
+
+            if (index === questions.length - 1) {
+                window.setTimeout(showResult, prefersReducedMotion ? 0 : 230);
+                return;
+            }
+
+            question.classList.add("is-changing");
+            answers.classList.add("is-changing");
+
+            window.setTimeout(() => {
+                index += 1;
+                renderQuestion();
+                requestAnimationFrame(() => {
+                    question.classList.remove("is-changing");
+                    answers.classList.remove("is-changing");
+                });
+            }, prefersReducedMotion ? 0 : 180);
+        };
+
+        diagnostic.addEventListener("click", (event) => {
+            const button = event.target.closest("[data-value]");
+            if (!button || !answers.contains(button)) return;
+            handleAnswer(button);
+        });
+
+        updateGauge(false);
+    }
+
     function initCardEntry() {
         const card = document.querySelector(".card");
         if (!card || prefersReducedMotion) return;
@@ -544,6 +761,7 @@
         initFrameworkInteraction();
         initContactForm();
         initVantageHero();
+        initTeaserHero();
         initCardEntry();
     });
 })();

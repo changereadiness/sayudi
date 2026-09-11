@@ -139,157 +139,101 @@
 
 
 <!-- =====================================================
-     HERO
+     HERO — TRANSFORMATION SIGNAL TEASER
 ===================================================== -->
 
-<section class="home-hero" data-vantage-hero>
+<section class="teaser-hero" data-teaser-hero>
 
-    <div class="home-hero-bg" aria-hidden="true"></div>
-    <canvas class="hero-network-canvas" aria-hidden="true"></canvas>
-    <div class="home-hero-shade" aria-hidden="true"></div>
+    <div class="container teaser-hero-layout">
 
-    <div class="container home-hero-layout">
-
-        <div class="home-hero-copy">
+        <div class="teaser-hero-copy">
 
             <span class="eyebrow">
                 TRANSFORMATION · CHANGE INTELLIGENCE
             </span>
 
             <h1>
-                Change is a system<span>.</span>
+                How stable is your transformation — really?
             </h1>
 
-            <p class="home-hero-lead">
-                We help leaders see what others miss, so they can move with
-                clarity in times that matter.
+            <p class="teaser-hero-lead">
+                Four questions. Look beneath the visible progress.
             </p>
 
-            <div class="home-actions">
+            <div class="teaser-diagnostic" aria-live="polite">
 
-                <a
-                    class="button hero-button"
-                    href="pages/exposure.html"
-                >
-                    Explore Exposure
-                </a>
+                <div class="teaser-progress">
+                    <span data-teaser-step>01 / 04</span>
+                    <span>QUICK SIGNAL</span>
+                </div>
 
-                <a
-                    class="text-link hero-text-link"
-                    href="pages/field-notes.html"
-                >
-                    Read the Field Notes →
-                </a>
+                <p class="teaser-question" data-teaser-question>
+                    Are leaders still making decisions that reinforce the original transformation objective?
+                </p>
+
+                <div class="teaser-answers" data-teaser-answers>
+                    <button type="button" data-value="0">Consistently</button>
+                    <button type="button" data-value="1">Mostly</button>
+                    <button type="button" data-value="2">Sometimes</button>
+                    <button type="button" data-value="3">Rarely</button>
+                    <button type="button" data-value="unknown">Not sure</button>
+                </div>
+
+                <p class="teaser-privacy">
+                    No signup. Your answers are not stored.
+                </p>
 
             </div>
 
         </div>
 
 
-        <aside class="hero-vantage-card">
-            <span>Vantage Point</span>
-            <p>
-                Clarity enables better decisions and responsible leadership.
-            </p>
-        </aside>
+        <div class="teaser-gauge-wrap" aria-hidden="true">
 
+            <div class="teaser-gauge-orbit"></div>
 
-        <div class="hero-network-copy">
-
-            <span class="hero-network-eyebrow">
-                Invisible Exposure
-            </span>
-
-            <p>
-                What you do not see can still shape the outcome.
-            </p>
-
-        </div>
-
-
-        <div class="hero-vector-layer" role="list" aria-label="Transformation exposure vectors">
-
-            <button
-                class="hero-vector"
-                type="button"
-                data-vector="Purpose"
-                data-copy="When the reason for change becomes fragmented, alignment can remain visible while meaning disappears."
-                style="--x: 13%; --y: 82%;"
+            <svg
+                class="teaser-gauge"
+                viewBox="0 0 360 230"
+                role="img"
+                aria-label="Transformation stability signal"
             >
-                <span class="hero-vector-dot"></span>
-                <strong>Purpose</strong>
-            </button>
+                <path class="teaser-gauge-track" d="M 48 180 A 132 132 0 0 1 312 180"></path>
+                <path class="teaser-gauge-segment teaser-gauge-clear" d="M 48 180 A 132 132 0 0 1 116 76"></path>
+                <path class="teaser-gauge-segment teaser-gauge-tension" d="M 116 76 A 132 132 0 0 1 244 76"></path>
+                <path class="teaser-gauge-segment teaser-gauge-pressure" d="M 244 76 A 132 132 0 0 1 312 180"></path>
 
-            <button
-                class="hero-vector"
-                type="button"
-                data-vector="Interests"
-                data-copy="Stakeholders can support the same program while pursuing very different outcomes underneath it."
-                style="--x: 29%; --y: 76%;"
-            >
-                <span class="hero-vector-dot"></span>
-                <strong>Interests</strong>
-            </button>
+                <g class="teaser-gauge-ticks">
+                    <line x1="66" y1="171" x2="78" y2="165"></line>
+                    <line x1="103" y1="109" x2="113" y2="119"></line>
+                    <line x1="180" y1="48" x2="180" y2="64"></line>
+                    <line x1="257" y1="109" x2="247" y2="119"></line>
+                    <line x1="294" y1="171" x2="282" y2="165"></line>
+                </g>
 
-            <button
-                class="hero-vector is-active"
-                type="button"
-                data-vector="Adaptability"
-                data-copy="A transformation can move faster than the organization can absorb, interpret and respond to it."
-                style="--x: 46%; --y: 84%;"
-            >
-                <span class="hero-vector-dot"></span>
-                <strong>Adaptability</strong>
-            </button>
+                <g class="teaser-gauge-needle" data-teaser-needle transform="rotate(0 180 180)">
+                    <line x1="180" y1="180" x2="180" y2="80"></line>
+                    <circle cx="180" cy="80" r="4"></circle>
+                </g>
 
-            <button
-                class="hero-vector"
-                type="button"
-                data-vector="Ambassadors"
-                data-copy="Formal sponsorship matters, but transformation also depends on the people who translate it into everyday behaviour."
-                style="--x: 63%; --y: 75%;"
-            >
-                <span class="hero-vector-dot"></span>
-                <strong>Ambassadors</strong>
-            </button>
+                <circle class="teaser-gauge-hub" cx="180" cy="180" r="10"></circle>
+                <circle class="teaser-gauge-hub-core" cx="180" cy="180" r="3"></circle>
 
-            <button
-                class="hero-vector"
-                type="button"
-                data-vector="Adoption"
-                data-copy="Usage can look healthy while people quietly recreate old ways of working around the new system."
-                style="--x: 78%; --y: 83%;"
-            >
-                <span class="hero-vector-dot"></span>
-                <strong>Adoption</strong>
-            </button>
+                <text class="teaser-gauge-label teaser-gauge-label-left" x="48" y="211">CLEAR</text>
+                <text class="teaser-gauge-label teaser-gauge-label-centre" x="180" y="211">TENSION</text>
+                <text class="teaser-gauge-label teaser-gauge-label-right" x="312" y="211">PRESSURE</text>
+            </svg>
 
-            <button
-                class="hero-vector"
-                type="button"
-                data-vector="Execution"
-                data-copy="Plans become exposed when decision speed, capacity and local reality collide with delivery."
-                style="--x: 91%; --y: 76%;"
-            >
-                <span class="hero-vector-dot"></span>
-                <strong>Execution</strong>
-            </button>
+            <div class="teaser-gauge-reading">
+                <span>SIGNAL</span>
+                <strong data-teaser-reading>NO SIGNAL YET</strong>
+                <p data-teaser-reading-copy>Four answers will reveal what may be happening underneath the visible progress.</p>
+            </div>
 
-        </div>
+            <div class="teaser-gauge-points" aria-hidden="true">
+                <i></i><i></i><i></i><i></i>
+            </div>
 
-
-        <div class="hero-vector-card" aria-live="polite">
-            <span class="hero-vector-card-label">Exposure vector</span>
-            <h2>Adaptability</h2>
-            <p>
-                A transformation can move faster than the organization can absorb,
-                interpret and respond to it.
-            </p>
-        </div>
-
-
-        <div class="hero-bottom-line">
-            If you do not see it, it will see you.
         </div>
 
     </div>
